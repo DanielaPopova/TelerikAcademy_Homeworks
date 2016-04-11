@@ -16,7 +16,6 @@ class BitsExchange
 {
     static void Main()
     {
-        //Stil thinking 
         uint number = uint.Parse(Console.ReadLine());
         string binaryNum = Convert.ToString(number, 2).PadLeft(32, '0');
 
@@ -120,7 +119,6 @@ class BitsExchange
             mask = ((uint)1) << 26;
             result5 = result4 | mask;
         }
-
         Console.WriteLine(result5);
     }
 }
