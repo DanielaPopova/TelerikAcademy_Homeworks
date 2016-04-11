@@ -17,7 +17,111 @@ class BitsExchange
     static void Main()
     {
         //Stil thinking 
-        Console.WriteLine();
+        uint number = uint.Parse(Console.ReadLine());
+        string binaryNum = Convert.ToString(number, 2).PadLeft(32, '0');
+
+        uint result3, result4, result5, result24, result25, result26, mask;
+
+        uint nMask3 = number & 1 << 3;
+        uint bit3 = nMask3 >> 3;
+        //Console.WriteLine(bit3);
+
+        uint nMask4 = number & 1 << 4;
+        uint bit4 = nMask4 >> 4;
+        //Console.WriteLine(bit4);
+
+        uint nMask5 = number & 1 << 5;
+        uint bit5 = nMask5 >> 5;
+        //Console.WriteLine(bit5);
+
+        uint nMask24 = number & 1 << 24;
+        uint bit24 = nMask24 >> 24;
+        //Console.WriteLine(bit24);
+
+        uint nMask25 = number & 1 << 25;
+        uint bit25 = nMask25 >> 25;
+        //Console.WriteLine(bit25);
+
+        uint nMask26 = number & 1 << 26;
+        uint bit26 = nMask26 >> 26;
+        //Console.WriteLine(bit26);
+
+        if (bit24 == 0)
+        {
+            mask = ~((uint)1 << 3);
+            result24 = number & mask;
+        }
+        else
+        {
+            mask = (uint)1 << 3;
+            result24 = number | mask;
+        }
+        //string result24Bin = Convert.ToString(result24, 2).PadLeft(32, '0');
+        //Console.WriteLine("Result Binary {0}", result24Bin);
+        //Console.WriteLine("Result {0}", result24);
+
+        if (bit25 == 0)
+        {
+            mask = ~((uint)1 << 4);
+            result25 = result24 & mask;
+        }
+        else
+        {
+            mask = ((uint)1) << 4;
+            result25 = result24 | mask;
+        }
+        //string result25Bin = Convert.ToString(result25, 2).PadLeft(32, '0');
+        //Console.WriteLine("Result Binary {0}", result25Bin);
+        //Console.WriteLine("Result {0}", result25);
+
+        if (bit26 == 0)
+        {
+            mask = ~((uint)1 << 5);
+            result26 = result25 & mask;
+        }
+        else
+        {
+            result26 = result25 | ((uint)1 << 5);
+        }
+
+        //string result26Bin = Convert.ToString(result26, 2).PadLeft(32, '0');
+        //Console.WriteLine("Result Binary {0}", result26Bin);
+        //Console.WriteLine("Result {0}", result26);
+
+        if (bit3 == 0)
+        {
+            mask = ~((uint)1 << 24);
+            result3 = result26 & mask;
+        }
+        else
+        {
+            mask = ((uint)1) << 24;
+            result3 = result26 | mask;
+        }
+
+        if (bit4 == 0)
+        {
+            mask = ~((uint)1 << 25);
+            result4 = result3 & mask;
+        }
+        else
+        {
+            mask = ((uint)1) << 25;
+            result4 = result3 | mask;
+        }
+
+        if (bit5 == 0)
+        {
+            mask = ~((uint)1 << 26);
+            result5 = result4 & mask;
+        }
+        else
+        {
+            mask = ((uint)1) << 26;
+            result5 = result4 | mask;
+        }
+
+        Console.WriteLine(result5);
     }
 }
 
