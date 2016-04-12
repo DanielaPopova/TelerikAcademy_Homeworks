@@ -18,7 +18,56 @@ class BitExchangeAdvanced
 {
     static void Main()
     {
-        //still working
+        uint number = uint.Parse(Console.ReadLine());
+        int firstBit = int.Parse(Console.ReadLine());
+        int secondBit = int.Parse(Console.ReadLine());
+        int step = int.Parse(Console.ReadLine());
+
+        int firstEnd = firstBit + step - 1;
+        int secondEnd = secondBit + step - 1;        
+
+        int fakeFirstBit = firstBit;
+        int fakeSecondBit = secondBit;
+        uint fakeNumber = number;       
+
+        string binaryNum = Convert.ToString(number, 2).PadLeft(32, '0');
+        //Console.WriteLine(binaryNum.Length);      
+
+        for (int i = firstBit; i <= firstEnd; i++)
+        {
+            uint bit11 = (number & ((uint)1 << i)) >> i;
+            //Console.WriteLine("BIT {0}",bit11);  
+            //bit12 = (number & ((uint)1 << fakeSecondBit)) >> fakeSecondBit;
+            //Console.WriteLine("BIT1 {0}", bit12);
+            if (bit11 == 0)
+            {
+                fakeNumber = fakeNumber & (~((uint)1 << fakeSecondBit));
+            }
+            else if (bit11 == 1)
+            {
+                fakeNumber = fakeNumber | ((uint)1 << fakeSecondBit);
+            }
+
+            fakeSecondBit++;
+        }        
+        
+        for (int i = secondBit; i <= secondEnd; i++)
+        {
+            uint bit12 = (number & ((uint)1 << i)) >> i;
+            //Console.WriteLine("bit {0}",bit21);  
+            //bit22 = (number & ((uint)1 << fakeFirstBit)) >> fakeFirstBit;
+            //Console.WriteLine("bit1 {0}", bit22);
+            if (bit12 == 0)
+            {
+                fakeNumber = fakeNumber & (~((uint)1 << fakeFirstBit));
+            }
+            else if (bit12 == 1)
+            {
+                fakeNumber = fakeNumber | ((uint)1 << fakeFirstBit);
+            }
+            fakeFirstBit++;
+        }
+        Console.WriteLine(fakeNumber);    
     }
 }
 
