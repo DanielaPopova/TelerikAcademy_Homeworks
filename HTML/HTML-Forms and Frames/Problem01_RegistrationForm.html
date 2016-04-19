@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration</title>
+	<meta charset="UTF-8">
+	<style type="text/css">
+	
+		table {
+			width: 500px;			
+		}
+
+		table, tr, td {
+			border: solid 1px black;
+			border-collapse: collapse;
+			padding: 3px;		
+
+			}
+
+		th {
+			width: 20%;
+		}
+
+		textarea {
+			width: 300px;			
+		}
+
+		tfoot {
+			background-color: #D1EDE1;
+		}
+
+	</style>
+</head>
+<body>
+	<form name="regForm" action="#" method="get">
+		<table>
+			<tbody>
+				<tr>
+					<th>Last Name</th>
+					<td><input type="text" name="lastName" size="40px" required /></td>				
+				</tr>
+				<tr>
+					<th>First Name</th>
+					<td><input type="text" name="firstName" size="40px" required /></td>				
+				</tr>
+				<tr>
+					<th>Address</th>
+					<td><textarea name="address" rows="5" required></textarea></td>				
+				</tr>
+				<tr>
+					<th>City</th>
+					<td><input type="text" name="city" size="10px" required /><strong> State <strong><input type="text" name="state" size="10px" required/></td>			
+				</tr>
+				<tr>
+					<th>Zip/Postal/Copy</th>
+					<td><input type="text" name="zip" size="8px" required></td>		
+				</tr>
+				<tr>
+					<th>Country</th>
+					<td>
+						<select required>
+							<option value="bulgaria">Bulgaria</option>
+							<option value="croatia">Croatia</option>
+							<option value="england">England</option>
+							<option value="france">France</option>
+							<option value="germany">Germany</option>		
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th>Phone(country code, area code, number)</th>
+					<td>
+						(+<input type="text" name="code" size="5px" required/>)
+						<input type="text" name="areaCode" size="3px" required/> -
+						<input type="text" name="number" size="17px" required/>
+					</td>
+				</tr>
+				<tr>
+					<th>E-mail</th>
+					<td><input type="email" name="email" size="40px" required/></td>
+				</tr>
+				<tr>
+					<th>Birth date</th>
+					<td>
+						Month <input type="text" name="month" size="1px" required />
+						Day <input type="text" name="day" size="1px" required />
+						Year (4 digit) <input type="text" name="year" size="5px" required />
+					</td>
+				</tr>
+				<tr>
+					<th>Gender</th>
+					<td>
+						<select required>
+							<option value="male">Male</option>
+							<option value="female">Female</option>			
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th>Starting date</th>
+					<td>						
+						<input type="radio" name="startDate" id="spring" value="spring" required/>
+						 <label for="spring">Spring 2015</label>
+						<input type="radio" name="startDate" id="summer" value="summer" />
+						<label for="summer">Summer 2015</label>	
+					</td>
+				</tr>
+				<tr>
+					<th>Comments/Questions</th>
+					<td>
+						<textarea rows="5" name="comments"></textarea>
+					</td>
+				</tr>				
+			</tbody>
+			<tfoot align="center">
+				<tr>
+					<td colspan="2">
+						<input type="submit" name="submitBtn" value="Submit">
+						<input type="reset" name="resetBtn" value="Clea This Form">
+					</td>
+				</tr>			
+			</tfoot>
+		</table>
+	</form>
+</body>
+</html>

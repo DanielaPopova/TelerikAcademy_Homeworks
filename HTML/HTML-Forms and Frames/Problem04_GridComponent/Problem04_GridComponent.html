@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Grid Component</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="styles/GridStyle.css">
+</head>
+<body>
+	<table>
+		<thead>
+			<tr>
+				<td colspan="6">Drag a column header and drop it here to group by that column</td>
+			</tr>
+			<tr>
+				<td>ProductID</td>
+				<td>Product name</td>
+				<td>Unit price</td>
+				<td>Quantity per unit</td>
+				<td>Units in stock</td>
+				<td>Discontinued</td>
+			</tr>
+			<tr>
+				<td><input type="text" name="prdId" id="prdId"></td>
+				<td><input type="text" name="prdName" size="20px"></td>
+				<td><input type="text" name="price" size="10px"> <img src="images/pic.png" alt="button" class="picBtn"></td>
+				<td><input type="text" name="quantity" size="10px"></td>
+				<td><input type="text" name="units" size="10px"> <img src="images/pic.png" alt="button" class="picBtn"></td>
+				<td width="50px"><input type="checkbox" name="discont" disabled="disabled"> <img src="images/pic.png" alt="button" class="picBtn"></td>				
+			</tr>
+		</thead>
+		<tbody>			
+			<tr>
+				<td>1</td>
+				<td>Chai</td>
+				<td>&#36;18.00</td>
+				<td>10 boxes x 20 bags</td>
+				<td>39</td>
+				<td><input type="checkbox"></td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>Chang</td>
+				<td>&#36;19.00</td>
+				<td>24 - 12 oz bottles</td>
+				<td>17</td>
+				<td><input type="checkbox"></td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>Aniseed Syrup</td>
+				<td>&#36;10.00</td>
+				<td>12 - 550 ml bottles</td>
+				<td>13</td>
+				<td><input type="checkbox"></td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>Chef Anton's Cajun Seasoning</td>
+				<td>&#36;22.00</td>
+				<td>48 - 6 oz jars</td>
+				<td>53</td>
+				<td><input type="checkbox"></td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>Chef Anton's Gumbo Mix</td>
+				<td>&#36;21.35</td>
+				<td>36 boxes</td>
+				<td>0</td>
+				<td><input type="checkbox" checked="checked"></td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td>Grandma's Boysenberry Spread</td>
+				<td>&#36;25.00</td>
+				<td>12 - 8 oz jars</td>
+				<td>120</td>
+				<td><input type="checkbox"></td>
+			</tr>
+			<tr>
+				<td>7</td>
+				<td>Uncle Bob's Organic Dried Pears</td>
+				<td>&#36;30.00</td>
+				<td>12 - 1 lb pkgs.</td>
+				<td>15</td>
+				<td><input type="checkbox"></td>
+			</tr>
+			<tr>
+				<td>8</td>
+				<td>Northwoods Cranberry Sauce</td>
+				<td>&#36;40.00</td>
+				<td>12 - 12 oz jars</td>
+				<td>6</td>
+				<td><input type="checkbox"></td>
+			</tr>
+			<tr>
+				<td>9</td>
+				<td>Mishi Kobe Niku</td>
+				<td>&#36;97.00</td>
+				<td>18 - 500 g pkgs.</td>
+				<td>29</td>
+				<td><input type="checkbox" checked="checked"></td>
+			</tr>
+			<tr>
+				<td>10</td>
+				<td>Ikura</td>
+				<td>&#36;31.00</td>
+				<td>12 - 200 ml jars</td>
+				<td>31</td>
+				<td><input type="checkbox"></td>
+			</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="2">
+					<img src="images/leftFirst.png" alt="first page button" class="playBtn">
+					<img src="images/left.png" alt="previous page button" class="playBtn">
+					<a href="#">1</a>
+					<a href="#">2</a>
+					<a href="#">3</a>
+					<a href="#">4</a>
+					<a href="#">5</a>
+					<a href="#">6</a>
+					<a href="#">7</a>
+					<a href="#">8</a>
+					<a href="#">9</a>
+					<a href="#">10</a>
+					...
+					<img src="images/right.png" alt="next page button" class="playBtn">
+					<img src="images/rightLast.png" alt="last page button" class="playBtn">
+					
+				</td>
+				<td colspan="2">
+					Page size: <select><option value="10">10</option></select>
+				</td>
+				<td colspan="2">					
+					335104 items in 33511 pages
+				</td>			
+			</tr>			
+		</tfoot>
+	</table>
+</body>
+</html>

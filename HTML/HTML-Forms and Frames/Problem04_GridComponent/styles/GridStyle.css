@@ -1,0 +1,88 @@
+
+body {	
+	font-size: 14px;
+	color: #565754;
+	font-weight: bold;
+}
+
+table {	
+	border-collapse: collapse;
+	width: 1000px;
+}	
+
+td {
+	padding-left: 6px;
+	padding-right: 6px;
+	padding-bottom: 3px;
+	padding-top: 3px;
+}
+
+thead td {
+	border: solid #B3B9C0 2px;	
+	height: 20px; 
+}
+
+thead, tfoot {
+	/* IE10+ */ 
+	background-image: -ms-linear-gradient(top, #E7E9EB 0%, #C6CACF 100%);
+
+	/* Mozilla Firefox */ 
+	background-image: -moz-linear-gradient(top, #E7E9EB 0%, #C6CACF 100%);
+
+	/* Opera */ 
+	background-image: -o-linear-gradient(top, #E7E9EB 0%, #C6CACF 100%);
+
+	/* Webkit (Safari/Chrome 10) */ 
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #E7E9EB), color-stop(100, #C6CACF));
+
+	/* Webkit (Chrome 11+) */ 
+	background-image: -webkit-linear-gradient(top, #E7E9EB 0%, #C6CACF 100%);
+
+	/* W3C Markup */ 
+	background-image: linear-gradient(to bottom, #E7E9EB 0%, #C6CACF 100%);
+}
+
+tbody td {
+	border: 2px solid #D5DBE7;
+}
+
+tfoot tr {
+	border-bottom: solid #B3B9C0 2px;
+	border-left: solid #B3B9C0 2px;
+	border-right: solid #B3B9C0 2px;
+}
+
+tfoot > tr > td:first-child {
+	word-spacing: 4px;	
+}
+
+tfoot > tr > td:last-child {
+	text-align: right;
+}
+
+input[type=text] {	
+	vertical-align: middle;
+	height: 17px;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;	
+}
+
+a:hover {
+	border: 1px solid orange;
+	border-radius: 3px;
+}
+
+.picBtn {
+	vertical-align: middle;
+}
+
+.playBtn {
+	vertical-align: middle;	
+}
+
+#prdId {
+	width: 35px;
+}
