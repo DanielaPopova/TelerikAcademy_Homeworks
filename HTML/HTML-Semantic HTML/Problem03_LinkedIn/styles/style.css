@@ -1,0 +1,26 @@
+body {
+			background-color: skyblue;
+		}
+
+		fieldset {
+			border-color: #0000FF;
+		}
+
+		input[type="text"], [type="email"], [type="password"] {
+			height: 20px; 
+			border: solid 1px white;
+  			box-shadow: inset 1px 1px 3px 0 #0000FF;  			
+		}
+
+		input[type="submit"], [type="button"] {
+			
+			background-color:#7892c2;
+			border-radius: 5px;
+			border:1px solid #0000FF;
+			color:#ffffff;
+			font-size:14px;
+		}
+
+		.pad {
+			margin-bottom: 3px;
+		}

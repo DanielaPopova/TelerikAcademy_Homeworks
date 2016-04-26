@@ -1,0 +1,53 @@
+#main {
+	margin-left: 150px;
+	margin-top: 50px; 
+}
+
+header {
+	margin-top: 50px;
+}
+
+nav {
+	margin-left: 100px;
+	margin-top: 90px;
+}
+
+table {	
+	border-collapse: collapse;
+	width: 400px;
+	height: 160px;
+	font-size: 26px;	
+}
+
+th, td {
+	border: solid black 1px;
+	text-align: center;
+}
+
+ul {
+	margin-top: 70px;
+	margin-left: 60px;
+	
+}
+
+img {
+	width: 140px;	
+	position: absolute;
+	top: 45px;
+	left: 160px;
+}
+
+h1 {
+	text-align: center;
+	width: 80%;
+}
+
+a {
+	font-size: 26px;
+}
+
+li span {
+	position: relative;
+	left: 20px;
+}
+

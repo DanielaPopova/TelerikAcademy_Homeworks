@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>LinkedIn</title>
+	<link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+<body>
+	<header>
+		<h1><a href="#">LinkedIn</a></h1>
+	</header>
+	<nav>
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li><a href="#">What is LinkedIn?</a></li>
+			<li><a href="#nameF">Join Today</a></li>
+			<li>
+				<form action="#" method="post">
+					<fieldset>
+						<legend>Sign In</legend>					
+							<ul type="circle">
+								<li><label>Email: <input type="email" name="email" id="signMail" class="pad" required/></label></li>
+								<li><label>Password: <input type="password" name="pass" class="pad"required/></label></li>
+								<li><input type="submit" name="signIn" value="Sign In"/></li>	
+							</ul>					
+					</fieldset>
+				</form>	
+			</li>			
+		</ul>
+	</nav>
+	<hr>
+	<main>
+		<article>
+			<header>
+			<h2>Over 175 million professionals use LinkedIn to exchange information, ideas and opportunities</h2>
+			</header>
+			<p>
+				<ul>
+					<li>Stay informed about your contacts and industry</li>
+					<li>Find the people &amp; knowledge you nedd to achieve your goals</li>
+					<li>Contotrl your professional identity online</li>					
+				</ul>
+			</p>
+		</article>
+		<article>
+			<header>
+				<h3>Join LinkedIn Today</h3>
+			</header>
+			<form action="#" method="post">
+				<fieldset>
+					<legend>Sign Up</legend>
+					<ul>
+						<li><label for="nameF">First Name:</label></li>
+							<input type="text" name="firstName" id="nameF" required />
+						<li><label for="nameL">Last Name:</label></li>
+							<input type="text" name="lastName" id="nameL" required />
+						<li><label for="mail">Email:</label></li>
+							<input type="email" name="email" id="mail" required />						
+						<li><label for="psw">Password:</label></li>
+							<input type="password" name="pass" id="psw" required />
+							<p>6 or more characters</p>						
+					</ul>					
+					<input type="submit" name="joinBtn" value="Join Now" />
+					<p>Already on LinkedIn? <a href="#signMail">Sign in</a></p>
+				</fieldset>
+			</form>
+		</article>
+		<article>
+			<header>
+				<h4>Search for someone by name:</h4>
+			</header>
+			<form action="#" method="get">
+				<ul>
+					<li><label>First Name <input type="text" name="frstN" class="pad" /></label></li>
+					<li><label>Last Name <input type="text" name="lstN" class="pad" /></label></li>					
+				</ul>
+				<input type="button" name="goBtn" value="Go" />
+			</form>
+		</article>
+	</main>
+</body>
+</html>
