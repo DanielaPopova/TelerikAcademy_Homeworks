@@ -1,0 +1,151 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Calculator</title>
+	<link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+	<main>
+		<div id="calculator">
+			<p>Calculator</p>
+			<span id="buttons">
+				<input type="image" src="images/btn1.png" id="min">
+				<input type="image" src="images/btn2.png" id="restore" disabled>
+				<input type="image" src="images/btn3.png" id="close">
+			</span>
+		</div>
+		<div id="container">		
+		<nav>
+			<ul>
+				<li><a href="#">View</a></li>
+				<li><a href="#">Edit</a></li>
+				<li><a href="#">Help</a></li>
+			</ul>
+		</nav>
+		<table>
+			<tr>
+				<td colspan="10"><input type="text" value="8854455" disabled=""></td>
+			</tr>
+			<tr>
+				<td colspan="10">
+					<table id="binary">
+						<tr>
+							<td>0000</td>
+							<td>0000</td>
+							<td>0000</td>
+							<td>0000</td>
+							<td>0000</td>
+							<td>0000</td>
+							<td>0000</td>
+							<td>0000</td>
+						</tr>
+						<tr>
+							<td class="bits">63</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td class="bits">47</td>
+							<td></td>
+							<td></td>
+							<td class="bits">&nbsp;&nbsp;32</td>
+						</tr>
+						<tr>
+							<td>0000</td>
+							<td>0000</td>
+							<td>1000</td>
+							<td>0111</td>
+							<td>0001</td>
+							<td>1011</td>
+							<td>1011</td>
+							<td>0111</td>
+						</tr>
+						<tr>
+							<td class="bits">31</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td class="bits">15</td>
+							<td></td>
+							<td></td>
+							<td class="bits">&nbsp;&nbsp;&nbsp;0</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>				
+		<fieldset>
+			<input type="radio" name="base">Hex<br/>
+			<input type="radio" name="base" checked>Dec<br/>
+			<input type="radio" name="base">Oct<br/>
+			<input type="radio" name="base">Bin					
+		</fieldset>
+		<fieldset>
+			<input type="radio" name="word" checked>Qword<br/>
+			<input type="radio" name="word">Dword<br/>
+			<input type="radio" name="word">Word<br/>
+			<input type="radio" name="word">Byte				
+		</fieldset>
+		<table id="numbers">					
+			<tr>	
+				<td><button class="noBGC" value="empty" disabled>&nbsp;</button></td>
+				<td><button class="smallSize" value="Mod">Mod</button></td>
+				<td><button class="noBGC" value="A" disabled>A</button></td>
+				<td><button value="MC">MC</button></td>
+				<td><button value="MR">MR</button></td>
+				<td><button value="MS">MS</button></td>
+				<td><button value="M+">M+</button></td>
+				<td><button value="M-">M-</button></td>
+			</tr>
+			<tr>
+				<td><button class="smallSize" value="right-bracket">(</button></td>
+				<td><button class="smallSize" value="left-bracket">)</button></td>
+				<td><button class="noBGC" value="B" disabled>B</button></td>
+				<td><button id="arrow" value="arrow">&larr;</button></td>
+				<td><button value="CE">CE</button></td>
+				<td><button value="C">C</button></td>
+				<td><button value="plus-minus">&#177;</button></td>
+				<td><button class="noBGC" value="square-root" disabled>&#8730;</button></td>
+			</tr>
+			<tr>
+				<td><button class="smallSize" value="RoL">RoL</button></td>
+				<td><button class="smallSize" value="RoR">RoR</button></td>
+				<td><button class="noBGC" value="C" disabled>C</button></td>
+				<td><button value="seven">7</button></td>
+				<td><button value="eight">8</button></td>
+				<td><button value="nine">9</button></td>
+				<td><button value="divide">/</button></td>
+				<td><button class="noBGC" value="modulus" disabled>%</button></td>
+			</tr>
+			<tr>							
+				<td><button class="smallSize" value="Or">Or</button></td>
+				<td><button class="smallSize" value="Xor">Xor</button></td>
+				<td><button class="noBGC" value="D" disabled>D</button></td>
+				<td><button value="four">4</button></td>
+				<td><button value="five">5</button></td>
+				<td><button value="six">6</button></td>
+				<td><button value="multuply">*</button></td>
+				<td><button class="noBGC" value="func" disabled>1/x</button></td>
+			</tr>
+			<tr>
+				<td><button class="smallSize" value="Lsh">Lsh</button></td>
+				<td><button class="smallSize" value="Rsh">Rsh</button></td>
+				<td><button class="noBGC" value="E" disabled>E</button></td>
+				<td><button value="one">1</button></td>
+				<td><button value="two">2</button></td>
+				<td><button value="three">3</button></td>
+				<td><button value="minus">-</button></td>
+				<td rowspan="2"><button id="equals"	value="equals">=</button></td>
+			</tr>
+			<tr>
+				<td><button class="smallSize" value="Not">Not</button></td>
+				<td><button class="smallSize" value="And">And</button></td>
+				<td><button class="noBGC" value="D" disabled>F</button></td>
+				<td colspan="2"><button id="zero" value="zero">0</button></td>
+				<td><button value="dot" class="noBGC" disabled>.</button></td>
+				<td><button value="plus">+</button></td>				
+			</tr>		
+		</table>
+		</div>
+	</main>
+</body>
+</html>

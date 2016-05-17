@@ -1,0 +1,25 @@
+@font-face {
+	font-family: myEdwardianFont; 
+	src: url(../fonts/EdwardianScriptITC.ttf);   /* works with just Edwardian Script ITC only, without inserting external font */
+}
+
+p {
+	margin-left: 30px;
+	margin-right: 30px;
+	margin-top: 50px;	
+	font-family: Consolas;
+	font-size: 20px;
+	color: #0094ff;
+	text-align: justify; 
+	line-height: 25px;	
+}
+
+p::first-line {
+	font-weight: bold;
+	line-height: 50px;
+}
+
+p::first-letter {
+	font-size: 3em;
+	font-family: myEdwardianFont;   
+}
