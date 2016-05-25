@@ -1,0 +1,37 @@
+nav {
+	width: 40%;
+	font-size: 30px;
+	margin: 40px;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+}
+
+ul li {
+	padding: 2px;
+}
+
+ul a {
+	text-decoration: none;
+	color: black;
+}
+
+ul a:hover {
+	text-decoration: underline;	
+}
+
+.hiddenMenu {
+	display: none;
+	padding-left: 5%;
+}
+
+.hiddenMenu a{
+	text-decoration: none;
+	color: grey;	
+}
+
+li:hover > .hiddenMenu {
+	display: block;	
+}

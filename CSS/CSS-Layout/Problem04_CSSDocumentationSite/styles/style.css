@@ -1,0 +1,195 @@
+html, body, div, nav, span, ul, li, a, p, main, header, h1, h2, h3, button, article, img, footer, aside, form {
+	margin: 0;
+	padding: 0;	
+}
+
+div#container {
+	width: 1000px;
+	height: 810px;
+	background-color: #F1F1F1;
+	border: 1px solid black;
+	margin: 5px;	
+}
+
+nav {
+	float: left;
+	margin-top: 15px;
+	margin-left: 5px;
+	margin-right: 25px;
+}
+
+	#homePic {
+		display: inline-block;
+		background-image: url(../images/home.png);
+		background-repeat: no-repeat;
+		width: 22px;
+		height: 22px;
+		margin-right: 2px;
+	}
+
+	span a {
+		text-decoration: none;
+		color: black;
+		font-weight: bold;
+	}
+
+	nav ul {
+		list-style: none;
+		margin-top: 15px;
+	}
+
+	nav ul li:first-of-type {
+		color: #8A0000;
+		font-weight: bold;
+	}
+
+	nav ul li a {
+		text-decoration: none;
+		color: black;
+	}
+
+main {
+	float: left;
+	width: 623px;
+	height: 732px;
+	border: 2px solid #ADADAD;
+	background-color: white;
+	margin-top: 2px;
+}
+
+	header, article, footer {
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+
+	header {
+		border-bottom: 2px solid #ADADAD;
+		padding-top: 15px;
+		padding-bottom: 8px;
+		margin-bottom: 8px;
+	}
+
+		header h1 {
+			margin-bottom: 10px;
+		}
+
+	.buttons button {
+		background-color: white;
+		border: 1px solid black;
+		width: 100px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		text-align: center;
+	}
+
+		.leftArrow {
+			position: relative;
+			right: 15px;
+		}
+
+		.rightArrow {
+			position: relative;
+			left: 25px;
+		}
+
+	article {
+		margin-bottom: 8px;
+	}
+
+	article h3 {		
+		text-align: left; 
+		padding-left: 5px;
+	}
+
+	article a {
+		color: #8A0000;
+		font-weight: normal;
+	}
+
+	article:first-of-type p {
+		font-weight: bold;
+	}
+
+	article p {
+		padding: 2px;
+		margin-top: 15px;
+		margin-bottom: 15px;
+	}
+
+	img {
+		float: left;
+		display: inline-block;
+		width: 120px;
+		margin: 15px 15px 15px 10px;
+	}
+
+	footer {
+		border-top: 2px solid #ADADAD;
+		border-bottom: 2px solid #ADADAD;
+		margin-bottom: 30px;
+		padding-top: 8px;
+		padding-bottom: 8px;
+	}
+
+aside {
+	float: right;
+	margin-top: 2px;
+}
+
+	aside div {
+		border: 2px solid #ADADAD;
+		width: 200px;
+		margin-bottom: 2px;
+		margin-right: 2px;
+		padding-bottom: 2px;		
+		background-color: #FFFFFF;
+	}
+
+	input[type=text] {
+		border: 2px solid #82AFCF;
+		width: 128px;
+		height: 25px;
+		margin-left: 22px;
+		margin-top: 10px;
+	}
+
+	input[type=button] {
+		border: 2px solid #2C5B88;
+		border-radius: 4px;
+		font-weight: bold;
+		padding: 0;
+		width: 22px;
+		height: 22px;
+	}
+
+	h3 {
+		color: white;
+		background-color: #808080;
+		text-align: center;
+	}
+	aside div a {
+		display: block;
+		color: #8A0000;
+		text-align: center;
+		padding: 2px;
+	}
+
+		aside div a#styles {
+			color: #29C7FE;
+			font-size: 18px;
+			font-weight: bold;
+			text-decoration: none;
+			padding: 10px;
+			margin-top: 3px;
+			margin-left: 40px;
+			border: 1px solid #82AFCF;
+			width: 100px;
+			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#93d3f6+0,93d3f6+0,c0e6fa+10,c0e6fa+10,c0e6fa+12,c0e6fa+17,c0e6fa+22,c0e6fa+91,93d3f6+98,93d3f6+100 */
+			background: rgb(147,211,246); /* Old browsers */
+		background: -webkit-linear-gradient(left, rgba(147,211,246,1) 0%, rgba(147,211,246,1) 0%, rgba(192,230,250,1) 10%, rgba(192,230,250,1) 10%, rgba(192,230,250,1) 12%, rgba(192,230,250,1) 17%, rgba(192,230,250,1) 22%, rgba(192,230,250,1) 91%, rgba(147,211,246,1) 98%, rgba(147,211,246,1) 100%);
+		background: -o-linear-gradient(left, rgba(147,211,246,1) 0%, rgba(147,211,246,1) 0%, rgba(192,230,250,1) 10%, rgba(192,230,250,1) 10%, rgba(192,230,250,1) 12%, rgba(192,230,250,1) 17%, rgba(192,230,250,1) 22%, rgba(192,230,250,1) 91%, rgba(147,211,246,1) 98%, rgba(147,211,246,1) 100%);
+		background: linear-gradient(to right, rgba(147,211,246,1) 0%, rgba(147,211,246,1) 0%, rgba(192,230,250,1) 10%, rgba(192,230,250,1) 10%, rgba(192,230,250,1) 12%, rgba(192,230,250,1) 17%, rgba(192,230,250,1) 22%, rgba(192,230,250,1) 91%, rgba(147,211,246,1) 98%, rgba(147,211,246,1) 100%); /* FF3.6-15 */ /* Chrome10-25,Safari5.1-6 */ /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#93d3f6', endColorstr='#93d3f6',GradientType=1 ); /* IE6-9 */
+		
+		}
+

@@ -1,0 +1,93 @@
+html, body, div, nav, ul, li, iframe, section, a {
+    margin:0;
+    padding:0;   
+}
+
+body {
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+#container {
+    width: 612px;
+    height: 340px;
+    background-color: #1E3741;
+    border-radius: 5px;
+}
+
+nav {
+    height: 52px;
+}
+
+nav  ul {
+    padding-top: 15px;
+}
+
+nav  ul li {
+    list-style: none;
+    display: inline; 
+
+}
+
+nav ul li a {
+    padding: 8px 8px 8px 8px;
+    line-height: 20px;    
+    text-decoration: none;
+    color: #869FA8;    
+    vertical-align: baseline;   
+    background-color: #4B5F67;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;    
+}
+
+nav ul li:first-child a:first-of-type {
+    color: white;
+    background-color: transparent;
+}
+nav ul li:first-child a:first-of-type:hover {
+    text-decoration: none;
+}
+
+section ul {
+    display: inline-block;
+    float: left;
+    width: 235px;
+}
+
+section ul li {    
+    padding: 10px;
+}
+
+section ul li a {
+    text-decoration: none;
+    color: #869FA8;
+    display: block;
+}
+
+section ul li:hover, section ul li a:hover {
+    color: white;    
+    background-color: #00968C;
+}
+
+section ul li:first-child {    
+    background-color: #00968C;
+}
+
+section ul li:first-child a{
+    color: white;    
+}
+
+section ul li:first-child, li:nth-child(2), li:nth-child(3), li:nth-child(4) {
+    border-bottom: 1px solid #869FA8;
+}
+
+iframe {
+    width: 340px;
+    height: 250px;
+}
+
+
+

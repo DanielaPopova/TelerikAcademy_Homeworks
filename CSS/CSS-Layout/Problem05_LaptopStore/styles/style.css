@@ -1,0 +1,104 @@
+body, section, header, nav, ul, li, a, div, fieldset, aside, p {
+	margin: 0;
+	padding: 0;
+}
+
+section {
+	margin: 20px;
+	width: 1070px;
+	height: 780px;
+	border: 2px solid #343434;
+	border-radius: 5px;
+	font-family: Corbel;
+}
+
+nav {
+	word-spacing: 5px;
+	position: relative;
+	top: 15px;
+	left: 220px;
+	height: 70px;
+}
+
+ul li{
+	list-style: none;
+	display: inline-block;
+
+}
+
+a {
+	font-size: 36px;
+	color: #01ADEF;
+
+}
+
+hr {
+	border: 1px solid #343434;
+	width: 94%;
+}
+
+#container {
+	width: 694px;
+	height: 672px;
+	border: 2px solid #343434;
+	float: left;
+	margin: 6px;
+}
+
+fieldset {
+	width: 325px;
+	height: 195;
+	float: left;
+	border: 2px solid #343434;
+	margin: 11px 9px 11px;
+}
+
+legend {
+	margin-left: 20%;    /*text-align: center doesn't work in Firefox*/
+	font-size: 24px;
+}
+
+img {
+	width: 170px;
+	padding-left: 7px;
+	float: left;
+}
+
+div.params {
+	font-size: 24px;	
+	position: relative;
+	left: 10px;
+	top: 34px;
+}
+
+div.params p {
+	margin-top: 12px;
+}
+
+div.price {
+	font-size: 24px;
+	position: relative;
+	left: -122px;
+	top: 7px;
+}
+
+aside {	
+	position: absolute;
+	left: 760px;
+	top: 220px;
+	height: 520px;
+	width: 350px;
+}
+
+input[type=range] {
+	width: 230px;
+	margin-left: 20px;
+}
+
+p.sideBar {
+	font-size: 32px;
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+	margin-top: 20px;
+}
+

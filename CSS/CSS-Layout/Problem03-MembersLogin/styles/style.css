@@ -1,0 +1,93 @@
+@import url(http://db.onlinewebfonts.com/c/538392f378a096c692b70ad05d806da1?family=AptiferSlabLTW01-Light);
+
+@font-face {
+	font-family: "AptiferSlabLTW01-Light";
+    src: url("http://db.onlinewebfonts.com/t/538392f378a096c692b70ad05d806da1.eot");
+    src: url("http://db.onlinewebfonts.com/t/538392f378a096c692b70ad05d806da1.eot?#iefix") format("embedded-opentype"),
+	     url("http://db.onlinewebfonts.com/t/538392f378a096c692b70ad05d806da1.woff2") format("woff2"),
+	     url("http://db.onlinewebfonts.com/t/538392f378a096c692b70ad05d806da1.woff") format("woff"),
+	     url("http://db.onlinewebfonts.com/t/538392f378a096c692b70ad05d806da1.ttf") format("truetype"),
+	     url("http://db.onlinewebfonts.com/t/538392f378a096c692b70ad05d806da1.svg#AptiferSlabLTW01-Light") format("svg");
+}
+
+html,body, header, section, form, label, h1, div, p, article, img {
+	margin: 0;
+	padding: 0;
+}
+
+section > header {
+	font-family: "AptiferSlabLTW01-Light", Arial;
+	font-size: 22px;
+	font-weight: bold;
+	color: white;
+	background-color: #343434;
+	width: 650px;
+	height: 80px;
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+	display: inline-block;
+}
+
+form {
+	position: absolute;
+	top: 25px;
+	left: 80px;	
+}
+
+input[type=text], input[type=email] {
+	width: 140px;
+	height: 24px;	
+	margin-left: 10px;
+	padding-left: 5px;
+}
+
+img {
+	display: inline-block;
+	width: 56px;
+	height: 62px;
+	margin: 10px 5px 5px 5px;
+}
+
+input[type=submit] {
+	width: 58px;
+	height: 30px;
+	border: none;
+	background: no-repeat;
+	background: url(../images/go.png);
+	color: white;
+	margin-left: 15px;
+}
+
+article {
+	margin-top: 0;
+	background-color: #3B3B3B;
+	color: #878787;
+	font-size: 18px;
+	width: 650px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	padding-bottom: 10px;
+}
+
+h1 {
+	color: #FFD81D;
+	font-family: "AptiferSlabLTW01-Light";
+	font-size: 26px;
+	padding: 15px;
+}
+
+p {
+	margin-left: 15px;
+	padding-bottom: 3px;
+	font-size: 14px;
+	font-family: Verdana;
+}
+
+span {
+	color: #DEDEDE;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
