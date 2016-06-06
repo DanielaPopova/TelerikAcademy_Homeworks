@@ -1,6 +1,0 @@
-use
-door
-table
-key
-little
-paper
