@@ -1,0 +1,7 @@
+alice 3 
+rabbit 3 
+she 9 
+white 3 
+watch 0 
+gloves 2 
+tears 1 

@@ -1,0 +1,4 @@
+Line 1: "Would you tell me, please, which way I ought to go from here?"
+Line 2: "That depends a good deal on where you want to get to."
+Line 3: "I don't much care where"
+Line 4: "Then it doesn't matter which way you go." 
