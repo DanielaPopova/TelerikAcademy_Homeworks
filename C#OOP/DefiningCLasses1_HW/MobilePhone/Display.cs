@@ -25,6 +25,7 @@
             {
                 return this.displaySize;
             }
+
             set
             {
                 if (value <= 0.0)
@@ -42,6 +43,7 @@
             {
                 return this.numberOfColors;
             }
+
             set
             {
                 if (value <= 0)
@@ -79,7 +81,6 @@
         }
     }
 }
-
 
 /* 
 Layout convention

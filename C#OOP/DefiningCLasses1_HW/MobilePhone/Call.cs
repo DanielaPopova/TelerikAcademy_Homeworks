@@ -17,7 +17,7 @@
 
         public Call(DateTime dateTime, string diallednum, int duration)
         {      
-            //TODO: validate DateTime dateTime for right format
+            // TODO: validate DateTime dateTime for right format
             this.Date = dateTime.ToString("dd.MM.yyyy");
             this.Time = dateTime.ToString("HH:mm:ss");
             this.DialledPhoneNumber = diallednum;
@@ -34,6 +34,7 @@
             {
                 return this.dialledPhoneNumber;
             }
+
             private set
             {
                 if (value.Length < 9)
@@ -55,6 +56,7 @@
             {
                 return this.duration;
             }
+
             private set
             {
                 if (value < 0)

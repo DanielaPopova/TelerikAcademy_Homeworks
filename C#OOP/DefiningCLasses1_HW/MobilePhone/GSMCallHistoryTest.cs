@@ -5,7 +5,7 @@
 
     public class GSMCallHistoryTest
     {
-        static void Main()
+        public static void Main()
         {
             decimal pricePerMinute = 0.37M;
             GSM phone = new GSM("Galaxy S7", "Samsung", 1000.0M, new Battery("Unknown", BatteryType.LiIon, 128, 48), new Display(5.1, 16000000));
@@ -29,13 +29,14 @@
                     longestCall = call;
                 }
             }
+
             Console.WriteLine("The longest call is: \n{0}", longestCall.ToString());
 
             phone.DeleteCall(longestCall);
 
-            //without longest call
+            // without longest call
             phone.PrintCallHistory();
-            
+
             Console.WriteLine("New total price: {0:F2} BGN", phone.CalculateCallPrice(pricePerMinute));
 
             phone.ClearHistory();

@@ -5,8 +5,8 @@
 
     public class GSM
     {
-        private static readonly GSM iphoneS6 = new GSM
-            ("iPhone 6s", "Apple", 1400, new Battery("Unknown", BatteryType.LiIon, 96, 12), new Display(4.7, 16000000));
+        private static readonly GSM IphoneS6 = new GSM(
+            "iPhone 6s", "Apple", 1400, new Battery("Unknown", BatteryType.LiIon, 96, 12), new Display(4.7, 16000000));
 
         private string model;
         private string manufacturer;
@@ -28,6 +28,14 @@
             this.Display = display;
         }
 
+        public static GSM IPhone6s
+        {
+            get
+            {
+                return IphoneS6;
+            }
+        }
+
         public Battery Battery { get; set; }
 
         public Display Display { get; set; }
@@ -38,6 +46,7 @@
             {
                 return this.model;
             }
+
             set
             {
                 if (string.IsNullOrEmpty(value))
@@ -62,6 +71,7 @@
             {
                 return this.manufacturer;
             }
+
             set
             {
                 if (string.IsNullOrEmpty(value))
@@ -86,6 +96,7 @@
             {
                 return this.price;
             }
+
             set
             {
                 if (value < 0)
@@ -100,32 +111,25 @@
         public List<Call> CallHistory 
         {
             get { return this.callHistory; }            
-        }
-
-        public static GSM iPhone6s
-        {
-            get 
-            {
-                return iphoneS6;
-            } 
-        }
+        }        
 
         public void AddCall(Call call)
         {
             this.CallHistory.Add(call);
         }
 
+        // delete with menu
         public void DeleteCall()
         {
             Console.WriteLine("Current call history:");
-            PrintCallHistory();
+            this.PrintCallHistory();
 
             Console.WriteLine("Enter number of call 1 - {0}", this.CallHistory.Count);
             int toDelete = int.Parse(Console.ReadLine()) - 1;
 
             if (toDelete >= 0 && toDelete < this.CallHistory.Count)
             {
-                this.CallHistory.Remove(CallHistory[toDelete]);
+                this.CallHistory.Remove(this.CallHistory[toDelete]);
                 Console.WriteLine("Phone call removed!");
             }
             else
@@ -164,9 +168,9 @@
             }
             else
             {
-                for (int i = 0; i < CallHistory.Count; i++)
+                for (int i = 0; i < this.CallHistory.Count; i++)
                 {
-                    Console.WriteLine(count + ". " + CallHistory[i]);
+                    Console.WriteLine(count + ". " + this.CallHistory[i]);
                     count++;
                 }                
             }
@@ -191,8 +195,6 @@
         {            
             return string.Format("Full Info:\nModel: {0}\nManufacturer: {1}\nPrice: {2} BGN\n{3}\n{4}", this.Model, this.Manufacturer, this.Price, this.Battery, this.Display);
         }
-
-        
     }
 }
 

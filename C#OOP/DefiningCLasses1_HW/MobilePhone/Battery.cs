@@ -12,15 +12,15 @@
     }
 
     public class Battery
-    {        
+    {
         private double? hoursIdle;
         private double? hoursTalk;
 
         public Battery()
-            : this (null, new BatteryType(), null, null)
+            : this(null, new BatteryType(), null, null)
         {
 
-        }        
+        }
 
         public Battery(BatteryType battType)
             : this(null, battType, null, null)
@@ -38,7 +38,7 @@
 
         public string Model { get; set; }
 
-        public BatteryType BatteryType { get; set; }       
+        public BatteryType BatteryType { get; set; }
 
         public double? HoursIdle
         {
@@ -46,6 +46,7 @@
             {
                 return this.hoursIdle;
             }
+
             set
             {
                 if (value < 0)
@@ -63,6 +64,7 @@
             {
                 return this.hoursTalk;
             }
+
             set
             {
                 if (value < 0)
@@ -95,12 +97,12 @@
 
             if (this.HoursTalk == null)
             {
-                output.Append("No info");                
+                output.Append("No info");
             }
             else
             {
                 output.Append(this.HoursTalk);
-            }            
+            }
 
             return output.ToString();
         }
