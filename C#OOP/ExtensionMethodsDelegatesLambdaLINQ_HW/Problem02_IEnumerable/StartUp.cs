@@ -9,7 +9,7 @@
     {
         public static void Main()
         {
-            var testList = new List<int> { 2, 3, 4, 5, 8, 100, 14, };  // doesn't work with BigInteger
+            var testList = new List<int> { 2, 3, 4, 5, 8, 100, 14 };  // doesn't work with BigInteger
 
             Console.WriteLine(testList.Sum());
             Console.WriteLine(testList.Product());
