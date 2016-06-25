@@ -3,13 +3,39 @@ function sortArray(args) {
       numbers = args[0].replace('\n', ' ').split(' ').map(Number);
       numbers.shift();
 
-  sortedArray = numbers.sort(function(a, b) {
-    return a - b;
-  });
+  return sortByDescendingOrder(numbers).reverse().join(' ');
+  
+  function sortByDescendingOrder(array) {
+    var i, len, maxEl, maxElIndex, temp;
 
-  return sortedArray.join(' ');
+    for (i = 0, len = array.length; i < len; i += 1) {
+      maxEl = getMax(i, array);      
+      maxElIndex = array.indexOf(maxEl, i);      
+      temp = array[i];      
+      array[i] = maxEl;
+      array[maxElIndex] = temp;
+    }
+    return array;
+  }
+
+  function getMax(index, numArray) {
+    var i, len,
+        maxElement = Number.MIN_VALUE - 0.1;
+
+    for (i = index, len = numArray.length; i < len; i += 1) {
+      if (numArray[i] > maxElement) {
+        maxElement = numArray[i];
+      }
+    }
+    return maxElement;
+  }
+  // easy way
+  // sortedArray = numbers.sort(function(a, b) {
+  //   return a - b;
+  // });
 }
 
+console.log(sortArray(['4\n2 2 2 0']));  //if maxElement = Number.MIN_VALUE - first number is not 0 but 5e-324
 console.log(sortArray(['6\n3 4 1 5 2 6']));
 console.log(sortArray(['10\n36 10 1 34 28 38 31 27 30 20']));
 
