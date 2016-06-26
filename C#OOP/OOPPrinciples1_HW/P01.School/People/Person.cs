@@ -3,7 +3,7 @@
     using System;
     using Schools.Interfaces;
 
-    public class Person : IComment
+    public class abstract Person : IComment
     {
         private string name;
 
