@@ -1,6 +1,5 @@
 function printResult(args) {
-  var numbers = args[0].replace(/\n/g, ' ').split(' ').map(Number);
-  numbers.shift();
+  var numbers = args[1].split(' ').map(Number);  
 
   return checkNeighbours(numbers);
 
@@ -22,7 +21,7 @@ function printResult(args) {
   }
 }
 
-console.log(printResult(['6\n-26 -25 -28 31 2 27']));
+console.log(printResult(['6', '-26 -25 -28 31 2 27']));
 
 /*
 Write a method that checks if the element at given position in given array of integers is larger
@@ -47,3 +46,5 @@ Input                 Output
 6
 -26 -25 -28 31 2 27   2
 */
+
+//  var numbers = args[0].replace(/\n/g, ' ').split(' ').map(Number); numbers.pop() - last member

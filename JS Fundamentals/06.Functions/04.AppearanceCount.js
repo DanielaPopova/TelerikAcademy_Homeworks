@@ -1,9 +1,6 @@
 function printResult(args) {
-  var searchedNumber,      
-      numbers = args[0].replace(/\n/g, ' ').split(' ').map(Number);
-
-  numbers.shift();
-  searchedNumber = numbers.pop();
+  var searchedNumber = +args[2],      
+      numbers = args[1].split(' ').map(Number);  
 
   return countTimes(numbers, searchedNumber);
 
@@ -19,7 +16,7 @@ function printResult(args) {
   }
 }
 
-console.log(printResult(['8\n28 6 21 6 -7856 73 73 -56\n73']));
+console.log(printResult(['8', '28 6 21 6 -7856 73 73 -56', '73']));
 
 /*
 Write a method that counts how many times given number appears in a given array.

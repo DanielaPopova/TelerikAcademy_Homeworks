@@ -1,7 +1,6 @@
 function printIndex(args) {
   
-    var numbers = args[0].replace(/\n/g, ' ').split(' ').map(Number);
-    numbers.shift();
+    var numbers = args[1].split(' ').map(Number);
     
     return findIndex(numbers);
 
@@ -17,7 +16,7 @@ function printIndex(args) {
   }
 }
 
-console.log(printIndex(['6\n-26 -25 -28 31 2 27']));
+console.log(printIndex(['6', '-26 -25 -28 31 2 27']));
 
 /*
 Write a method that returns the index of the first element in array that is larger than its neighbours, or -1, if there is no such element.
