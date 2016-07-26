@@ -1,0 +1,69 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Divs Inside Div Elements</title>
+  <style type="text/css">
+    body {
+      margin: 40px;
+    }
+  </style>
+</head>
+<body>
+    <article>
+        <p>
+          Write a script that selects all the div nodes that are directly inside other div elements
+          <ul>
+            <li>Create a function using querySelectorAll()</li>
+            <li>Create a function using getElementsByTagName()</li>
+          </ul>
+        </p>
+    </article>
+    <article>
+          <div>
+                <h1>Heading 1</h1>
+                <div>
+                    <p>Some text</p>
+                </div>
+          </div>
+    </article>
+    <article>
+          <div>
+                <h1>Heading 2</h1>
+                <div>
+                    <p>Some text</p>
+                </div>
+          </div>
+    </article>
+    <article>
+          <div>
+                <h1>Heading 3</h1>
+                <div>
+                    <p>Some text</p>
+                </div>
+          </div>
+    </article>
+      
+      <script>
+          var divsQuery = document.querySelectorAll('div div');
+          printCollection(divsQuery);
+
+          var allDivs = document.getElementsByTagName('div');
+          var divsWithinDivs = [];
+          for (i = 0, len = allDivs.length; i < len; i += 1) {
+              var currDiv = allDivs[i];
+
+              if (currDiv.parentNode.nodeName === 'DIV') {
+                  divsWithinDivs.push(currDiv);
+              }
+          }
+          printCollection(divsWithinDivs);
+
+          function printCollection(collection) {
+            var i, len;
+            for (i = 0, len = collection.length; i < len; i += 1) {
+                console.log(collection[i]);
+            }
+          }
+      </script>
+</body>
+</html>

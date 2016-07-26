@@ -1,0 +1,25 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Change Backgorund</title>  
+</head>
+<body>
+  <p>
+    Crеate a function that gets the value of &lt;input type="color"&gt; and sets the background of the body to this value
+  </p>
+  <label for='color-box'>Select color</label>
+  <input type="color" id="color-box">
+
+  <script type="text/javascript">
+
+    function changeBackgroundColor() {
+        var color = document.getElementById('color-box').value;
+        document.body.style.background = color;   //document.bgColor - deprecated
+    }
+
+    var input = document.getElementById('color-box');
+    input.addEventListener('change', changeBackgroundColor);
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Input Type text Value</title>
+</head>
+<body>
+      <p>
+        Create a function that gets the value of &lt;input type="text"&gt; and prints its value to the console
+      </p>
+      <form name="someForm" action="#" method="get"> 
+            <label for="textBox">Write something: </label>
+            <input type="text" id="textBox" name="inputText">
+      </form>
+      <h3>Result in console:</h3> 
+      <p id="result">
+        
+      </p>
+      
+      <script type="text/javascript">
+        // var input = document.getElementById('textBox');
+        // input.addEventListener('change', logValue);  //'input' - simultaneously but letter by letter in console
+
+        // function logValue(ev) {
+        //   console.log(ev.target.value);
+        //   var pElement = document.getElementById('result');
+        //   pElement.innerHTML = ev.target.value;
+        // }
+        updateResult();
+
+        setInterval(updateResult, 100);
+
+        // var timerHandle = setInterval(updateResult, 100);
+
+        // clearInterval(timerHandle);
+        // timerHandle = 0;
+
+        function updateResult() {
+          var input = document.getElementById('textBox');
+          var inputValue = input.value;
+
+          var pElement = document.getElementById('result');
+          pElement.innerHTML = inputValue;
+
+          console.log(inputValue);
+        }
+      </script>
+</body>
+</html>
