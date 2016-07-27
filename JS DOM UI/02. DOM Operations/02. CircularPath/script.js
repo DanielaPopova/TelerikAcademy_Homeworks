@@ -16,15 +16,20 @@ div.style.margin = 70 + 'px';
 div.style.position = 'relative'; //'absolute' would be appropriate for one element only
 
 for (i = 0; i < 5; i += 1) {
-    currDiv = div.cloneNode(true);
-    move();
-
+    currDiv = div.cloneNode(true);    
     docFragment.appendChild(currDiv);
 }
 
 document.body.appendChild(docFragment);
 
-function move() {
+var allDivsTag = document.getElementsByTagName('div');
+for (i = 0, len = allDivsTag.length; i < len; i += 1) {
+    currDiv = allDivsTag[i];
+    move(currDiv);
+}
+
+
+function move(currDiv) {
   
   xcenter = width + width * Math.cos(angle * Math.PI / 180);
   ycenter = height + height * Math.sin(angle * Math.PI / 180);
@@ -35,9 +40,13 @@ function move() {
   angle += 3;  //determines the speed
   if (angle > 360) {
     angle = 0;
-  }
-  setTimeout(move, 100);
+  }  
+
+  setTimeout(function () {
+      move(currDiv);
+  }, 100);
 }
+
 
 // First try - only last div moves
 // function move() {
@@ -52,17 +61,14 @@ function move() {
 //   currDiv.style.left = newLeft;
 //   currDiv.style.top = newTop;
 
-//   setTimeout(move, 100);  
+//   setTimeout(function () {
+//      move(currDiv);
+//   }, 100);
 // }
 
 // static nodelist
 // var allDivs = document.querySelectorAll('div');
-// allDivs.forEach(function () {
-//   move();
+// allDivs.forEach(function (currDiv) {
+//   move(currDiv);
 // });
 
-// dynamic nodelist
-// var allDivsTag = document.getElementsByTagName('div');
-// for (i = 0, len = allDivsTag.length; i < len; i += 1) {
-//     move();
-// }
