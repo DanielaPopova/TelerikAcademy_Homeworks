@@ -1,0 +1,74 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Tables</title>
+  <style type="text/css">
+
+    table {
+      border-collapse: collapse;
+    }
+
+    table, th, td {
+      border: 1px solid black;
+    }
+
+    th, td {
+      padding: 10px;
+    }
+    
+  </style>
+</head>
+<body>
+  <div id="wrapper"></div>
+  <script id="table-template" type="text/x-handlebars-template">
+      <table class="items-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            {{#each headers}} <th>{{this}}</th> {{/each}}
+            <!-- <th>{{headers.[0]}}</th>
+            <th>{{headers.[1]}}</th>
+            <th>{{headers.[2]}}</th> -->
+          </tr>
+        </thead>
+        <tbody>          
+          {{#each items}}
+          <tr>
+               <th>{{@index}} </th>
+               <th>{{this.col1}} </th>
+               <th>{{this.col2}} </th>
+               <th>{{this.col3}} </th>
+           </tr>
+          {{/each}}
+        </tbody>
+      </table>
+  </script>
+
+  <script src="scripts/handlebars.min.js" ></script>
+<script>
+  var html = document.getElementById('table-template').innerHTML;
+  var tableTemplate = Handlebars.compile(html);
+  var data = {
+      headers : ['Vendor', 'Model', 'OS'],
+      items : [{
+        col1: 'Nokia',
+        col2: 'Lumia 920',
+        col3: 'Windows Phone'
+      }, {
+        col1: 'LG',
+        col2: 'Nexus 5',
+        col3: 'Android'
+      }, {
+        col1: 'Apple',
+        col2: 'iPhone 6',
+        col3: 'iOS'
+      }]          
+  };
+
+  var tableResult = tableTemplate(data);
+  document.getElementById('wrapper').innerHTML = tableResult;
+</script>
+
+
+</body>
+</html>
