@@ -5,8 +5,7 @@ function preload() {
     game.load.image('ground', 'sprites/platform.png');
     game.load.image('star', 'sprites/star.png');
     game.load.image('health', 'assets/health.png');
-    game.load.image('live', 'assets/live.png');
-    //game.load.spritesheet('dead', 'assets/dead.png');
+    game.load.image('live', 'assets/live.png');    
     game.load.spritesheet('baddie', 'sprites/baddie.png', 33, 32);
     game.load.spritesheet('player', 'assets/player.png', 49, 63);
 }
@@ -17,12 +16,14 @@ var platforms;
 var cursors;
 
 var hearts;
-var lives = 3;
+var lives;
 var stars;
 var score = 0;
 var scoreText;
 var stateText;
 var healthText;
+var countOverlap = 0;
+var hits = 0;
 
 function create() {
 
@@ -57,6 +58,7 @@ function create() {
 
     // Adding PESHO and baddie
      player = game.add.sprite(5, game.world.height - 150, 'player');
+
      baddie = game.add.sprite(game.world.width - 50, game.world.height - 230, 'baddie');
 
     //  enable physics on the player/baddie
@@ -74,24 +76,12 @@ function create() {
     player.animations.add('jump_right', [11], 14, true);
     player.animations.add('jump_left', [12], 14, true);
     player.animations.add('dead', [13], 14, true);
-//player.body.x, player.body.y-20, player.body.width, player.body.height+20
-
-    //player.hitArea = new Phaser.Rectangle(player.body.x, player.body.y, player.body.width, player.body.height);
-    //console.log(player.hitArea);
-  // Add health to player
-    //player.health = 3;
-    //player.maxHealth = 3;
-    // Adding baddie
-
 
     baddie.body.collideWorldBounds = true;    
 
     baddie.animations.add('move', [0, 1], 4, true);
     baddie.animations.play('move',3,true);
-//this.sprite.body.center.x-10, this.sprite.body.center.y-20, 20, 36
-
-    //baddie.hitArea = new Phaser.Rectangle(baddie.body.x, baddie.body.y, baddie.body.width, baddie.body.height);
-    //console.log(baddie.hitArea);
+    
     game.add.tween(baddie).to( { x: 400}, 3000, Phaser.Easing.Quadratic.InOut, true, 0, 1000, true);
 
     //Add hearts
@@ -108,18 +98,16 @@ function create() {
     lives = game.add.group();
     for (i = 0; i < 3; i += 1) {
         var live = lives.create(game.world.width - 700 + (40 * i), 35, 'live');
-        //live.anchor.setTo(0.5, 0,5);
         live.scale.setTo(0.9, 0.9);
-
     }
 
-    //  Finally some stars to collect
+    // Add stars to collect
     stars = game.add.group();
 
-    //  We will enable physics for any star that is created in this group
+    // Enable physics for any star in this group
     stars.enableBody = true;
 
-    //  Here we'll create 12 of them evenly spaced apart
+    //  Create 12 stars evenly spaced apart
     for (var i = 0; i < 12; i++)
     {
         //  Create a star inside of the 'stars' group
@@ -153,10 +141,7 @@ function update() {
       game.physics.arcade.overlap(player, stars, collectStar, null, this);
 
       //  Checks to see if the player overlaps with any of the hearts, if he does call the heal function
-      game.physics.arcade.collide(player, hearts, heal, null, this);
-
-      // Damage from baddie or spike
-      //game.physics.arcade.overlap(player, baddie, takeDamage, null, this);
+      game.physics.arcade.overlap(player, hearts, heal, null, this);
 
     if (player.alive) {
 
@@ -178,7 +163,6 @@ function update() {
         }
         else if (cursors.right.isDown)
         {
-
             //  Move to the right
             if (player.body.touching.down) {
               player.animations.play('right');
@@ -199,70 +183,56 @@ function update() {
         if (cursors.up.isDown && player.body.touching.down)
         {
             player.body.velocity.y = -350;
-            
-
-        }
+        } 
 
         if (checkOverlap(player, baddie))
         {
+            countOverlap += 1;
             player.enableBody = false;
             player.play('dead');
             player.alpha = 0.8;
-            
-            // game.time.events.add(Phaser.Timer.SECOND * 1, function () {
-            //     live = lives.getFirstAlive();
 
-            //     if (live)
-            //     {
-            //         live.kill();
-            //     }
-            // }, this);
-            
+            if (countOverlap === 1) {
 
-            live = lives.getFirstAlive();
+                hits += 1; 
+               
+                if (hits <= 3) {
+                    live = lives.getFirstAlive();
 
-            if (live)
-            {
-                live.kill();
-            }
+                    if (live)
+                    {
+                        live.kill();
+                    }
+                }
 
-            // if (lives.countLiving() < 1)
-            // {
-            //     player.kill();
+                if (hits === 3) {
+                    player.kill();
+                    hits = 0;
 
-            //     stateText.text=" GAME OVER \n Click to restart";
-            //     stateText.visible = true;
+                    stateText.text=" GAME OVER \n Click to restart";
+                     stateText.visible = true;
 
-            //     //the "click to restart" handler
-            //     game.input.onTap.addOnce(restart,this);
-            // }           
+                    //the "click to restart" handler
+                     game.input.onTap.addOnce(restart,this);
+                } 
+                
+            } 
         }
         else
         {
             player.enableBody = true;
             player.alpha = 1;
+            countOverlap = 0;
         }
-       //  var hitTimer = 0;
-       // if (player.alpha == 1 && Phaser.Rectangle.intersects(player.hitArea, baddie.hitArea))
-       //  {
-         
-
-       //              player.enableBody = false;
-         
-       //              player.alpha = 0.5;
-       //              hitTimer = game.time.now + 2500;
-
-       //  } else {
-       //          player.enableBody = true;
-       //          player.alpha = 1;
-       //          hitTimer = 0;
-       //  }
-                    
-               
-        
-
     }
 
+}
+
+function calculateDistance(spriteA, spriteB) {
+    var distance = game.math.distance(spriteA.body.x + spriteA.body.width, spriteA.body.y + spriteA.body.height,
+                                      spriteB.body.x + spriteB.body.width, spriteB.body.y + spriteB.body.height);
+
+    return game.math.roundTo(distance, 0);
 }
 
 function checkOverlap(spriteA, spriteB) {
@@ -287,9 +257,13 @@ function collectStar (player, star) {
 
 function heal (player, heart) {
     
-    heart.kill();
+    //heart.kill();
     // Removes the heart from the screen
-    //hearts.getFirstAlive().kill();
+    live = hearts.getFirstAlive();
+    live.kill();
+    if (lives.countLiving < 3) {
+        live.revive();
+    }
 
     //  Add and update to the health
     // if (lives.countLiving < 3) {
@@ -303,75 +277,10 @@ function heal (player, heart) {
 
 }
 
-function takeDamage() {
-   
-   // if (player.body.x + player.width <= baddie.body.x) {
-    
-   //  console.log('player' + player.body.x );
-   //  console.log('baddie' + baddie.body.x);
-        player.enableBody = false;
-        player.alpha = 0.5;
-
-        // if (player.body.x + player.body.width / 2 > baddie.body.x ) {
-        //     console.log('baddieSec' + baddie.body.x);
-        //     console.log('playerSec' + player.body.x);
-        //     player.enableBody = true;
-        //     player.alpha = 1;
-        // }
-   //} 
-   // if (player.body.x > baddie.body.x) {
-   //       console.log('baddieLeft' + baddie.body.x);
-   //          console.log('playerLeft' + player.body.x);
-   //          player.enableBody = false;
-   //          player.alpha = 0.5;
-            
-
-   //      if (baddie.body.x + baddie.body.width / 2 > player.body.x) {
-   //          console.log('baddieLEftSec' + baddie.body.x);
-   //          console.log('playerLeftSec' + player.body.x);
-   //          player.enableBody = true;
-   //          player.alpha = 1;
-   //      }
-   // }
-        
-        
-    
-   
-      
-    
-    
-    //player.hittimer = game.time.now + 2500;   
-    live = lives.getFirstAlive();
-
-    if (live)
-    {
-        live.kill();
-    }
-
-    
-
-    // if (lives.countLiving() < 1)
-    // {
-    //     player.kill();
-
-    //     stateText.text=" GAME OVER \n Click to restart";
-    //     stateText.visible = true;
-
-    //     //the "click to restart" handler
-    //     game.input.onTap.addOnce(restart,this);
-    // }
-    
-
-    
-}
-
 function collectKey() {
   // body...
 }
-// load dead png
-//load live ong - fix lives
-// fix falling down of a platform
-//  game.camera.follow(player, Phaser.Camera.FOLLOW_LOCKON, 0.1);
+
 
 function restart () {
 
@@ -384,7 +293,7 @@ function restart () {
     player.x = 5;
     player.y = game.world.height - 150;
     player.alpha = 1;
-    //player.hittimer = 0;
+    
     player.revive();
 
     //hides the text
