@@ -110,7 +110,7 @@ function create() {
     //  Create 12 stars evenly spaced apart
     for (var i = 0; i < 12; i++)
     {
-        //  Create a star inside of the 'stars' group
+        //  Create a star inside of the 'stars' groupp
         var star = stars.create(i * 30, 0, 'star');
 
         //  Let gravity do its thing
