@@ -1,0 +1,141 @@
+body {
+    background-image: url(../assets/html-sources/canvas-bg7.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+    font-family: Copperplate , sans-serif;
+}
+
+canvas {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -250px;
+    margin-left: -512px;
+    border: 35px solid #11242C;
+    border-radius: 15px;
+    overflow: hidden;
+
+    /* this fixes the overflow:hidden in Chrome/Opera */
+    -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+}
+#logo{
+    position:relative;
+    left:1%;
+    z-index: 1;
+}
+#gameplay{
+    position:relative;
+    width:10%;
+    top:1%;
+    left:5%;
+    z-index: 1;
+}
+    #gameplay img{
+        border-radius: 20px;
+    }
+
+#wrapper{
+    position:absolute;
+    width:1024px;
+    height:500px;
+    top: 50%;
+    left: 50%;
+    margin-top: -250px;
+    margin-left: -512px;
+    border: 35px solid #11242C;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: lightgoldenrodyellow;
+}
+
+.buttons-ul{
+    position:absolute;
+    top:130px;
+    left:560px;
+    list-style-type: none;
+}
+.buttons-ul li {
+    opacity:0.7;
+}
+
+.buttons-ul li:hover{
+    opacity:1;
+    cursor: pointer;
+}
+
+#about-us{
+    color:red;
+    font-size:20px;
+    position:absolute;
+    top:35%;
+    left:5%;
+    display:none;
+}
+#game-rules{
+    color:red;
+    font-size:20px;
+    position:absolute;
+    top:35%;
+    left:5%;
+    display:none;
+    width:50%;
+}
+
+    #about-us ul{
+        list-style-type: none;
+    }
+
+.arrows{
+    width:40%;
+}
+.rule1{
+    position:relative;
+    width:50%;
+}
+
+.rule2{
+    position:absolute;
+    width:50%;
+    left:60%;
+    bottom:28%;
+}
+
+.rule3{
+    position:relative;
+}
+    .rule3 p {
+        padding:0;
+        margin:0;
+        text-align:center;
+    }
+    .rule3:first-child {
+        padding-top:0;
+        margin-top:0;
+    }
+
+
+.space{
+    width:60%;
+    background-color:black;
+    color:white;
+    text-align:center;
+    border-radius:15px;
+}
+.space-container{
+    height:45px;
+    padding-top:40px;
+    margin-bottom:40px;
+}
+#about-us ul{
+    list-style-image: url('../assets/life.png');
+}
+
+#about-us p{
+    font-weight:900;
+}
+
+span{
+    font-style:italic;
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <script src="scripts/jquery-3.1.0.min.js"></script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div id="logo"><img src="assets/html-sources/Logo.png" alt=""></div>
+        <div id="gameplay"><img src="assets/html-sources/gameplay.png" alt=""></div>
+        <ul class="buttons-ul">
+            <li>
+                <a href="game.html"><img src="assets/html-sources/play.png" alt=""></a>
+            </li>
+            <li>
+                <img id="howto-button" src="assets/html-sources/howtoplay.png" alt="">
+            </li>
+            <li>
+                <img id="au-button" src="assets/html-sources/aboutUs.png" alt="">
+            </li>
+        </ul>
+        <div id="game-rules">
+            <div class="rule1">
+                <p class="use">Use</p>
+                <div>
+                    <img class="arrows" src="assets/html-sources/arrows.png" alt="">
+                </div>
+                <p>to move around the map.</p>
+            </div>
+            <div class="rule2">
+                <p class="use">Use</p>
+                <div class="space-container">
+                    <div class="space">
+                        Space
+                    </div>
+                </div>
+                <p>to open the final door.</p>
+            </div>
+            <div class="rule3">
+                <p>Find the key,which help you to open the final door</p>
+                <p>where you are about to face the biggest programmer</p>
+                <p>nightmare-A telerik ninja throwing undefined everywhere.</p>
+            </div>
+        </div>
+        <div id="about-us">
+            <p>This awesome game is created by:</p>
+            <ul>
+                <li>
+                    Стоян Руманов a.k.a <span>stoyan.ruzmanov</span>
+                </li>
+                <li>
+                    Даниела Попова а.k.a <span>Daniela_Popova</span>
+                </li>
+                <li>
+                    Виктория Недялкова a.k.a <span>Viktoria_Nedialkova</span>
+                </li>
+                <li>
+                    Мартин Йорданов a.k.a <span>mojojojo</span>
+                </li>
+                <li>
+                    Емил Тодоров a.k.a <span>EmoTodorov</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+<script>
+    $('#au-button').click(function(){
+        $('#game-rules').hide();
+        $('#gameplay').hide();
+        $('#about-us').slideDown(2000);
+        
+    });
+    
+    $('#howto-button').click(function(){
+        $('#about-us').hide();
+        $('#gameplay').hide();
+        $('#game-rules').slideDown(2000);
+    });
+</script>
+</body>
+
+</html>
