@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="232">
  <tileset firstgid="1" name="tech" tilewidth="32" tileheight="32" tilecount="805" columns="35">
-  <image source="../assets/game-sources/TileSets/scifi_platformTiles_32x32.png" width="1120" height="736"/>
+  <image source="assets/game-sources/TileSets/scifi_platformTiles_32x32.png" width="1120" height="736"/>
  </tileset>
  <tileset firstgid="806" name="traps" tilewidth="32" tileheight="32" tilecount="256" columns="16">
-  <image source="../assets/game-sources/TileSets/TrapsSprite.png" width="512" height="512"/>
+  <image source="assets/game-sources/TileSets/TrapsSprite.png" width="512" height="512"/>
  </tileset>
  <layer name="World" width="100" height="100" offsetx="-311.758" offsety="-24.8485">
   <data encoding="csv">
