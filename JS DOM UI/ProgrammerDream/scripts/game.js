@@ -4,22 +4,22 @@ window.onload = function () {
     function preload() {
 
         game.load.tilemap('level1', 'scripts/level1.json', null, Phaser.Tilemap.TILED_JSON);
-        game.load.spritesheet('healthBar', '../assets/game-sources/health-bar.png', 36, 30);
-        game.load.image('life', '../assets/game-sources/life.png');
-        game.load.image('key', '../assets/game-sources/key.png');
-        game.load.image('bossBullets', '../assets/game-sources/undefined.png');
-        game.load.image('boss', '../assets/game-sources/boss.png');
-        game.load.image('zero', '../assets/game-sources/zero.png');
-        game.load.image('one', '../assets/game-sources/one.png');
-        game.load.spritesheet('player', '../assets/game-sources/player.png', 49, 63);
-        game.load.image('background', '../assets/game-sources/bg.png');
-        game.load.image('sci-fi', '../assets/game-sources/TileSets/scifi_platformTiles_32x32.png');
-        game.load.image('trapsSprite', '../assets/game-sources/TileSets/TrapsSprite.png');
-        game.load.image('octo-cat', '../assets/game-sources/robo-octocat-small.png');
-        game.load.image('javascript', '../assets/game-sources/js.png');
-        game.load.image('css', '../assets/game-sources/css3.png');
-        game.load.image('html', '../assets/game-sources/html5.png');
-        game.load.image('doorImage', '../assets/game-sources/door.png');
+        game.load.spritesheet('healthBar', 'assets/game-sources/health-bar.png', 36, 30);
+        game.load.image('life', 'assets/game-sources/life.png');
+        game.load.image('key', 'assets/game-sources/key.png');
+        game.load.image('bossBullets', 'assets/game-sources/undefined.png');
+        game.load.image('boss', 'assets/game-sources/boss.png');
+        game.load.image('zero', 'assets/game-sources/zero.png');
+        game.load.image('one', 'assets/game-sources/one.png');
+        game.load.spritesheet('player', 'assets/game-sources/player.png', 49, 63);
+        game.load.image('background', 'assets/game-sources/bg.png');
+        game.load.image('sci-fi', 'assets/game-sources/TileSets/scifi_platformTiles_32x32.png');
+        game.load.image('trapsSprite', 'assets/game-sources/TileSets/TrapsSprite.png');
+        game.load.image('octo-cat', 'assets/game-sources/robo-octocat-small.png');
+        game.load.image('javascript', 'assets/game-sources/js.png');
+        game.load.image('css', 'assets/game-sources/css3.png');
+        game.load.image('html', 'assets/game-sources/html5.png');
+        game.load.image('doorImage', 'assets/game-sources/door.png');
     }
 
     var player,
