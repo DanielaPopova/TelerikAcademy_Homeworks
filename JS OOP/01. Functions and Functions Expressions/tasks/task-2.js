@@ -44,7 +44,7 @@ function findPrimes(start, end) {
 
 }
 
-console.log(findPrimes(1, 5));
-console.log(findPrimes());
+//console.log(findPrimes(1, 5));
+//console.log(findPrimes());
 
 module.exports = findPrimes;
