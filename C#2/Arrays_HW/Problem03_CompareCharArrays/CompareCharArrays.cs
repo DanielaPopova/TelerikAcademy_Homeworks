@@ -78,6 +78,43 @@ class CompareCharArrays
     }
 }
 
+// 100/100 bgcoder
+//string firstArr = Console.ReadLine();
+//            string secondArr = Console.ReadLine();
+//
+//            int length = firstArr.Length < secondArr.Length ? firstArr.Length : secondArr.Length;
+//            string sign = "=";
+//
+//            for (int i = 0; i < length; i++)
+//            {
+//                if (firstArr[i] < secondArr[i])
+//                {
+//                    sign = "<";
+//                    break;
+//                }
+//
+//                if (firstArr[i] > secondArr[i])
+//                {
+//                    sign = ">";
+//                    break;
+//                }
+//            }
+//
+//            if (sign == "=")
+//            {
+//                if (firstArr.Length > secondArr.Length)
+//                {
+//                    sign = ">";
+//                }
+//
+//                if (firstArr.Length < secondArr.Length)                
+//                {
+//                    sign = "<";
+//                }               
+//            }
+//
+//           Console.WriteLine(sign);     
+
  //Different approach compared to the previous problem
         
         //char[] delimiters = {' ', ','};
