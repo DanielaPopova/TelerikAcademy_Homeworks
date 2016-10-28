@@ -63,3 +63,65 @@ class BinarySearch
     }
 }
 
+// other solution
+
+//namespace Homeworks
+//{
+//    using System;
+
+//    class Program
+//    {
+//        static void Main()
+//        {
+//            int length = int.Parse(Console.ReadLine());
+//            int[] array = new int[length];
+
+//            for (int i = 0; i < length; i++)
+//            {
+//                array[i] = int.Parse(Console.ReadLine());
+//            }
+
+//            int searchedNumber = int.Parse(Console.ReadLine());
+//            int searchedIndex = 0;
+
+//            Array.Sort(array);
+
+//            int left = 0;
+//            int right = array.Length - 1;
+//            int middle = (left + right) / 2;
+//            bool found = false;
+
+//            while (left < right)
+//            {
+//                if (array[middle] < searchedNumber)
+//                {
+//                    left = middle + 1;
+//                }
+//                else if(array[middle] > searchedNumber)
+//                {
+//                    right = middle - 1;
+//                }
+//                else
+//                {
+//                    searchedIndex = middle;
+//                    found = true;
+//                    break;
+//                }
+
+//                for (int i = left; i < right; i++)
+//                {
+//                    if (array[i] == searchedNumber)
+//                    {
+//                        searchedIndex = i;
+//                        found = true;
+//                    }
+//                }
+
+//                middle = (left + right) / 2;
+//            }
+
+//            Console.WriteLine(found ? searchedIndex : -1);
+//        }
+//    }
+//}
+
