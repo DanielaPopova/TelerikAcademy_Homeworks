@@ -31,3 +31,36 @@ class PrimeNumbers
     }
 }
 
+// 100/100 bgcoder
+
+//namespace Homeworks
+//{
+//    using System;
+
+//    class Program
+//    {
+//        static void Main()
+//        {
+//            int length = int.Parse(Console.ReadLine());           
+
+//            byte[] isPrime = new byte[length + 1];
+//            int biggestPrime = 0;
+
+//            for (int i = 2; i <= length; i++)
+//            {
+//                if (isPrime[i] == 0)
+//                {
+//                    biggestPrime = i;
+
+//                    for (int j = i * 2; j <= length; j += i)
+//                    {
+//                        isPrime[j] = 1;
+//                    }
+//                }
+//            }
+
+//            Console.WriteLine(biggestPrime);
+//        }
+//    }
+//}
+
