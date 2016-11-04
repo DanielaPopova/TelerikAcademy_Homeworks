@@ -1,6 +1,0 @@
-C# AND .NET DIFFERENCES
-
-.NET Framework is a software framework developed by Microsoft that includes a large class library known as Framework Class Library
-(technologies such as ADO.NET, ASP.NET, LINQ, classes like System.Math, System.Net)and provides a software environment (Common Language Runtime)
-for execution of a program code written in a high-level programming language like C# for example. 
-So basically C# is a .NET based programming language. Other languages built on .NET Framework are F#, VB.NET, Managed C++.
