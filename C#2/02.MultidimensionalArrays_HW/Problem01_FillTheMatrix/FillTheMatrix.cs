@@ -2,34 +2,36 @@
 
 class FillTheMatrix
 {
-    static void Main()
+     static void Main(string[] args)
     {
-        int rows = int.Parse(Console.ReadLine());
-        int cols = rows;
+        int size = int.Parse(Console.ReadLine());
         char type = char.Parse(Console.ReadLine());
 
-        int[,] matrix = new int[rows, cols];
+        int[,] matrix = new int[size, size];
 
         int counter = 1;
 
         if (type == 'a')
-        {            
-            for (int col = 0; col < cols; col++)
-            {                
-                for (int row = 0; row < rows; row++)
+        { 
+            for (int col = 0; col < matrix.GetLength(1); col++)
+            {
+                for (int row = 0; row < matrix.GetLength(0); row++)
                 {
                     matrix[row, col] = counter;
                     counter++;
-                }                
+                }
             }
+
+            PrintMatrix(matrix);
         }
-        else if (type == 'b')
+
+        if (type == 'b')
         {
-            for (int col = 0; col < cols; col++)
+            for (int col = 0; col < size; col++)
             {
                 if (col % 2 == 0)
                 {
-                    for (int row = 0; row < rows; row++)
+                    for (int row = 0; row < size; row++)
                     {
                         matrix[row, col] = counter;
                         counter++;
@@ -37,21 +39,24 @@ class FillTheMatrix
                 }
                 else
                 {
-                    for (int row = rows - 1; row >= 0; row--)
+                    for (int row = size - 1; row >= 0; row--)
                     {
                         matrix[row, col] = counter;
                         counter++;
                     }
                 }
             }
+
+            PrintMatrix(matrix);
         }
-        else if (type == 'c')
-        {           
-            for (int i = rows - 1; i >= 0; i--)
+
+        if (type == 'c')
+        {
+            for (int i = size - 1; i >= 0; i--)
             {
                 int row = i;
                 int col = 0;
-                while (row < rows && col < cols)
+                while (row < size && col < size)
                 {
                     matrix[row, col] = counter;
                     counter++;
@@ -60,11 +65,11 @@ class FillTheMatrix
                 }
             }
 
-            for (int i = 1; i < rows; i++)
+            for (int i = 1; i < size; i++)
             {
-               int  row = i;
+                int row = i;
                 int col = 0;
-                while (row < rows && col < cols)
+                while (row < size && col < size)
                 {
                     matrix[col, row] = counter;
                     counter++;
@@ -72,23 +77,75 @@ class FillTheMatrix
                     col++;
                 }
             }
-        }
-        else if (type == 'd')
-        {
-            for (int col = 0; col < cols; col++)
-            {
-                for (int row = 0; row < rows; row++)
-                {
-                    
-                }
-            }
+
+            PrintMatrix(matrix);
         }
 
-        for (int row = 0; row < rows; row++)
+        if (type == 'd')
         {
-            for (int col = 0; col < cols; col++)
+            string direction = "down";
+            int currRow = 0;
+            int currCol = 0;
+
+            for (int i = 1; i <= size * size; i++)
             {
-                if (col == cols - 1)
+                if (direction == "down" && (currRow >= size || matrix[currRow, currCol] != 0))
+                {
+                    direction = "right";
+                    currRow--;
+                    currCol++;
+                }
+                else if (direction == "right" && (currCol >= size || matrix[currRow, currCol] != 0))
+                {
+                    direction = "up";
+                    currCol--;
+                    currRow--;
+                }
+                else if (direction == "up" && (currRow < 0 || matrix[currRow, currCol] != 0))
+                {
+                    direction = "left";
+                    currRow++;
+                    currCol--;
+                }
+                else if (direction == "left" && (currCol < 0 || matrix[currRow, currCol] != 0))
+                {
+                    direction = "down";
+                    currCol++;
+                    currRow++;
+                }
+
+                matrix[currRow, currCol] = i;
+
+                if (direction == "down")
+                {
+                    currRow++;
+                }
+                else if (direction == "right")
+                {
+                    currCol++;
+                }
+                else if (direction == "up")
+                {
+                    currRow--;
+                }
+                else if (direction == "left")
+                {
+                    currCol--;
+                }
+            }
+
+            PrintMatrix(matrix);
+        }
+
+    }
+
+    static void PrintMatrix(int[,] matrix)
+    {
+        for (int row = 0; row < matrix.GetLength(0); row++)
+        {
+            for (int col = 0; col < matrix.GetLength(1); col++)
+            {
+                if (col == matrix.GetLength(1) - 1)
                 {
                     Console.Write(matrix[row, col]);
                 }
@@ -97,80 +154,8 @@ class FillTheMatrix
                     Console.Write(matrix[row, col] + " ");
                 }
             }
+
             Console.WriteLine();
         }
     }
 }
-
-/*
-//Console.WriteLine("Enter positive integer number in range [1...20]");
-        int n = int.Parse(Console.ReadLine());
-
-        int[,] matrix = new int[n, n];
-
-        string direction = "right";
-
-        int currentRow = 0;
-        int currentCol = 0;
-
-        for (int i = 1; i <= n * n; i++)
-        {
-
-            if (direction == "right" && (currentCol >= n || matrix[currentRow, currentCol] != 0))
-            {
-                currentCol--;
-                currentRow++;
-                direction = "down";
-            }
-
-            else if (direction == "down" && (currentRow >= n || matrix[currentRow, currentCol] != 0))
-            {
-                currentRow--;
-                currentCol--;   
-                direction = "left";
-            }
-
-            else if (direction == "left" && (currentCol < 0 || matrix[currentRow, currentCol] != 0))
-            {
-                currentCol++;
-                currentRow--;
-                direction = "up";
-            }
-            else if (direction == "up" && (currentRow < 0 || matrix[currentRow, currentCol] != 0))
-            {
-                currentRow++;
-                currentCol++;
-                direction = "right";
-            }
-
-            matrix[currentRow, currentCol] = i;
-
-            if (direction == "right")
-            {
-                currentCol++;
-            }
-            else if (direction == "down")
-            {
-                currentRow++;
-            }
-            else if (direction == "left")
-            {
-                currentCol--;
-            }
-            else if (direction == "up")
-            {
-                currentRow--;
-            }
-        }
-
-        for (int i = 0; i < n; i++)
-        {
-            for (int j = 0; j < n; j++)
-            {
-                Console.Write(matrix[i,j] + " ");
-            }
-            Console.WriteLine();
-        } 
-    }
-}
-*/
