@@ -100,33 +100,74 @@ class NumberAsArray
 
 
 /*
-Number as array
-Description
+using System;
+using System.Collections.Generic;
 
-Write a method that adds two positive integer numbers represented as arrays of digits (each array element arr[i] contains a digit; the last digit is kept in arr[0]). Write a program that reads two arrays representing positive integers and outputs their sum.
+class Program
+{
+    static void Main()
+    {
+        string sizes = Console.ReadLine();
 
-Input
+        int sizeFirstArray = int.Parse(sizes.Split(' ')[0]);
+        int sizeSecondArray = int.Parse(sizes.Split(' ')[1]);
 
-On the first line you will receive two numbers separated by spaces - the size of each array
-On the second line you will receive the first array
-On the third line you will receive the second array
-Output
+        string[] firstArray = Console.ReadLine().Split(new char[]{ ' ' }, StringSplitOptions.RemoveEmptyEntries);
+        string[] secondArray = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
-Print the sum as an array of digits (as described)
-Digits should be separated by spaces
-Constraints
+        if (firstArray.Length > secondArray.Length)
+        {
+            secondArray = AdjustArrayLength(secondArray, sizeFirstArray);
+        }
+        else
+        {
+            firstArray = AdjustArrayLength(firstArray, sizeSecondArray);
+        }
 
-Each of the numbers that will be added could have up to 10 000 digits.
-Time limit: 0.1s
-Memory limit: 16MB
-Sample tests
+        List<string> result = SumArray(firstArray, secondArray);
+        Console.WriteLine(String.Join(" ", result));
 
-Input	    Output
-3 4
-8 3 3
-6 2 4 2	    4 6 7 2
+    }
 
-5 5
-0 3 9 3 2
-5 9 5 1 7	5 2 5 5 9
+    static string[] AdjustArrayLength(string[] array, int length)
+    {
+        List<string> adjustedList = new List<string>(array);
+
+        for (int i = array.Length; i < length; i++)
+        {
+            adjustedList.Add("0");
+        }
+
+        return adjustedList.ToArray();
+    }
+
+    static List<string> SumArray(string[] firstArray, string[] secondArray)
+    {
+        int length = firstArray.Length;
+        List<string> result = new List<string>();
+
+        int remainder = 0;
+
+        for (int i = 0; i < length; i++)
+        {
+            int firstArrayCurrentDigit = int.Parse(firstArray[i]);
+            int secondArrayCurrentDigit = int.Parse(secondArray[i]);
+
+            int sum = firstArrayCurrentDigit + secondArrayCurrentDigit + remainder;           
+
+            if (sum >= 10)
+            {
+                result.Add((sum % 10).ToString());
+                remainder = sum / 10;
+            }
+            else
+            {
+                result.Add(sum.ToString());
+                remainder = 0;
+            }
+        }
+
+        return result; 
+    }   
+}
 */

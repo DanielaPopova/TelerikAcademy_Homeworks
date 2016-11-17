@@ -14,7 +14,7 @@ class SortingArray
         }
 
         SortArray(array);
-  
+
     }
 
     static int FindMaxElementInRange(int[] array, int startIndex)
@@ -26,19 +26,18 @@ class SortingArray
             {
                 maxElement = array[i];
             }
-            startIndex++;
         }
 
         return maxElement;
     }
 
-    static int FindMaxIndex(int[] array) 
+    static int FindIndex(int[] array)
     {
         int maxIndex = 0;
         int maxElement = array[0];
         for (int i = 0; i < array.Length; i++)
         {
-            if (array[i] > maxElement )
+            if (array[i] > maxElement)
             {
                 maxElement = array[i];
                 maxIndex = i;
@@ -54,9 +53,9 @@ class SortingArray
 
         for (int i = 0; i < array.Length; i++)
         {
-            int maxIndex = FindMaxIndex(array);
+            int maxIndex = FindIndex(array);
             sortedArray[sortedArray.Length - 1 - i] = FindMaxElementInRange(array, 0);
-            array[maxIndex] = 0;
+            array[maxIndex] = int.MinValue;
         }
 
         for (int i = 0; i < sortedArray.Length; i++)
@@ -65,31 +64,62 @@ class SortingArray
         }
     }
 }
+/*using System;
 
-/*
-Sorting array
-Description
+class Program
+{
+    static void Main()
+    {
+        int size = int.Parse(Console.ReadLine());
+        string[] input = Console.ReadLine().Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
 
-Write a method that returns the maximal element in a portion of array of integers starting at given index. Using it write another method that sorts an array in ascending / descending order. Write a program that sorts a given array.
+        int[] numbers = new int[size];
 
-Input
+        for (int i = 0; i < size; i++)
+        {
+            numbers[i] = int.Parse(input[i]);
+        }
 
-On the first line you will receive the number N - the size of the array
-On the second line you will receive N numbers separated by spaces - the array
-Output
+        Array.Reverse(SortArrayDescending(numbers));
 
-Print the sorted array
-Elements must be separated by spaces
-Constraints
+        Console.WriteLine(String.Join(" ", numbers));
+    }
 
-1 <= N <= 1024
-Time limit: 0.1s
-Memory limit: 16MB
-Sample tests
+    static int[] MaxElementAndIndex(int[] array, int startIndex)
+    {
+        int[] result = new int[2];  //container for both maximal element and its index
 
-Input	                        Output
-6
-3 4 1 5 2 6	                    1 2 3 4 5 6
-10
-36 10 1 34 28 38 31 27 30 20	1 10 20 27 28 30 31 34 36 38
+        int maxElement = array[startIndex];
+        int maxElementIndex = startIndex;
+
+        for (int i = startIndex; i < array.Length; i++)
+        {
+            if (array[i] > maxElement)
+            {
+                maxElement = array[i];
+                maxElementIndex = i;
+            }
+        }
+
+        result[0] = maxElement;
+        result[1] = maxElementIndex;
+
+        return result;
+    }
+
+    static int[] SortArrayDescending(int[] array)
+    {
+        
+        for (int i = 0; i < array.Length; i++)
+        {
+            int[] elementAndIndex = MaxElementAndIndex(array, i);
+            int maxNum = elementAndIndex[0];
+            int maxNumIndex = elementAndIndex[1];
+            array[maxNumIndex] = array[i];
+            array[i] = maxNum;
+        }
+
+        return array;
+    }     
+}
 */

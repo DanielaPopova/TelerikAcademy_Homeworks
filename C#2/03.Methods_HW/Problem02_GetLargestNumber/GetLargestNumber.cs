@@ -30,26 +30,34 @@ class GetLargestNumber
 }
 
 /*
-Get largest number
-Description
+using System;
 
-Write a method GetMax() with two parameters that returns the larger of two integers.
-Write a program that reads 3 integers from the console and prints the largest of them using the method GetMax().
+class Program
+{
+    static void Main()
+    {
+        string[] numbers = Console.ReadLine().Split(' ');
+        long maxNum = long.MinValue;
 
-Input
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            maxNum = GetMax(maxNum, long.Parse(numbers[i].ToString()));
+        }
 
-On the first line you will receive 3 integers separated by spaces
-Output
+        Console.WriteLine(maxNum);
+    }
 
-Print the largest of them
-Constraints
-
-Time limit: 0.1s
-Memory limit: 16MB
-Sample tests
-
-Input	    Output
-8 3 6	    8
-7 19 19	    19
+    static long GetMax(long firstNum, long secondNum)
+    { 
+        if (firstNum >= secondNum)
+        {
+            return firstNum;
+        }
+        else
+        {
+            return secondNum;
+        }
+    }
+}
 */
 
