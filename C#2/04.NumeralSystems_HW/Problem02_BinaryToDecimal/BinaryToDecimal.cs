@@ -21,27 +21,29 @@ class BinaryToDecimal
 }
 
 /*
-Binary to decimal
-Description
+using System;
+using System.Numerics;
 
-Write a program that converts a binary number N to its decimal representation.
+class SortingArray
+{
+    static void Main()
+    {
+        string binary = Console.ReadLine();
+        Console.WriteLine(ConvertBinaryToDecimal(binary));        
+    }
 
-Input
+    static BigInteger ConvertBinaryToDecimal(string binary)
+    {        
+        BigInteger decimalNumber = 0;
 
-On the only line you will receive a binary number - N
-There will not be leading zeros
-Output
+        for (int i = 0; i < binary.Length; i++)
+        {
+            int currBit = binary[i] - '0';
+            decimalNumber = currBit + 2 * decimalNumber;
+        }
 
-Print the decimal representation of N on a single line
-There should not be leading zeros
-Constraints
-
-1 <= N <= 1018 = 110111100000101101101011001110100111011001000000000000000000(2)
-Time limit: 0.1s
-Memory limit: 16MB
-Sample tests
-
-Input	Output
-10011	19
+        return decimalNumber;
+    }
+}
 */
 

@@ -40,27 +40,39 @@ class HexadecimalTodecimal
 }
 
 /*
-Hexadecimal to decimal
-Description
+using System;
+using System.Numerics;
 
-Write a program that converts a hexadecimal number N to its decimal representation.
+class SortingArray
+{
+    static void Main()
+    {
+        string hexNumber = Console.ReadLine();
+        Console.WriteLine(ConvertHexToDecimal(hexNumber));
+    }
 
-Input
+    static BigInteger ConvertHexToDecimal(string hexNumber)
+    {
+        BigInteger decimalNumber = 0;
 
-On the only line you will receive a hexadecimal number - N
-There will not be leading zeros
-Letters will be uppercase
-Output
+        for (int i = 0; i < hexNumber.Length; i++)
+        {
+            string symbol = hexNumber[i].ToString();
 
-Print the decimal representation of N on a single line
-There should not be leading zeros
-Constraints
+            switch (symbol)
+            {
+                case "A": symbol = "10"; break;
+                case "B": symbol = "11"; break;
+                case "C": symbol = "12"; break;
+                case "D": symbol = "13"; break;
+                case "E": symbol = "14"; break;
+                case "F": symbol = "15"; break;                
+            }
 
-1 <= N <= 1018 = DE0B6B3A7640000(16)
-Time limit: 0.1s
-Memory limit: 16MB
-Sample tests
+            decimalNumber = int.Parse(symbol) + decimalNumber * 16;
+        }
 
-Input	Output
-13	    19
+        return decimalNumber;
+    }
+}
 */

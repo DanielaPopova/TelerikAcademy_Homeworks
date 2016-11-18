@@ -52,28 +52,46 @@ class DecimalToHexadecimal
 }
 
 /*
-Decimal to hexadecimal
-Description
+using System;
+using System.Numerics;
 
-Write a program that converts a decimal number N to its hexadecimal representation.
+class SortingArray
+{
+    static void Main()
+    {
+        BigInteger decimalNumber = BigInteger.Parse(Console.ReadLine());
+        Console.WriteLine(ConvertDecimalToHex(decimalNumber));
+    }
 
-Input
+    static string ConvertDecimalToHex(BigInteger decimalNumber)
+    {
+        string hexNumber = string.Empty;
 
-On the only line you will receive a decimal number - N
-There will not be leading zeros
-Output
+        if (decimalNumber == 0)
+        {
+            return "0";
+        }
 
-Print the hexadecimal representation of N on a single line
-There should not be leading zeros
-Use uppercase letters
-Constraints
+        while (decimalNumber > 0)
+        {
+            string remainder = ((int)(decimalNumber % 16)).ToString();
+            decimalNumber /= 16;
 
-1 <= N <= 1018
-Time limit: 0.1s
-Memory limit: 16MB
-Sample tests
+            switch (remainder)
+            {
+                case "10": remainder = "A";  break;
+                case "11": remainder = "B"; break;
+                case "12": remainder = "C"; break;
+                case "13": remainder = "D"; break;
+                case "14": remainder = "E"; break;
+                case "15": remainder = "F"; break;
+            }
 
-Input	Output
-19	    13
+            hexNumber = remainder + hexNumber;
+        }
+
+        return hexNumber;
+    }
+}
 */
 

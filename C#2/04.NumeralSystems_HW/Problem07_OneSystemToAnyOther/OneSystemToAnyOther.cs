@@ -1,4 +1,114 @@
 ﻿using System;
+using System.Numerics;
+
+class SortingArray
+{
+    static void Main()
+    {
+        int radix = int.Parse(Console.ReadLine());
+        string number = Console.ReadLine();
+        int toBase = int.Parse(Console.ReadLine());
+
+        BigInteger resultToDec = ConvertAnyToDec(number, radix);
+        Console.WriteLine(ConvertDecToAny(resultToDec, toBase));
+    }
+
+    static BigInteger ConvertAnyToDec(string number, int radix)
+    {
+        BigInteger decimalNum = 0;
+
+        for (int i = 0; i < number.Length; i++)
+        {
+            string currSymbol = number[i].ToString();
+
+            switch (currSymbol)
+            {
+                case "A": currSymbol = "10"; break;
+                case "B": currSymbol = "11"; break;
+                case "C": currSymbol = "12"; break;
+                case "D": currSymbol = "13"; break;
+                case "E": currSymbol = "14"; break;
+                case "F": currSymbol = "15"; break;
+                case "G": currSymbol = "16"; break;
+                case "H": currSymbol = "17"; break;
+                case "I": currSymbol = "18"; break;
+                case "J": currSymbol = "19"; break;
+                case "K": currSymbol = "20"; break;
+                case "L": currSymbol = "21"; break;
+                case "M": currSymbol = "22"; break;
+                case "N": currSymbol = "23"; break;
+                case "O": currSymbol = "24"; break;
+                case "P": currSymbol = "25"; break;
+                case "Q": currSymbol = "26"; break;
+                case "R": currSymbol = "27"; break;
+                case "S": currSymbol = "28"; break;
+                case "T": currSymbol = "29"; break;
+                case "U": currSymbol = "30"; break;
+                case "V": currSymbol = "31"; break;
+                case "W": currSymbol = "32"; break;
+                case "X": currSymbol = "33"; break;
+                case "Y": currSymbol = "34"; break;
+                case "Z": currSymbol = "35"; break;
+            }
+
+            decimalNum = int.Parse(currSymbol) + decimalNum * radix;
+        }
+
+        return decimalNum;
+    }
+
+    static string ConvertDecToAny(BigInteger decNumber, int toBase)
+    {
+        string numberToBase = string.Empty;
+
+        if (decNumber == 0)
+        {
+            return "0";
+        }
+
+        while (decNumber > 0)
+        {
+            string remainder = ((int)(decNumber % toBase)).ToString();
+            decNumber /= toBase;
+
+            switch (remainder)
+            {
+                case "10": remainder = "A"; break;
+                case "11": remainder = "B"; break;
+                case "12": remainder = "C"; break;
+                case "13": remainder = "D"; break;
+                case "14": remainder = "E"; break;
+                case "15": remainder = "F"; break;
+                case "16": remainder = "G"; break;
+                case "17": remainder = "H"; break;
+                case "18": remainder = "I"; break;
+                case "19": remainder = "J"; break;
+                case "20": remainder = "K"; break;
+                case "21": remainder = "L"; break;
+                case "22": remainder = "M"; break;
+                case "23": remainder = "N"; break;
+                case "24": remainder = "O"; break;
+                case "25": remainder = "P"; break;
+                case "26": remainder = "Q"; break;
+                case "27": remainder = "R"; break;
+                case "28": remainder = "S"; break;
+                case "29": remainder = "T"; break;
+                case "30": remainder = "U"; break;
+                case "31": remainder = "V"; break;
+                case "32": remainder = "W"; break;
+                case "33": remainder = "X"; break;
+                case "34": remainder = "Y"; break;
+                case "35": remainder = "Z"; break;
+            }                           
+
+            numberToBase = remainder + numberToBase;
+        }
+
+        return numberToBase;
+    }
+}
+
+/*using System;
 
 class OneSystemToAnyOther
 {
@@ -83,36 +193,5 @@ class OneSystemToAnyOther
         return resultToBase;
     }   
 }
-
-/*
-One system to any other
-Description
-
-Write a program to convert the number N from any numeral system
-of given base s to any other numeral system of base d.
-
-Input
-
-On the first line you will receive the number s
-On the second line you will receive a number in base s - N
-There will not be leading zeros
-On the third line you will receive the number d
-Output
-
-Print N in base d
-There should not be leading zeros
-Use uppercase letters
-Constraints
-
-2 <= s, d <= 16
-1 <= N <= 1018
-Time limit: 0.1s
-Memory limit: 16MB
-Sample tests
-
-Input	Output
-13
-16      21
-9	
 */
 

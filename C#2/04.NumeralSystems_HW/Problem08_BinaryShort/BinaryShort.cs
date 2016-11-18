@@ -1,74 +1,21 @@
 ﻿using System;
 
-class BinaryShort
+class SortingArray
 {
-    static void Main(string[] args)
+    static void Main()
     {
-        short number = short.Parse(Console.ReadLine());
-        if (number > 0)
-        {
-            Console.WriteLine(ConvertToBinaryPositive(number).PadLeft(16, '0'));            
-        }
-        else
-        {
-            Console.WriteLine(ConvertToBinaryNegative(number).PadLeft(16, '0'));
-        }
-    }
+        short signedShort = short.Parse(Console.ReadLine());
 
-    static string ConvertToBinaryPositive(short number) 
-    {
-        string binaryRep = String.Empty;
+        string binary = string.Empty;        
 
-        while (number > 0)
+        for (int i = 0; i < 16; i++)
         {
-            int remainder = number % 2;
-            number /= 2;
-            binaryRep = remainder.ToString() + binaryRep;
+            string sign = (signedShort & 1) == 0 ? "0" : "1";
+            binary = sign + binary;
+           
+            signedShort >>= 1;
         }
 
-        return binaryRep;
-    }
-
-    static string ConvertToBinaryNegative(short number)    //TODO
-    {
-        number = Math.Abs(number);
-        short one = 1;
-        short position = 15;
-        short mask = (short)(~(one << position));
-        short signedMagnitude = (short)(number & mask);
-        short onesCompliment = (short)~signedMagnitude;
-        short twosCompliment = (short)(onesCompliment + one);
-        string newNum = ConvertToBinaryPositive(twosCompliment);
-
-        return newNum;
-    }
-    
-    
-    //static string ConvertToBinary(short number)
-    //{
-    //    if (number > 0)
-    //    {
-    //        string binaryRep = String.Empty;
-
-    //        while (number > 0)
-    //        {
-    //            int remainder = number % 2;
-    //            number /= 2;
-    //            binaryRep = remainder.ToString() + binaryRep;            
-    //        }
-
-    //        return binaryRep;
-    //    }
-        //else if (number == 0)
-        //{
-        //    return new string('0', 16);
-        //}
-    //    else
-    //    {
-    //        string binaryRep = Convert.ToString(number, 2);
-    //        return binaryRep;
-    //    }
-
-    //}
+        Console.WriteLine(binary.PadLeft(16, '0'));
+    }   
 }
-
