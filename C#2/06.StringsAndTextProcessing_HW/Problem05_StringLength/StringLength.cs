@@ -4,21 +4,21 @@ class StringLength
 {
     static void Main()
     {
-        
-        string input = Console.ReadLine();
+        string text = Console.ReadLine();
 
-        if (input.Length >= 20)
+        if (text.Length < 20)
         {
-            Console.WriteLine(input);
+            for (int i = text.Length; i < 20; i++)
+            {
+                text += "*";
+            }
         }
-        else
-        {
-            input = input.Replace(@"\", String.Empty);
-            Console.WriteLine(input.PadRight(20, '*'));
-        }             
+
+        Console.WriteLine(text);
     }
 }
- /*
+
+/*
 Description
 
 Write a program that reads from the console a string of maximum 20 characters. If the length of the string is less than 20, the rest of the characters should be filled with *.
