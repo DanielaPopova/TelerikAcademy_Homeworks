@@ -25,23 +25,27 @@ class UnicodeCharacters
 }
 
 /*
-Description
 
-Write a program that converts a string to a sequence of C# Unicode character literals.
+//a little faster solution
 
-Input
+using System;
+using System.Text;
 
-On the only input line you will receive a string
-Output
+class Program
+{
+    static void Main()
+    {
+        string text = Console.ReadLine();
+        StringBuilder result = new StringBuilder();
 
-Print the string in C# Unicode character literals on a single line
-Constraints
+        for (int i = 0; i < text.Length; i++)
+        {
+            string unicode = "\\u" + ((int)text[i]).ToString("X4");
+            result.Append(unicode);
+        }
 
-Time limit: 0.1s
-Memory limit: 16MB
-Sample tests
-
-Input	    Output
-Hi!	        \u0048\u0069\u0021
+        Console.WriteLine(result);
+    }
+}
 */
 
