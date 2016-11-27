@@ -29,88 +29,59 @@ class ExtractSentences
 }
 
 /*
-Description
+using System;
 
-Write a program that extracts from a given text all sentences containing given word.
+class Program
+{
+    static void Main()
+    {
+        string word = Console.ReadLine();
+        string text = Console.ReadLine();
 
-Input
+        string[] sentences = text.Split(new char[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
 
-On the first line you will receive a string - the word
-On the second line you will receive a string - the text
-Output
-
-Print only the sentences containing the word on a single line
-Constraints
-
-Sentences are separated by . and the words – by non-letter symbols
-Time limit: 0.1s
-Memory limit: 16MB
-Sample tests
-
-Input	                                                                Output
-in
-We are living in a yellow submarine. We don't have anything else.       We are living in a yellow submarine. 
-Inside the submarine is very tight. So we are drinking all the day.     We will move out of it in 5 days.
-We will move out of it in 5 days.	                                   
-*/
-
-/*
- for (int i = 0; i < sentences.Length; i++)
+        for (int j = 0; j < sentences.Length; j++)
         {
-            string sentence = sentences[i];
-            string toLower = sentence.ToLower();
-            int startIndex = toLower.IndexOf(word);
+            string sentence = sentences[j].Trim();
             
-            for (int j = 0; j < toLower.Length; j++)
+            int index = sentence.IndexOf(word);
+
+            while (index != -1)
             {
-                while (startIndex != -1)
+                int indexBefore = index - 1;
+                int indexAfter = index + word.Length;
+
+                if (indexBefore == -1 && indexAfter == sentence.Length)
                 {
-                    string foundMatch = toLower.Substring(startIndex, word.Length);
+                    Console.Write(sentence + ". ");
+                    break;
+                }
 
-                    char symbolBefore = ' ';
-                    char symbolAfter = ' ';
-
-                    if ((startIndex - 1) < 0)
+                if ((indexBefore == -1 && Char.IsLetter(sentence[indexAfter])) ||
+                    (indexAfter == sentence.Length && Char.IsLetter(sentence[indexBefore])))
+                {
+                    index = sentence.IndexOf(word, index + 1);
+                    if (index == -1)
                     {
-                        symbolBefore = toLower[startIndex];
-                        if (!char.IsLetter(symbolBefore))
-                        {
-                            symbolBefore = 'a';
-                        }
-                    }
-                    else if ((startIndex + word.Length + 1) > sentence.Length)
-                    {
-                        symbolAfter = toLower[startIndex + word.Length - 1];
-                        if (!char.IsLetter(symbolAfter))
-                        {
-                            symbolAfter = 'a';
-                        }
-                    }
-                    else if ((startIndex - 1) < 0 && (startIndex + word.Length + 1) > sentence.Length)
-                    {
-                        symbolBefore = toLower[startIndex];
-                        symbolAfter = toLower[startIndex + word.Length - 1];
-                        if (!char.IsLetter(symbolBefore) && !char.IsLetter(symbolAfter))
-                        {
-                            symbolBefore = 'a';
-                            symbolAfter = 'a';
-                        }
+                        break;
                     }
                     else
                     {
-                        symbolBefore = toLower[startIndex - 1];
-                        symbolAfter = toLower[startIndex + word.Length];                        
+                        continue;
                     }
-
-                    if (!char.IsLetter(symbolBefore) && !char.IsLetter(symbolAfter))
-                    {
-                        Console.Write(sentence + ".");
-                    }
-                    
-                    startIndex = toLower.IndexOf(word, startIndex + 1);
                 }
-            }
+
+                if ((indexBefore == -1 && !Char.IsLetter(sentence[indexAfter])) ||
+                    (indexAfter == sentence.Length && !Char.IsLetter(sentence[indexBefore])) ||
+                    (!Char.IsLetter(sentence[indexBefore]) && !Char.IsLetter(sentence[indexAfter])))
+                {
+                    Console.Write(sentence + ". ");
+                    break;
+                }
+
+                index = sentence.IndexOf(word, index + 1);
+            }            
         }
+    }
+}                                   
 */
-
-
