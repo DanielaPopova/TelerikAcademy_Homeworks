@@ -1,4 +1,5 @@
-﻿using System;
+﻿// 70/100 timelimit/memory
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
