@@ -1,10 +1,9 @@
-﻿// 70/100
-using System;
+﻿using System;
 
 class SneakyTheSnake
 {
     static string[] directions;
-   
+
     static void Main()
     {
         string[] dimensions = Console.ReadLine().Split('x');
@@ -25,19 +24,17 @@ class SneakyTheSnake
         directions = Console.ReadLine().Split(',');
 
         int sneakyLength = 3;
-        int sneakyMoves = 1;
+        int sneakyMoves = 0;
 
         bool lostIntoDepths = false;
-        bool hitARock = false;
-        bool starveInDen = false;
-
+        
         char rock = '%';
         char egg = '@';
         char freeSpace = '-';
         char entrance = 'e';
 
         int startRow = 0;
-        int startCol = 0;        
+        int startCol = 0;
         for (int i = 0; i < cols; i++)
         {
             if (den[startRow, i] == entrance)
@@ -53,17 +50,6 @@ class SneakyTheSnake
         {
             string currDirection = directions[i];
 
-            if (sneakyMoves % 5 == 0)
-            {
-                sneakyLength--;
-                if (sneakyLength <= 0)
-                {
-                    starveInDen = true;
-                    Console.WriteLine("Sneaky is going to starve at [{0},{1}]", currRow, currCol);
-                    break;
-                }
-            }
-           
             switch (currDirection)
             {
                 case "s":
@@ -96,8 +82,7 @@ class SneakyTheSnake
                 break;
             }
             else if (den[currRow, currCol] == rock)
-            {
-                hitARock = true;
+            {                
                 Console.WriteLine("Sneaky is going to hit a rock at [{0},{1}]", currRow, currCol);
                 break;
             }
@@ -106,21 +91,28 @@ class SneakyTheSnake
                 sneakyLength++;
                 den[currRow, currCol] = freeSpace;
             }
-
-            sneakyMoves++;
-        }
-
-        if (!hitARock && !lostIntoDepths && !starveInDen)
-        {
-            if (den[currRow, currCol] == den[startRow, startCol])
+            else if (den[currRow, currCol] == den[startRow, startCol])
             {
                 Console.WriteLine("Sneaky is going to get out with length {0}", sneakyLength);
+                break;
             }
-            else if (den[currRow, currCol] != den[startRow, startCol])
+            else if (den[currRow, currCol] != den[startRow, startCol] && i == directions.Length - 1)
             {
                 Console.WriteLine("Sneaky is going to be stuck in the den at [{0},{1}]", currRow, currCol);
+                break;
             }
-        }
+
+            sneakyMoves++;
+
+            if (sneakyMoves % 5 == 0 && sneakyMoves > 0)
+            {
+                sneakyLength--;
+                if (sneakyLength <= 0)
+                {                    
+                    Console.WriteLine("Sneaky is going to starve at [{0},{1}]", currRow, currCol);
+                    break;
+                }
+            }
+        }       
     }
 }
-
