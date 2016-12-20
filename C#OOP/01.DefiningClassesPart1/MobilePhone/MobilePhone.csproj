@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{54206D79-2F5B-4820-9F1E-BCF815041893}</ProjectGuid>
+    <ProjectGuid>{C03A9F26-6771-4B5C-9380-2F008DA6AE9A}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MobilePhone</RootNamespace>
@@ -41,12 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Battery.cs" />
-    <Compile Include="Call.cs" />
-    <Compile Include="Display.cs" />
-    <Compile Include="GSM.cs" />
-    <Compile Include="GSMCallHistoryTest.cs" />
-    <Compile Include="GSMTest.cs" />
+    <Compile Include="Classes\Battery.cs" />
+    <Compile Include="Classes\Call.cs" />
+    <Compile Include="Classes\Display.cs" />
+    <Compile Include="Classes\GSM.cs" />
+    <Compile Include="Enums\BatteryType.cs" />
+    <Compile Include="StartUp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

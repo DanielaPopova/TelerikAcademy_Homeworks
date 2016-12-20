@@ -1,26 +1,19 @@
-﻿namespace MobilePhone
+﻿namespace MobilePhone.Classes
 {
     using System;
-    using System.Collections.Generic;
-    using System.Globalization;
+    using System.Text;
 
     public class Call
-    {        
+    {
         private string dialledPhoneNumber;
         private int duration;
 
-        public Call(DateTime dateTime)
-            : this(dateTime, null, 0)
+        public Call(DateTime dateTime, string dialledNum, int duration)
         {
-
-        }
-
-        public Call(DateTime dateTime, string diallednum, int duration)
-        {      
             // TODO: validate DateTime dateTime for right format
             this.Date = dateTime.ToString("dd.MM.yyyy");
             this.Time = dateTime.ToString("HH:mm:ss");
-            this.DialledPhoneNumber = diallednum;
+            this.DialledPhoneNumber = dialledNum;
             this.Duration = duration;
         }
 
@@ -41,7 +34,8 @@
                 {
                     throw new ArgumentException("Phone number is too short!");
                 }
-                else if (string.IsNullOrEmpty(value))
+
+                if (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
                 {
                     throw new ArgumentException("Please add information about the dialled phone number!");
                 }
@@ -62,7 +56,7 @@
                 if (value < 0)
                 {
                     throw new ArgumentException("Duration can't be negative!");
-                }               
+                }
 
                 this.duration = value;
             }
@@ -70,14 +64,14 @@
 
         public override string ToString()
         {
-            List<string> fullInfo = new List<string>();
+            StringBuilder fullInfo = new StringBuilder();
 
-            fullInfo.Add("Date: " + this.Date);
-            fullInfo.Add("Time: " + this.Time);
-            fullInfo.Add("Dialled phone number: " + this.DialledPhoneNumber);
-            fullInfo.Add("Duration: " + this.Duration);
+            fullInfo.Append("Date: " + this.Date + " // ")
+                    .Append("Time: " + this.Time + " // ")
+                    .Append("Dialled phone number: " + this.DialledPhoneNumber + " // ")
+                    .Append("Duration: " + this.Duration);
 
-            return string.Join("\t", fullInfo);
+            return fullInfo.ToString();
         }
     }
 }
