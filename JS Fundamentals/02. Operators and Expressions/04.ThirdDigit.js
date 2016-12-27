@@ -1,11 +1,12 @@
 function findThirdDigit(args) {
-	var number = +args[0];
-	var thitdDigit = ((number % 1000) / 100) | 0;
-	if (thitdDigit === 7) {
-		return true;
-	} else {
-		return false + ' ' + thitdDigit;
-	}
+    var number = +args[0],
+        thitdDigit = ((number % 1000) / 100) | 0;
+
+    if (thitdDigit === 7) {
+        return true;
+    } else {
+        return false + ' ' + thitdDigit;
+    }
 }
 
 console.log(findThirdDigit(['5']));

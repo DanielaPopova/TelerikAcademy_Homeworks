@@ -1,10 +1,10 @@
 function calculateTrapezoidArea(args) {
-	var sideA = +args[0],
-		sideB = +args[1],
-		height = +args[2];
-	var area = height*((sideA + sideB) / 2);
+    var sideA = +args[0],
+        sideB = +args[1],
+        height = +args[2];
+    var area = height * ((sideA + sideB) / 2);
 
-	return area.toFixed(7);
+    return area.toFixed(7);
 }
 
 console.log(calculateTrapezoidArea(['5', '7', '12']));

@@ -1,17 +1,19 @@
 function printThirdBit(number) {
-	var position = 3;
-	var thirdBit = (number & (1 << position)) >> position;
+    var position = 3;
+    var thirdBit = (number & (1 << position)) >> position;
 
-	return thirdBit;
+    return thirdBit;
 }
 
+console.log(printThirdBit(15));
+console.log(printThirdBit(1024));
+
+// Number as string
 var num = 15;
 console.log('Binary representation of ' + num);
 var n = num.toString(2);
 n = ('0000000000000000' + n).slice(-16);
 console.log(n);
-
-console.log(printThirdBit(15));
 
 // Using bitwise operators, write a javascript function(that accepts a single array with arguments as a parameter)
 // that uses an expression to find the value of the bit at index 3 of an unsigned integer read from the console.

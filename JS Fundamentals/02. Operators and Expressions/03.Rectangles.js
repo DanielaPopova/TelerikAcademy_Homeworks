@@ -1,9 +1,12 @@
 function calculateAreaPerimeter(args) {
-	var width = parseFloat(args[0]),
-		height = parseFloat(args[1]);		
-	var area = (width * height).toFixed(2);
-	var perimeter = (2 * height + 2 * width).toFixed(2);
-	console.log(area + ' ' + perimeter);
+    var width = parseFloat(args[0]),
+        height = parseFloat(args[1]);
+
+    var area = (width * height).toFixed(2);
+
+    var perimeter = (2 * height + 2 * width).toFixed(2);
+
+    console.log(area + ' ' + perimeter);
 }
 
 calculateAreaPerimeter(['2.5', '3']);

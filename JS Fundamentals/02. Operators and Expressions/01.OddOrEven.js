@@ -1,19 +1,18 @@
-function isOdd(number) {
-	var result;	
-	if (number % 2) {
-		result = 'odd' + ' ' + number;
-		return result;
-	} else {
-		result = 'even' + ' ' + number;
-		return result;
-	}
+function isOdd(args) {
+    var number = +args[0];
+
+    if (number % 2) {
+        return 'odd' + ' ' + number;
+    } else {
+        return 'even' + ' ' + number;
+    }
 }
 
-console.log(isOdd(3));
-console.log(isOdd(2));
-console.log(isOdd(-2));
-console.log(isOdd(-1));
-console.log(isOdd(0));
+console.log(isOdd(['3']));
+console.log(isOdd(['2']));
+console.log(isOdd(['-2']));
+console.log(isOdd(['-1']));
+console.log(isOdd(['0']));
 
 // Implement a javascript function that uses an expression to check if given integer is odd or even,
 // and prints "even NUMBER" or "odd NUMBER", where you should print the input number's value instead of NUMBER.

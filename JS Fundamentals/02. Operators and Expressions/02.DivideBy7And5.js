@@ -1,20 +1,18 @@
-function isDivisibleBy35(number) {
-	var result;
-	if (number % 35) {
-		result = false + ' ' + number;
-		return result;
-	} else {
-		result = true + ' ' + number;
-		return result;	
-	}
-}
+function isDivisibleBy35(args) {
+    var number = +args[0];
 
-console.log(isDivisibleBy35(3));
-console.log(isDivisibleBy35(0));
-console.log(isDivisibleBy35(5));
-console.log(isDivisibleBy35(7));
-console.log(isDivisibleBy35(35));
-console.log(isDivisibleBy35(140));
+    if (number % 35) {
+        return false + ' ' + number;
+    } else {
+        return true + ' ' + number;
+    }
+}
+console.log(isDivisibleBy35(['3']));
+console.log(isDivisibleBy35(['0']));
+console.log(isDivisibleBy35(['5']));
+console.log(isDivisibleBy35(['7']));
+console.log(isDivisibleBy35(['35']));
+console.log(isDivisibleBy35(['140']));
 
 // Implement a javascript function that does the following:
 
