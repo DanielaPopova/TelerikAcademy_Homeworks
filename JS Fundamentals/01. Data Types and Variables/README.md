@@ -25,7 +25,7 @@ Create null, undefined variables and try typeof on them.
 Try parsing the following strings to numbers using `parseInt`, `parseFloat`, `Number`, `+` and `| 0`. Fill the answers for yourself in the table below.
 
 | str                    |
-|:---------------------- |
+|:----------------------:|
 | '1234'                 |
 | '1238abc'              |
 | '0.15'                 |
@@ -69,11 +69,11 @@ Try parsing the following strings to numbers using `parseInt`, `parseFloat`, `Nu
 | Infinity |
 | 10^20    |
 
-| str | 0   |
-|:---------:|
-| 1234      |
-| 0         |
-| 0         |
-| 0         |
-| 0         |
-| 1661992960|
+| str | 0    |
+|:----------:|
+| 1234       |
+| 0          |
+| 0          |
+| 0          |
+| 0          |
+| 1661992960 |
