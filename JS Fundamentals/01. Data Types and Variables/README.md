@@ -69,7 +69,7 @@ Try parsing the following strings to numbers using `parseInt`, `parseFloat`, `Nu
 | Infinity |
 | 10^20    |
 
-| str | 0    |
+| `str | 0`  |
 |:----------:|
 | 1234       |
 | 0          |
