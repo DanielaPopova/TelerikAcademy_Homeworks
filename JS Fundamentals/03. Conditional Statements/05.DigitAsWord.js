@@ -1,5 +1,7 @@
-function printDigitAsWord(number) {
-	switch(+number) {
+function printDigitAsWord(args) {
+	var number = +args[0];
+
+	switch(number) {
 		case 0: return 'zero';
 		case 1: return 'one';
 		case 2: return 'two';
@@ -14,14 +16,14 @@ function printDigitAsWord(number) {
 	}
 } 
 
-console.log(printDigitAsWord(2));
-console.log(printDigitAsWord(1));
-console.log(printDigitAsWord(0));
-console.log(printDigitAsWord(5));
-console.log(printDigitAsWord(-0.1));
-console.log(printDigitAsWord('hi'));
-console.log(printDigitAsWord(9));
-console.log(printDigitAsWord(10));
+console.log(printDigitAsWord(['2']));
+console.log(printDigitAsWord(['1']));
+console.log(printDigitAsWord(['0']));
+console.log(printDigitAsWord(['5']));
+console.log(printDigitAsWord(['-0.1']));
+console.log(printDigitAsWord(['hi']));
+console.log(printDigitAsWord(['9']));
+console.log(printDigitAsWord(['10']));
 
 // Write a script that asks for a digit (0-9), and depending on the input, shows the digit as a word
 // (in English). Print not a digit in case of invalid input. Use a switch statement.

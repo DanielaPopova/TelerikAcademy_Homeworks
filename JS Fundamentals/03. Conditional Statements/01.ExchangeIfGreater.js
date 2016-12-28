@@ -1,14 +1,14 @@
 function exchangeNumbers(args) {
-	var tempNum,
-		firstNum = +args[0],
-		secondNum = +args[1];
-		
-	if (firstNum > secondNum) {
-		tempNum = firstNum;
-		firstNum = secondNum;
-		secondNum = tempNum;
-	}
-	return firstNum + ' ' + secondNum;
+    var tempNum,
+        firstNum = +args[0],
+        secondNum = +args[1];
+
+    if (firstNum > secondNum) {
+        tempNum = firstNum;
+        firstNum = secondNum;
+        secondNum = tempNum;
+    }
+    return firstNum + ' ' + secondNum;
 }
 
 console.log(exchangeNumbers(['5', '2']));
