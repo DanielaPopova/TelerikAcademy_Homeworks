@@ -1,28 +1,27 @@
+/*jshint esversion: 6 */
 function selectionSort(args) {
-    var i, j, len,
-        position = 0,
-        numbers = args[0].split('\n').map(Number);
-        smallest = Number.MAX_VALUE;
-        //numbers.shift();
-        
-    for (i = 0, len = numbers.length; i < len; i += 1) {
-      for (j = i + 1; j < len; j += 1) {
-          if (numbers[j] < smallest) {
-             smallest = numbers[j];
-             position = j;
+  let len = +args.shift(),
+      numbers = args.map(Number),
+      smallestNumber = Number.MAX_VALUE,
+      position = 0;      
+
+      for (let i = 0; i < len; i += 1) {
+          for (let j = i; j < len; j += 1) {
+              if (numbers[j] < smallestNumber) {
+                smallestNumber = numbers[j];
+                position = j;                
+              }
           }
-      }      
-      numbers.splice(position, 1);
-      numbers.unshift(smallest);      
-      smallest = Number.MAX_VALUE;
-    }
-    numbers.shift();
-    numbers.reverse();   
-    console.log(numbers.join('\n'));
+          numbers.splice(position, 1);
+          numbers.unshift(smallestNumber);          
+          smallestNumber = Number.MAX_VALUE;
+      }
+      numbers.reverse();
+      console.log(numbers.join('\n'));
 }
 
-selectionSort(['6\n3\n4\n1\n5\n2\n6']);
-selectionSort(['10\n36\n10\n1\n34\n28\n38\n31\n27\n30\n20']);
+selectionSort(['6', '3', '4', '1', '5', '2', '6']);
+selectionSort(['10', '36', '10', '1', '34', '28', '38', '31', '27', '30', '20']);
 
 /*
 Sorting an array means to arrange its elements in increasing order. Write a program to sort an array.
@@ -44,23 +43,29 @@ Time limit: 0.1s
 Memory limit: 16MB
 Sample tests
 
-Input   Output
-6       
-3       1 
-4       2 
-1       3 
-5       4 
-2       5 
-6       6
+Input   
+['6', '3', '4', '1', '5', '2', '6']
+
+Output
+1
+2
+3
+4
+5
+6
+
+Input
+['10', '36', '10', '1', '34', '28', '38', '31', '27', '30', '20']
+
+Output
+1
 10
-36      1
-10      10
-1       20
-34      27
-28      28
-38      30
-31      31
-27      34
-30      36
-20      38
+20
+27
+28
+30
+31
+34
+36
+38
 */

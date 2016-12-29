@@ -1,14 +1,15 @@
-function increaseArrayMembers(length) {
-  var i,
+function increaseArrayMembers(args) {
+  let length = +args[0],  
       array = [];
       
-  for (i = 0; i < length; i += 1) {
-    array[i] = i * 5;
-	  console.log(array[i]);
+  for (let i = 0; i < length; i += 1) {
+    array[i] = i * 5;	  
   }
+
+  return array.join('\n');
 }
 
-increaseArrayMembers(5);
+console.log(increaseArrayMembers(['5']));
 
 /*
 Write a program that allocates array of N integers, initializes each element by its index multiplied by 5 and the prints the obtained array on the console.
@@ -29,10 +30,10 @@ Memory limit: 16MB
 Sample tests
 
 Input	Output
-5		0
-		5
-		10
-		15
-		20
+5		  0
+	    5
+		  10
+		  15
+		  20
 
 */

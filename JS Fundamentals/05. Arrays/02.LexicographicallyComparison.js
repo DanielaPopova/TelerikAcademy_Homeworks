@@ -1,20 +1,28 @@
 function compareArrays(args) {
-  var i,
-      len,
-      words = args[0].split('\n'),
-      firstWord = words[0],
-      secondWord = words[1];
-       
-  if (firstWord > secondWord) {
-    return '>';
-  } else if (firstWord < secondWord) {
-    return '<';
-  } else {
-    return '=';
-  }
+    var firstWord = args[0],
+        secondWord = args[1];
+        
+    if (Array.isArray(firstWord)) {
+        firstWord = firstWord.join('');
+    }
+
+    if (Array.isArray(secondWord)) {
+        secondWord = secondWord.join('');
+    }
+
+    if (firstWord > secondWord) {
+        return '>';
+    } else if (firstWord < secondWord) {
+        return '<';
+    } else {
+        return '=';
+    }    
 }
 
-console.log(compareArrays(['hello\nhalo']));
+console.log(compareArrays([['h', 'e', 'l', 'l', 'o']]));
+console.log(compareArrays(['food', 'food']));
+console.log(compareArrays(['', 'b']));
+
 /*
 Write a program that compares two char arrays lexicographically (letter by letter).
 
@@ -34,10 +42,8 @@ Time limit: 0.1s
 Memory limit: 16MB
 Sample tests
 
-Input Output
-hello >
-halo  
-
-food  =         
-food  
+Input               Output
+['hello', 'halo']   >
+['food', 'food']    =
+ 
 */

@@ -1,27 +1,24 @@
-function maxSequence(args) {
-  var i, len,
-      count = 1,
-      maxCount = 0,
-      numbers = args[0].split('\n').map(Number);
-      console.log(numbers.length + ' mmm');
-  for (i = 1, len = numbers.length; i < len; i += 1) {
-    if (numbers[i] === numbers[i + 1]) {
-      count += 1;
-      if (count > maxCount) {
-        maxCount = count;
-      }
-    } else {
-      count = 1;
+function maximalSequence(params) {
+    let length = +params.shift(),
+        sequence = params.map(Number),
+        count = 1,
+        maxCount = 0;
+
+    for (let i = 0; i < sequence.length - 1; i += 1) {
+        if (sequence[i] === sequence[i + 1]) {
+            count += 1;
+            if (count > maxCount) {
+                maxCount = count;
+            }
+        } else {
+            count = 1;
+        }
     }
-  }
 
-  return maxCount;
+    return maxCount;
 }
-console.log(maxSequence(['10\n2\n1\n1\n2\n3\n3\n2\n2\n2\n1']));
-// if i = 0 -> it will count the first num inclusive, which is the length, not a part of the sequence!
-//console.log(maxSequence(['6\n6\n6\n1\n1\n1'])); -> counts 3 times 6, not 3 times 1
 
-
+console.log(maximalSequence(['10', '2', '1', '1', '2', '3', '3', '2', '2', '2', '1']));
 
 /*
 Write a program that finds the length of the maximal sequence of equal elements in an array of N integers.
@@ -40,16 +37,10 @@ Time limit: 0.1s
 Memory limit: 16MB
 Sample tests
 
-Input   Output
-10      3
-2
-1
-1
-2
+Input   
+['10', '2', '1', '1', '2', '3', '3', '2', '2', '2', '1']
+
+Output
 3
-3
-2
-2
-2
-1 
+
 */

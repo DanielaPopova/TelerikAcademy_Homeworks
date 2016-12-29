@@ -1,28 +1,33 @@
+// doesn't work if searchedNum occurs more than once in the sequence 90/100
 function binarySearch(args) {
-    var startIndex, endIndex, currIndex, currNum,
-      numbers = args[0].split('\n').map(Number);
-      numbers.shift();
-      searchedNum = numbers.pop();
-      startIndex = 0;
-      endIndex = numbers.length - 1;
+    let numbers = args.map(Number),
+        length = numbers.shift(),
+        searchedNum = numbers.pop(),
+        firstMet = false,
+        startIndex = 0,
+        endIndex = length - 1,
+        middleIndex;
 
-    while(startIndex <= endIndex){
-      currIndex = (startIndex + endIndex) / 2 | 0;
-      currNum = numbers[currIndex];
+    while (startIndex <= endIndex) {
+        middleIndex = (startIndex + endIndex) / 2 | 0;
+        
+        if (numbers[middleIndex] === searchedNum) {            
+            return middleIndex;            
+        }
 
-      if (numbers[startIndex] > searchedNum || numbers[endIndex] < searchedNum) {
-        return -1;
-      } else if (currNum > searchedNum) {
-        endIndex = currIndex - 1;
-      } else if (currNum < searchedNum) {
-        startIndex = currIndex + 1;
-      } else if (currNum === searchedNum){
-        return currIndex;
-      }       
-    }
+        if (numbers[startIndex] > searchedNum || numbers[endIndex] < searchedNum) {
+           return -1;
+        }
+
+        if (numbers[middleIndex] < searchedNum) {
+            startIndex = middleIndex + 1;
+        } else if (numbers[middleIndex] > searchedNum) {
+            endIndex = middleIndex - 1;
+        }        
+    }   
 }
 
-console.log(binarySearch(['10\n1\n2\n4\n8\n16\n32\n32\n64\n77\n99\n32']));
+console.log(binarySearch(['10', '1', '2', '4', '5', '16', '31', '32', '64', '77', '99', '32']));
 
 /*
 Write a program that finds the index of given element X in a sorted array of N integers by using the Binary search algorithm.
@@ -44,17 +49,10 @@ Time limit: 0.1s
 Memory limit: 16MB
 Sample tests
 
-Input   Output
-10
-1       6
-2
-4
-8
-16
-31
-32
-64
-77
-99
-32  
+Input
+['10', '1', '2', '4', '8', '16', '31', '32', '64', '77', '99', '32']
+
+Output
+6
+
 */

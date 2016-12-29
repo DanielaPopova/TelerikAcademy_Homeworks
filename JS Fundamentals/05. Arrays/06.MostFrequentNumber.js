@@ -1,27 +1,27 @@
 function mostFrequentNumber(args) {
-    var i, j, len, frequentNum, currNum,
-        count = 1,
-        maxCount = 1,
-        numbers = args[0].split('\n').map(Number);
-        numbers.shift();
-    
-    for (i = 0, len = numbers.length; i < len; i += 1) {
-        currNum = numbers[i];
-        for (j = i + 1; j < len; j += 1) {
+    let len = +args.shift(),
+        numbers = args.map(Number),
+        frequentNum,
+        maxCount = 0;
+
+    for (let i = 0; i < len; i += 1) {
+        let currNum = numbers[i],
+            count = 1;
+
+        for (let j = i + 1; j < len; j += 1) {
             if (currNum === numbers[j]) {
-              count += 1;
-              if (count > maxCount) {
-                maxCount = count;
-                frequentNum = currNum;
-              }
-            } 
+                count += 1;
+                if (count > maxCount) {
+                    maxCount = count;
+                    frequentNum = currNum;
+                }
+            }
         }
-        count = 1; 
     }
     return frequentNum + ' (' + maxCount + ' times)';
 }
 
-console.log(mostFrequentNumber(['13\n4\n1\n1\n4\n2\n3\n4\n4\n1\n2\n4\n9\n3']));
+console.log(mostFrequentNumber(['13', '4', '1', '1', '4', '2', '3', '4', '4', '1', '2', '4', '9', '3']));
 
 /*
 Write a program that finds the most frequent number in an array of N elements.
@@ -43,19 +43,10 @@ Time limit: 0.1s
 Memory limit: 16MB
 Sample tests
 
-Input   Output
-13      4 (5 times)
-4
-1
-1
-4
-2
-3
-4
-4
-1
-2
-4
-9
-3
+Input
+['13', '4', '1', '1', '4', '2', '3', '4', '4', '1', '2', '4', '9', '3']
+
+Output
+4 (5 times)
+
 */
