@@ -1,7 +1,7 @@
 function compareArrays(args) {
     var firstWord = args[0],
         secondWord = args[1];
-        
+
     if (Array.isArray(firstWord)) {
         firstWord = firstWord.join('');
     }
@@ -17,6 +17,12 @@ function compareArrays(args) {
     } else {
         return '=';
     }    
+}
+
+function compareArrays(args) {
+   
+
+    return '=';
 }
 
 console.log(compareArrays([['h', 'e', 'l', 'l', 'o']]));
