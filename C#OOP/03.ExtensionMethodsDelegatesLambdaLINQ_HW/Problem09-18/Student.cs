@@ -58,7 +58,7 @@
             {
                 if (value.Length < 2)
                 {
-                    throw new ArgumentException("Second name should be longer than 2 symbols!");
+                    throw new ArgumentException("Last name should be longer than 2 symbols!");
                 }
 
                 this.lastName = value;
@@ -76,7 +76,7 @@
             {
                 if (Math.Floor(Math.Log10(value) + 1) != 6)
                 {
-                    throw new ArgumentOutOfRangeException("Faculty number is 6-digit number");
+                    throw new ArgumentOutOfRangeException("Faculty number is a 6-digit number!");
                 }
 
                 this.facultyNumber = value;
@@ -96,7 +96,7 @@
             {
                 if (!value.Contains("@"))
                 {
-                    throw new ArgumentException("Wrong emaila address!");
+                    throw new ArgumentException("Wrong email address!");
                 }
 
                 this.email = value;

@@ -23,6 +23,9 @@
             var fblStudents = students
                 .Where(s => string.Compare(s.FirstName, s.LastName) < 0)
                 .ToArray();
+				
+			//var fblStudents = students
+            //    .Where(st => st.FirstName.CompareTo(st.LastName) == -1);
 
             foreach (var student in fblStudents)
             {

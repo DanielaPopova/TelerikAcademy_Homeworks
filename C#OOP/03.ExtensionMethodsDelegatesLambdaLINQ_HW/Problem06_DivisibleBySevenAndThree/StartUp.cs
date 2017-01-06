@@ -15,9 +15,9 @@
 
             foreach (var number in divisibleNumbers)
             {
-                Console.WriteLine(number + " ");
+                Console.Write(number + " ");
             }
-
+						
             Console.WriteLine("\nUsing LINQ query keywords");
 
             // using LINQ
@@ -28,7 +28,7 @@
 
             foreach (var number in divisibleWithLinq)
             {
-                Console.WriteLine(number + " ");
+                Console.Write(number + " ");
             }
         }
     }
