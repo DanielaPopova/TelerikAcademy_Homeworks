@@ -1,8 +1,10 @@
-﻿namespace Problem09_15.Extensions
+﻿namespace Problem09_18.Extensions
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
+
+    using Problem09_18.Models;
 
     public static class StudentListExtension
     {

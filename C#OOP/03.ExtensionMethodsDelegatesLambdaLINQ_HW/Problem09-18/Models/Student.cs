@@ -1,4 +1,4 @@
-﻿namespace Problem09_15
+﻿namespace Problem09_18.Models
 {
     using System;
     using System.Collections.Generic;

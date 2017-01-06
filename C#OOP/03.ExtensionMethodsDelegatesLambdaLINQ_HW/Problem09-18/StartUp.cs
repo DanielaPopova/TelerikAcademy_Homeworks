@@ -1,10 +1,12 @@
-﻿namespace Problem09_15
+﻿namespace Problem09_18
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using Problem09_15.Extensions;
 
+    using Problem09_18.Extensions;
+    using Problem09_18.Models;
+    
     public class StartUp
     {
         public static void Main()
