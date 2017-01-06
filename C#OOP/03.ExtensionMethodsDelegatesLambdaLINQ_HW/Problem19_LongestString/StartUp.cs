@@ -1,7 +1,6 @@
 ﻿namespace Problem17_LongestString
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
 
     public class StartUp
