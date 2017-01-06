@@ -17,7 +17,7 @@
                 new Student("Stoian", "Toshev", 659806, "0883224530", "st.toshev@yahoo.com", new List<int> { 2, 4, 6, 2, 2 }, 5),
                 new Student("Alex", "Dimov", 250115, "0888245666", "alex-dimovg@abv.bg", new List<int> { 4, 5, 6, 6, 3 }, 7),
             };
-            
+
             // task 9 - students from group 2, ordered by first name
             var groupTwoStudents = students
                 .Where(s => s.GroupNumber == 2)
@@ -35,9 +35,9 @@
 
             foreach (var student in groupTwo)
             {
-                Console.WriteLine("Name: " + student.FirstName + " " + student.LastName + " Group: " + student.GroupNumber);                
+                Console.WriteLine("Name: " + student.FirstName + " " + student.LastName + " Group: " + student.GroupNumber);
             }
-            
+
             Console.WriteLine(new string('-', 40));
 
             // task 11 - students with abv.bg mail
@@ -53,7 +53,7 @@
 
             // task 12 - extract students with phones in Sofia
             var sofiaStudents = students
-                .Where(s => s.PhoneNumber.StartsWith("02"));                                
+                .Where(s => s.PhoneNumber.StartsWith("02"));
 
             foreach (var student in sofiaStudents)
             {
@@ -79,7 +79,7 @@
 
             foreach (var student in studentsWithTwoMarksTwo)
             {
-                Console.WriteLine("Full Name: " + student.FirstName + " " + student.LastName  + " Marks: " + string.Join(" ", student.Marks));
+                Console.WriteLine("Full Name: " + student.FirstName + " " + student.LastName + " Marks: " + string.Join(" ", student.Marks));
             }
 
             Console.WriteLine(new string('-', 40));
@@ -101,7 +101,7 @@
             {
                 new Group(2, "Mathematics"),
                 new Group(10, "Criminology"),
-                new Group(5, "Genetics"),                
+                new Group(5, "Genetics"),
                 new Group(4, "Psychology")
             };
 
@@ -121,7 +121,7 @@
             }
 
             Console.WriteLine(new string('-', 40));
-            
+
             // task 18 - extract students grouped by group number
             var groupedNumberStudents = students
                 .GroupBy(s => s.GroupNumber)                        // .Select(gr => gr.Select(st => new {Group = gr.Key, Name = st.FirstName + " " + st.LastName}))

@@ -10,7 +10,7 @@
         public Group(int groupNum, string department)
         {
             this.GroupNumber = groupNum;
-            this.departmentName = department;
+            this.Department = department;
         }
 
         public int GroupNumber

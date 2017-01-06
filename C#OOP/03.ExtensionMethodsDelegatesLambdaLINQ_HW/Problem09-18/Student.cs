@@ -109,7 +109,7 @@
             {
                 if (this.marks.Count == 0)
                 {
-                    throw new ArgumentException("The student doesn't have marks");
+                    throw new ArgumentException("The student doesn't have marks!");
                 }
 
                 return this.marks;
@@ -121,7 +121,7 @@
                 {
                     if (mark < 2 || mark > 7)
                     {
-                        throw new ArgumentException("Student's mark are in range from 2 to 6");
+                        throw new ArgumentException("Student's mark are in range from 2 to 6!");
                     }
                 }
 
@@ -140,25 +140,13 @@
             {
                 if (value <= 0 || value >= 11)
                 {
-                    throw new ArgumentOutOfRangeException("Groups are numbered 1 to 10");
+                    throw new ArgumentOutOfRangeException("Groups are numbered 1 to 10!");
                 }
 
                 this.groupNumber = value;
             }
-        }        
-
-        public void Add(int mark)
-        {
-            if (mark < 2 || mark >= 7)
-            {
-                throw new ArgumentOutOfRangeException("Student's mark are in range from 2 to 6");
-            }
-            else
-            {
-                this.marks.Add(mark);
-            }
-        }
-
+        } 
+       
         public override string ToString()
         {
             StringBuilder info = new StringBuilder();
