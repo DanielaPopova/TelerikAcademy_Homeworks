@@ -116,6 +116,13 @@
                     FullName = student.FirstName + " " + student.LastName,
                     Department = someGroup.Department
                 };
+				
+			//var mathStudents = studentsList
+            //    .Where(student => student.GroupNumber == 2)
+            //    .Join(groups,
+            //          student => student.GroupNumber,
+            //          group => group.GroupNumber,
+            //          (student, group) => new { FullName = student.FirstName + " " + student.LastName, Group = group.DepartmentName });
 
             foreach (var student in mathStudents)
             {
