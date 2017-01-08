@@ -1,102 +1,54 @@
-// doesn't work if searchedNum occurs more than once in the sequence 90/100
-function solve(arr) {
-    var input = arr.map(Number),
-        find, len, i, j, left, right, found;
+// bgcoder 90/100
+function binarySearch(args) {
+    let numbers = args.map(Number),
+        length = numbers.shift(),
+        searchedNum = numbers.pop(),
+        firstMet = false,
+        startIndex = 0,
+        endIndex = length - 1,
+        middleIndex;
 
-    input.splice(0, 1);
-    len = input.length;
-    find = input.splice(len - 1, 1);
-    len -= 1;
-
-    input.sort(function (a, b) {
-        if (+a < +b) {
-            return -1;
-        } else if (+a > +b) {
-            return 1;
-        } else {
-            return 0;
-        }
+    // just in case
+    numbers.sort(function(a, b) {
+        return a - b;
     });
+        
+    while (startIndex <= endIndex) {
+        middleIndex = (startIndex + endIndex) / 2 | 0;
+        
+        if (numbers[middleIndex] === searchedNum) {
 
-    left = 0;
-    right = len - 1;
+            for (let i = 0; i < middleIndex; i++) {
+                if (numbers[i] === searchedNum) {
+                    return i;
+                }
+            }
 
-    function binarySearch(leftarg, rightarg) {
-        var leftIndex = +leftarg;
-        var rightIndex = +rightarg;
-
-        var mid = ((rightIndex - leftIndex) / 2 + leftIndex) | 0;
-
-        if (leftIndex === rightIndex) {
-            found = -1;
-            return;
+            return middleIndex;            
         }
 
-        if (+find === input[mid]) {
-            found = mid;
-            return;
-        } else if (+find < input[mid]) {
-            binarySearch(leftIndex, mid);
-        } else {
-            binarySearch(mid + 1, rightIndex);
+        if (numbers[startIndex] > searchedNum || numbers[endIndex] < searchedNum) {
+           return -1;
         }
-    }
 
-    binarySearch(left, right);
-
-    console.log(found);
+        if (numbers[middleIndex] < searchedNum) {
+            startIndex = middleIndex + 1;
+        } else if (numbers[middleIndex] > searchedNum) {
+            endIndex = middleIndex - 1;
+        }        
+    }   
 }
 
-// function binarySearch(args) {
-//     let numbers = args.map(Number),
-//         length = numbers.shift(),
-//         searchedNum = numbers.pop(),
-//         firstMet = false,
-//         startIndex = 0,
-//         endIndex = length - 1,
-//         middleIndex;
-
-//     // just in case
-//     numbers.sort(function(a, b) {
-//         return a - b;
-//     });
-        
-//     while (startIndex <= endIndex) {
-//         middleIndex = (startIndex + endIndex) / 2 | 0;
-        
-//         if (numbers[middleIndex] === searchedNum) {
-
-//             for (let i = 0; i < middleIndex; i++) {
-//                 if (numbers[i] === searchedNum) {
-//                     return i;
-//                 }
-//             }
-
-//             return middleIndex;            
-//         }
-
-//         if (numbers[startIndex] > searchedNum || numbers[endIndex] < searchedNum) {
-//            return -1;
-//         }
-
-//         if (numbers[middleIndex] < searchedNum) {
-//             startIndex = middleIndex + 1;
-//         } else if (numbers[middleIndex] > searchedNum) {
-//             endIndex = middleIndex - 1;
-//         }        
-//     }   
-// }
-
-solve(['10', '1', '2', '4', '8', '16', '31', '32', '64', '77', '99', '32']);
-solve(['11', '1', '2', '4', '8', '31', '31', '31', '64', '77', '99', '100','31']);
-solve(['11', '1', '2', '4', '8', '29', '30', '31', '31', '77', '99', '100','31']);
-solve(['11', '1', '2', '4', '31', '31', '32', '33', '34', '77', '99', '100','31']);
-solve(['10', '1', '2', '4', '8', '31', '31', '31', '64', '77', '99', '31']);
-solve(['10', '1', '2', '4', '8', '30', '31', '31', '64', '77', '99', '31']);
-solve(['10', '32', '32', '32', '32', '32', '32', '32', '32', '32', '32', '32']);
-solve(['2', '3', '3', '3']);
-solve(['1', '1', '1']);
-solve(['1', '1', '2']);
+console.log(binarySearch(['10', '1', '2', '4', '8', '16', '31', '32', '64', '77', '99', '32']));
+console.log(binarySearch(['11', '1', '2', '4', '8', '31', '31', '31', '64', '77', '99', '100','31']));
+console.log(binarySearch(['11', '1', '2', '4', '8', '29', '30', '31', '31', '77', '99', '100','31']));
+console.log(binarySearch(['11', '1', '2', '4', '31', '31', '32', '33', '34', '77', '99', '100','31']));
+console.log(binarySearch(['10', '1', '2', '4', '8', '31', '31', '31', '64', '77', '99', '31']));
+console.log(binarySearch(['10', '1', '2', '4', '8', '30', '31', '31', '64', '77', '99', '31']));
+console.log(binarySearch(['10', '32', '32', '32', '32', '32', '32', '32', '32', '32', '32', '32']));
+console.log(binarySearch(['2', '3', '3', '3']));
+console.log(binarySearch(['1', '1', '1']));
+console.log(binarySearch(['1', '1', '2']));
 
 
 
