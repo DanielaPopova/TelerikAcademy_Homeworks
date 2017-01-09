@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SchoolSystem.Models.Discipline" Collapsed="true">
+    <Position X="6" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAJAEAIAAAACAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>Models\Discipline.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="DisciplineName" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="SchoolSystem.Models.Person" Collapsed="true">
+    <Position X="4.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAEAAAAAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Person.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SchoolSystem.Models.School" Collapsed="true">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACABAABAQAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\School.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="classes" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="SchoolSystem.Models.SchoolClass" Collapsed="true">
+    <Position X="4.25" Y="1.5" Width="1.5" />
+    <AssociationLine Name="teachers" Type="SchoolSystem.Models.Teacher">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.88" Y="0.07" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAQgAAgAAAAAAAAAAAABAAAAAIAQAACAgI=</HashCode>
+      <FileName>Models\SchoolClass.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="students" />
+      <Field Name="teachers" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="SchoolSystem.Models.Student" Collapsed="true">
+    <Position X="3" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAQEAAAEAAAEAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Student.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SchoolSystem.Models.Teacher" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAEAAAAAECAAAAAAAAAAAAEAIAAAAA=</HashCode>
+      <FileName>Models\Teacher.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="disciplines" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Interface Name="SchoolSystem.Contracts.IComment" Collapsed="true">
+    <Position X="8" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contracts\IComment.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="SchoolSystem.Enumerations.DisciplineType" Collapsed="true">
+    <Position X="9" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAGQAAAABIEAAAIAAAAADAAAAACAAAACAQAAAAA=</HashCode>
+      <FileName>Enumerations\DisciplineType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
