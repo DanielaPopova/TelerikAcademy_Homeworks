@@ -71,6 +71,11 @@
                 new Dog("Willa", 12, GenderType.Female)
             };
 
+            foreach (var animal in animals)
+            {
+                Console.WriteLine(animal.MakeSound());
+            }
+
             double averageAnimal = animals
                 .Average(an => an.Age);
 

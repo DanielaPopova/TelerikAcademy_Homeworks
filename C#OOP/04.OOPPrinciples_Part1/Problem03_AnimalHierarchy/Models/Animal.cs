@@ -38,9 +38,6 @@
 
         public GenderType Gender { get; private set; }
 
-        public virtual string MakeSound()
-        {
-            return "Rrrrr!";
-        }
+        public abstract string MakeSound();       
     }
 }

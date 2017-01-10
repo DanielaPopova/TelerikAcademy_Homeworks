@@ -7,6 +7,7 @@
         public Cat(string name, double age, GenderType gender)
             : base(name, age, gender)
         {
-        }
+
+        }       
     }
 }
