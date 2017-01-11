@@ -2,8 +2,7 @@
 {
     using System;
     using System.Collections;
-    using System.Collections.Generic;    
-    using System.Text;
+    using System.Collections.Generic;
 
     public class BitArray64 : IEnumerable<int>
     {

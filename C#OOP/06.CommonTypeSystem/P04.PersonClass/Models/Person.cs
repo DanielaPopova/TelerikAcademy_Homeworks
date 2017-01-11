@@ -4,6 +4,9 @@
 
     public class Person
     {
+        private const int MinAge = 0;
+        private const int MaxAge = 110;
+
         private string name;
         private int? age;
 
@@ -35,9 +38,9 @@
 
             set
             {
-                if (value < 0 || value > 120)
+                if (value < MinAge || value > MaxAge)
                 {
-                    throw new ArgumentException("Invalid age range [0 - 110]");
+                    throw new ArgumentException(string.Format("Invalid age range [{0} - {1}]", MinAge, MaxAge));
                 }
 
                 this.age = value;

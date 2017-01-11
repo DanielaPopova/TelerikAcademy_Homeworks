@@ -10,7 +10,7 @@
             var ivan = new Person("Ivan Ivanov");
             Console.WriteLine(ivan);
 
-            var dima = new Person("Dima Koleva", 22);
+            var dima = new Person("Dima Koleva", 150);
             Console.WriteLine(dima);
         }
     }

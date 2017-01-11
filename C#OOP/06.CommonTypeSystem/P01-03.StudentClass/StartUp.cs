@@ -21,8 +21,27 @@
 
             // Equals()
             Console.WriteLine("\nTesting Equals()");
-            Console.WriteLine(mathStudent.MiddleName == itStudent.MiddleName);
-            Console.WriteLine(chemStudent.SocialSecurityNumber != busStudent.SocialSecurityNumber);
+
+            if (mathStudent.MiddleName == itStudent.MiddleName)
+            {
+                Console.WriteLine($"{mathStudent.FirstName} and {itStudent.FirstName} have the same middle name - {mathStudent.MiddleName}");
+            }
+            else
+            {
+                Console.WriteLine($"{mathStudent.FirstName} and {itStudent.FirstName} don't the same middle name!");
+                Console.WriteLine($"{mathStudent.FirstName}: {mathStudent.MiddleName}\n{itStudent.FirstName}: {itStudent.MiddleName}");
+
+            }
+
+            if (chemStudent.SocialSecurityNumber == busStudent.SocialSecurityNumber)
+            {
+                Console.WriteLine($"{chemStudent.FirstName} and {busStudent.FirstName} have the same social security number - {chemStudent.SocialSecurityNumber}");
+            }
+            else
+            {
+                Console.WriteLine($"{chemStudent.FirstName} and {busStudent.FirstName} dont't have the same social security number!");
+                Console.WriteLine($"{chemStudent.FirstName}: {chemStudent.SocialSecurityNumber}\n{busStudent.FirstName}: {busStudent.SocialSecurityNumber}");
+            }
 
             // GetHashCode()
             Console.WriteLine("\nTesting GetHashCode()");
@@ -37,10 +56,12 @@
             Student newItStudentWithClone = (Student)itStudent.Clone();
             newItStudentWithClone.FirstName = "Stoian";
             Console.WriteLine(newItStudentWithClone.FirstName.CompareTo(itStudent.FirstName) == 0 ? "names are equal - clone NOT successful!" : "names are not equal - successful clone!");
+            Console.WriteLine($"Clone: {newItStudentWithClone.FirstName} --- Original: {itStudent.FirstName}");
 
             Student newItStudentWithoutClone = itStudent;
             newItStudentWithoutClone.FirstName = "Alex";
             Console.WriteLine(newItStudentWithoutClone.FirstName.CompareTo(itStudent.FirstName) == 0 ? "names are equal - clone NOT successful!" : "names are not equal - successful clone!");
+            Console.WriteLine($"Clone: {newItStudentWithoutClone.FirstName} --- Original: {itStudent.FirstName}");
 
             // CompareTo()
             Console.WriteLine("\nTesting CompareTo()");
