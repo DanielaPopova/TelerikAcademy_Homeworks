@@ -1,6 +1,6 @@
 function solveRegex(args) {
-    var output = '';
-    var match = /<.*?>/ig;
+    let output = '',
+        match = /<.*?>/ig;
 
     for (var line of args) {
         output += line.replace(match, '').trim();
@@ -9,37 +9,43 @@ function solveRegex(args) {
     console.log(output);
 }
 
-solveRegex(['<html>', '  <head>', '    <title>Sample site</title>', '  </head>', '  <body>', '    <div>text', '      <div>more text</div>', ' and more...', '    </div>', '    in body', '  </body>', '</html>']);
+solveRegex(['<html>',
+            '  <head>',
+            '    <title>Sample site</title>',
+            '  </head>', '  <body>', '    <div>text',
+            '      <div>more text</div>',
+            ' and more...',
+            '    </div>',
+            '    in body',
+            '  </body>',
+            '</html>']);
 
 function solve(args) {
-  var i, j, len, currString, currSymbol,
-      input = args,
-      result = '',
-      startTag = false;      
-  
-  for (i = 0, len = input.length; i < len; i += 1) {
-      currString = input[i].trim();
-
-    for (j = 0; j < currString.length; j += 1) {
-      currSymbol = currString[j];
-
-      if (currSymbol === '<') {
-        startTag = true;
-        continue;
-      } else if (currSymbol === '>') {
+    let input = args,
+        result = '',
         startTag = false;
-        continue;
-      }
 
-      if (!startTag) {
-        result += currSymbol;
-      }
+    for (let i = 0, len = input.length; i < len; i += 1) {
+        let currString = input[i].trim();
+
+        for (let j = 0; j < currString.length; j += 1) {
+            let currSymbol = currString[j];
+
+            if (currSymbol === '<') {
+                startTag = true;
+                continue;
+            } else if (currSymbol === '>') {
+                startTag = false;
+                continue;
+            }
+
+            if (!startTag) {
+                result += currSymbol;
+            }
+        }
     }
-    
-  }
 
-  console.log(result);
-
+    console.log(result);
 }
 
 solve(['<html>', '  <head>', '    <title>Sample site</title>', '  </head>', '  <body>', '    <div>text', '      <div>more text</div>', ' and more...', '    </div>', '    in body', '  </body>', '</html>']);

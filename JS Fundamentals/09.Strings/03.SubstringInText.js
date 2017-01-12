@@ -1,10 +1,9 @@
 function solve(args) {
-  var i, len,
-      searched = args[0],
+  let searched = args[0],
       text = args[1];
       
-  var reg = new RegExp(searched,'gi');
-  var arrayWithAllMatches = text.match(reg);
+  let reg = new RegExp(searched,'gi'),
+      arrayWithAllMatches = text.match(reg);
   console.log(arrayWithAllMatches.length);
 }
 

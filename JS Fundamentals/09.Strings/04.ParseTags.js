@@ -1,64 +1,66 @@
 function solve(args) {
-  var i, len, up = false, low = false, org = false,  doNothing = false,
-      result = '',
-      input = args[0],
-      inTag = false,
-      currSymbol;
+    let input = args[0],
+        up = false,
+        low = false,
+        org = false,
+        doNothing = false,
+        result = '',
+        inTag = false;
 
-      input = input.replace(/\\/g, '');
-      //console.log(input);
+    input = input.replace(/\\/g, '');
+    //console.log(input);
 
-  for (i = 0, len = input.length; i < len; i += 1) {
-      currSymbol = input[i];
+    for (let i = 0, len = input.length; i < len; i += 1) {
+        let currSymbol = input[i];
 
-      if (currSymbol == '<') {
-        inTag = true;
-
-        if (input[i + 1] == '/') {
+        if (currSymbol == '<') {
             inTag = true;
-            doNothing = true;
+
+            if (input[i + 1] == '/') {
+                inTag = true;
+                doNothing = true;
+                continue;
+            }
+
+            if (input[i + 1] == 'u') {
+                up = true;
+                low = false;
+                org = false;
+            } else if (input[i + 1] == 'l') {
+                low = true;
+                up = false;
+                org = false;
+            } else if (input[i + 1] == 'o') {
+                org = true;
+                up = false;
+                low = false;
+            }
+            continue;
+        } else if (currSymbol == '>') {
+            inTag = false;
+            if (doNothing) {
+                up = false;
+                low = false;
+                org = false;
+            }
+            doNothing = false;
             continue;
         }
 
-        if (input[i + 1] == 'u') {
-            up = true;
-            low = false;
-            org = false;
-        } else if (input[i + 1] == 'l') {
-            low = true;
-            up = false;
-            org = false;
-        } else if (input[i + 1] == 'o') {
-          org = true;
-          up = false;
-          low = false;
-        }
-        continue;
-      } else if (currSymbol == '>') {
-        inTag = false;
-        if (doNothing) {
-          up = false;
-          low = false;
-          org = false;
-        }
-        doNothing = false;
-        continue;
-      } 
-
-      if (inTag) {
-        continue;
-      } else{
-        if (up) {
-          result += currSymbol.toUpperCase();
-        } else if (low) {
-          result += currSymbol.toLowerCase();
-        } else if (org) {
-          result += currSymbol;
+        if (inTag) {
+            continue;
         } else {
-          result += currSymbol;
+            if (up) {
+                result += currSymbol.toUpperCase();
+            } else if (low) {
+                result += currSymbol.toLowerCase();
+            } else if (org) {
+                result += currSymbol;
+            } else {
+                result += currSymbol;
+            }
         }
-      }
-  }
+    }
 
   return result;
 }

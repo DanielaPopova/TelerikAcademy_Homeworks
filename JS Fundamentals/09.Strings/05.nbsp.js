@@ -1,6 +1,6 @@
 function solve(args) {
-  var text = args[0],
-    result;
+  let text = args[0],
+      result;
 
   result = text.replace(/\s/g, '&nbsp;');
   console.log(result);
@@ -11,11 +11,10 @@ solve(['This text contains 4 spaces!!']);
 
 
 function withoutRegex(args) {
-  var i, len,
-    result = '';
-  text = args[0];
+  let result = '',
+      text = args[0];
 
-  for (i = 0, len = text.length; i < len; i += 1) {
+  for (let i = 0, len = text.length; i < len; i += 1) {
     result += text[i] === ' ' ? '&nbsp;' : text[i];
   }
 
@@ -24,6 +23,7 @@ function withoutRegex(args) {
 
 withoutRegex(['hello world']);
 withoutRegex(['This text contains 4 spaces!!']);
+
 /*
 Write a function that replaces non breaking white-spaces in a text with &nbsp.
 

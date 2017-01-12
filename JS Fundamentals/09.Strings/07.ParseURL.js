@@ -1,9 +1,9 @@
 function solve(args) {
-  var i, len, start, end,
-    protocol = '',
-    server = '',
-    resource = '',
-    input = args[0];
+  let start, end,
+      protocol = '',
+      server = '',
+      resource = '',
+      input = args[0];
 
   protocol = input.substring(0, input.indexOf(':'));
 
