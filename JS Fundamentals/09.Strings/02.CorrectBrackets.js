@@ -1,11 +1,11 @@
 function solve(args) {
-  var i, len, symbol, firstOpenIndex, firstCloseIndex,
+  let symbol, firstOpenIndex, firstCloseIndex,
       openBracketCount = 0,
       closeBracketCount = 0,
       isClosed = false,
       expression = args[0];
 
-  for (i = 0, len = expression.length; i < len; i += 1) {
+  for (let i = 0, len = expression.length; i < len; i += 1) {
     symbol = expression[i];
     
     if (symbol === '(') {
@@ -34,6 +34,11 @@ solve(['((a+b)/5-d)']);
 solve([')(a+b))']);
 solve([')(a+b)(']); // without isCLosed that expressions would be Correct according to bgcoder
 solve([')((a+b)']); // without firstOpenIndex/firstCloseIndex - again Correct
+solve(['))a + b((']);
+solve(['(a+b)+d)+(b*(a * c)']);
+solve([')(a+b))']);
+solve(['(a+b+(b*c)+(d/s) + (-5)) + (7)(6)']);
+
 
 /*
 Write a JavaScript function to check if in a given expression the brackets are put correctly.
