@@ -1,43 +1,43 @@
 function solve(args) {
-  let symbol, firstOpenIndex, firstCloseIndex,
-      openBracketCount = 0,
-      closeBracketCount = 0,
-      isClosed = false,
-      expression = args[0];
+    let expression = args[0],
+        firstOpenIndex, firstCloseIndex,
+        openBracketCount = 0,
+        closeBracketCount = 0,
+        isClosed = false;
 
-  for (let i = 0, len = expression.length; i < len; i += 1) {
-    symbol = expression[i];
-    
-    if (symbol === '(') {
-      openBracketCount += 1;
-      isClosed = false;
-      if (openBracketCount === 1) {
-          firstOpenIndex = i;
-      }
-    } else if(symbol === ')'){
-      closeBracketCount += 1;
-      isClosed = true;
-      if (closeBracketCount === 1) {
-        firstCloseIndex = i;
-      }
+    for (let i = 0, len = expression.length; i < len; i += 1) {
+        let symbol = expression[i];
+
+        if (symbol === '(') {
+            openBracketCount += 1;
+            isClosed = false;
+            if (openBracketCount === 1) {
+                firstOpenIndex = i;
+            }
+        } else if (symbol === ')') {
+            closeBracketCount += 1;
+            isClosed = true;
+            if (closeBracketCount === 1) {
+                firstCloseIndex = i;
+            }
+        }
     }
-  }  
 
-  if (openBracketCount === closeBracketCount && isClosed && firstOpenIndex < firstCloseIndex) {
-    console.log('Correct');
-  } else {
-    console.log('Incorrect');
-  }
+    if (openBracketCount === closeBracketCount && isClosed && firstOpenIndex < firstCloseIndex) {
+        console.log('Correct');
+    } else {
+        console.log('Incorrect');
+    }
 }
 
 solve(['((a+b)/5-d)']);
 solve([')(a+b))']);
-solve([')(a+b)(']); // without isCLosed that expressions would be Correct according to bgcoder
-solve([')((a+b)']); // without firstOpenIndex/firstCloseIndex - again Correct
+solve([')(a+b)(']);
+solve([')((a+b)']);
 solve(['))a + b((']);
-solve(['(a+b)+d)+(b*(a * c)']);
+solve(['(a+b)+d+)(b( * c)']);
 solve([')(a+b))']);
-solve(['(a+b+(b*c)+(d/s) + (-5)) + (7)(6)']);
+solve(['(a+b+(b*c)+(d/s) + (-5)) + ()()']);
 
 
 /*
