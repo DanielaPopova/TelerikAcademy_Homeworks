@@ -30,15 +30,15 @@ function solve(args) {
     }
 }
 
-solve(['((a+b)/5-d)']);
-solve([')(a+b))']);
-solve([')(a+b)(']);
-solve([')((a+b)']);
-solve(['))a + b((']);
-solve(['(a+b)+d+)(b( * c)']);
-solve([')(a+b))']);
-solve(['(a+b+(b*c)+(d/s) + (-5)) + ()()']);
-
+solve(['((a+b)/5-d)']);  //correct
+solve([')(a+b))']);  //incorrect
+solve([')(a+b)(']);  //incorrect
+solve([')((a+b)']);  //incorrect
+solve(['))a + b((']);  //incorrect
+solve(['(a+b)+d+)(b( * c)']);  //correct - obviously not
+solve([')(a+b))']);  //incorrect
+solve(['(a+b+(b*c)+(d/s) + (-5)) + ()()']); //correct
+solve(['((a + (b * c))*(())']); // incorrect
 
 /*
 Write a JavaScript function to check if in a given expression the brackets are put correctly.
