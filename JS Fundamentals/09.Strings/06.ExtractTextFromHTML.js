@@ -2,7 +2,7 @@ function solveRegex(args) {
     let output = '',
         match = /<.*?>/ig;
 
-    for (var line of args) {
+    for (let line of args) {
         output += line.replace(match, '').trim();
     }
 
@@ -19,36 +19,6 @@ solveRegex(['<html>',
             '    in body',
             '  </body>',
             '</html>']);
-
-function solve(args) {
-    let input = args,
-        result = '',
-        startTag = false;
-
-    for (let i = 0, len = input.length; i < len; i += 1) {
-        let currString = input[i].trim();
-
-        for (let j = 0; j < currString.length; j += 1) {
-            let currSymbol = currString[j];
-
-            if (currSymbol === '<') {
-                startTag = true;
-                continue;
-            } else if (currSymbol === '>') {
-                startTag = false;
-                continue;
-            }
-
-            if (!startTag) {
-                result += currSymbol;
-            }
-        }
-    }
-
-    console.log(result);
-}
-
-solve(['<html>', '  <head>', '    <title>Sample site</title>', '  </head>', '  <body>', '    <div>text', '      <div>more text</div>', ' and more...', '    </div>', '    in body', '  </body>', '</html>']);
 
 /*
 Write a function that extracts the content of a html page given as text.
