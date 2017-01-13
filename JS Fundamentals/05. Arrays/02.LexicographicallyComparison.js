@@ -19,13 +19,7 @@ function compareArrays(args) {
     }    
 }
 
-function compareArrays(args) {
-   
-
-    return '=';
-}
-
-console.log(compareArrays([['h', 'e', 'l', 'l', 'o']]));
+console.log(compareArrays(['hello', 'halo']));
 console.log(compareArrays(['food', 'food']));
 console.log(compareArrays(['', 'b']));
 
