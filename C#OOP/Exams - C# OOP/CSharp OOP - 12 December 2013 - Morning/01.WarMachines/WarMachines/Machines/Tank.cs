@@ -14,7 +14,7 @@
         public Tank(string name, double attackPoints, double defensePoints)
             : base(name, attackPoints, defensePoints, InitialHealthPoints)
         {
-			this.ToggleDefenseMode();
+	     this.ToggleDefenseMode();
         }
 
         public bool DefenseMode { get; private set; }       
