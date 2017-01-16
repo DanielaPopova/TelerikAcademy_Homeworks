@@ -12,7 +12,7 @@
 
         private string name;
         private IPilot pilot;       
-        private ICollection<string> targets;
+        private IList<string> targets;
 
         protected  Machine(string name, double attackPoints, double defensePoints, double healthPoints)
         {
@@ -63,7 +63,8 @@
         {
             get
             {
-                // return this.targets -> basically I allow for everyone to change my list by using all built-in List methods
+                //-> basically I allow for everyone to change my list by using all built-in List methods
+                //return this.targets; 
                 return new List<string>(this.targets);
             }
         }
