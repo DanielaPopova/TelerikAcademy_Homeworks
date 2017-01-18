@@ -8,8 +8,7 @@
         public static void Main()
         {
             WarMachineEngine.Instance.Start();
-
-            /*
+           
             //testing return this.targets / new List<string>(this.targets)
             var machine = new Tank("T12", 20, 50);
             machine.Attack("blue");
@@ -19,10 +18,11 @@
             {
                 System.Console.WriteLine(target);
             }
-          //output from return this.targets-> blue, yellow, pink
-          //output from return this.targets-> blue, yellow, pink, when this.targets is readonly
-          //output from return new List<targets> - > blue, yellow
-          */
+            //output from return this.targets->blue, yellow, pink
+            // output from return this.targets->blue, yellow, pink, when this.targets is readonly
+            //output from return new List<targets> - > blue, yellow
+
+
         }
     }
 }
