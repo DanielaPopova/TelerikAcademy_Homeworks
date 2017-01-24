@@ -12,7 +12,7 @@
     {
         public static void Main()
         {
-            //testing classes
+            //testing Schoolsystem classes
             var sou7 = new School("7mo SOU");
 
             var oop = new Course("C# OOP");
