@@ -1,4 +1,3 @@
-// bgcoder 90/100
 function binarySearch(args) {
     let numbers = args.map(Number),
         length = numbers.shift(),
