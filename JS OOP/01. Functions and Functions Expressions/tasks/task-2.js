@@ -1,50 +1,47 @@
-/* Task description */
-/*
-	Write a function that finds all the prime numbers in a range
-		1) it should return the prime numbers in an array
-		2) it must throw an Error if any on the range params is not convertible to `Number`
-		3) it must throw an Error if any of the range params is missing
-*/
+let result = function solve() {
+    
+  return function findPrimes(start, end) {
 
-function findPrimes(start, end) {
-	 if (arguments.length < 2) {
-      throw new Error('Both parameters should be present!');
-   }
+        if (arguments.length < 2) {
+            throw new Error('Both parameters should be present!');
+        }
 
-   if (isNaN(start) || isNaN(end)) {
-      throw new Error('Both parameters should be numbers!');
-   }
+        if (isNaN(start) || isNaN(end)) {
+            throw new Error('Both parameters should be numbers!');
+        }
 
-   var primeNums = [];
+        let primeNums = [];
 
-   for (var i = start; i <= end; i += 1) {
-       if (isPrime(i)) {
-          primeNums.push(i);
-       }
-   }
+        for (let i = +start; i <= +end; i += 1) {
+            if (isPrime(i)) {
+                primeNums.push(i);
+            }
+        }
 
-   return primeNums;
+        return primeNums;
 
-   function isPrime(number) {
+        function isPrime(number) {
 
-      if (number < 2) {
-          return false;
-       }
+            if (number < 2) {
+                return false;
+            }
 
-       var maxDivisor = Math.floor(Math.sqrt(number));
+            let maxDivisor = Math.floor(Math.sqrt(number));
 
-       for (var i = 2; i <= maxDivisor; i += 1) {
-           if (number % i === 0) {
-              return false;
-           }
-       }
+            for (let i = 2; i <= maxDivisor; i += 1) {
+                if (number % i === 0) {
+                    return false;
+                }
+            }
 
-       return true;       
-   }
+            return true;
+        }
+    };
+}();
 
-}
 
-//console.log(findPrimes(1, 5));
-//console.log(findPrimes());
+console.log(result(1, 5));
+console.log(result(1));
+console.log(result());
 
-module.exports = findPrimes;
+//module.exports = findPrimes;
