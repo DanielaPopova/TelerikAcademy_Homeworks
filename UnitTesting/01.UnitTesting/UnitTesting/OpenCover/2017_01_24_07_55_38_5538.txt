@@ -1,2 +1,0 @@
-Deck.Test.DeckTests.DeckConstructor_TrumpCard_ShouldNotBeNull
-Deck.Test.DeckTests.CardsLeft_ShouldBe24

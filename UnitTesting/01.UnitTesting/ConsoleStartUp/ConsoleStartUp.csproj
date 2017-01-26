@@ -50,8 +50,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SchoolSystem\SchoolSystem.csproj">
-      <Project>{40aa1dd7-dbe5-4afb-b17e-c81d906186aa}</Project>
+    <ProjectReference Include="..\Task_01\SchoolSystem\SchoolSystem.csproj">
+      <Project>{40AA1DD7-DBE5-4AFB-B17E-C81D906186AA}</Project>
       <Name>SchoolSystem</Name>
     </ProjectReference>
   </ItemGroup>

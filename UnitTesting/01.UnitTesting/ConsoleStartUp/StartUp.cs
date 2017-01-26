@@ -6,7 +6,7 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    using SchoolSystem.Models;
+    using SchoolSystem.Models;    
 
     public class StartUp
     {
