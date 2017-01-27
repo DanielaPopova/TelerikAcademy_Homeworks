@@ -106,3 +106,34 @@ function solve() {
 }
 
 module.exports = solve;
+
+// testing library
+var book = {
+    title: 'the good parts',
+    isbn: '1234567890',
+    author: 'Crockford',
+    category: 'javascript'
+};
+
+var book1 = {
+    title: 'the art of unit testing',
+    isbn: '5456897456321',
+    author: 'Osherove',
+    category: 'c#'
+};
+
+var testCategory = {    
+    category: 'javascript'    
+};
+
+var testAuthor = {    
+    author: 'Osherove'    
+};
+
+var library = solve();
+library.books.add(book);
+library.books.add(book1);
+
+console.log(library.books.list(testCategory));
+console.log(library.books.list(testAuthor));
+console.log(library.categories.list());
