@@ -137,3 +137,16 @@ library.books.add(book1);
 console.log(library.books.list(testCategory));
 console.log(library.books.list(testAuthor));
 console.log(library.categories.list());
+/* ------OUTPUT------
+[ { title: 'the good parts',
+    isbn: '1234567890',
+    author: 'Crockford',
+    category: 'javascript',
+    ID: 1 } ]
+[ { title: 'the art of unit testing',
+    isbn: '5456897456321',
+    author: 'Osherove',
+    category: 'c#',
+    ID: 2 } ]
+[ 'javascript', 'c#' ]
+*/
