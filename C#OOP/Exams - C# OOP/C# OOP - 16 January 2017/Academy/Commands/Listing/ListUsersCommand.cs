@@ -1,6 +1,8 @@
 ﻿namespace Academy.Commands.Listing
 {
+    using System;
     using System.Collections.Generic;
+    using System.Text;
 
     using Models.Contracts;
     using Contracts;
@@ -16,15 +18,30 @@
             this.factory = factory;
             this.engine = engine;
         }
-
-        //TODO: Implement
+       
         public string Execute(IList<string> parameters)
         {
-            var seasonId = parameters[0];
-            var season = this.engine.Seasons[int.Parse(seasonId)];
+            var students = this.engine.Students;
+            var trainers = this.engine.Trainers;
 
-            return season.ListCourses().TrimEnd();
+            if (students.Count == 0 && trainers.Count == 0)
+            {
+                throw new ArgumentException("There are no registered users!");
+            }
+
+            var info = new StringBuilder();
+
+            foreach (var trainer in trainers)
+            {
+                info.AppendLine(trainer.ToString());
+            }
+
+            foreach (var student in students)
+            {
+                info.AppendLine(student.ToString());
+            }
+
+            return info.ToString().TrimEnd();
         }
-
     }
 }
