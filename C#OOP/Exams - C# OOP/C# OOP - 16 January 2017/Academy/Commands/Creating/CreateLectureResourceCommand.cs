@@ -4,12 +4,12 @@ using System.Collections.Generic;
 
 namespace Academy.Commands.Creating
 {
-    public class CreateLectureResouceCommand : ICommand
+    public class CreateLectureResourceCommand : ICommand
     {
         private readonly IAcademyFactory factory;
         private readonly IEngine engine;
 
-        public CreateLectureResouceCommand(IAcademyFactory factory, IEngine engine)
+        public CreateLectureResourceCommand(IAcademyFactory factory, IEngine engine)
         {
             this.factory = factory;
             this.engine = engine;
@@ -31,8 +31,8 @@ namespace Academy.Commands.Creating
             var lecture = course
                 .Lectures[int.Parse(lectureId)];
 
-            var lectureResouce = this.factory.CreateLectureResouce(type, name, url);
-            lecture.Resources.Add(lectureResouce);
+            var lectureResource = this.factory.CreateLectureResource(type, name, url);
+            lecture.Resources.Add(lectureResource);
 
             return $"Lecture resource with ID {lecture.Resources.Count - 1} was created in Lecture {seasonId}.{course.Name}.{lecture.Name}.";
         }

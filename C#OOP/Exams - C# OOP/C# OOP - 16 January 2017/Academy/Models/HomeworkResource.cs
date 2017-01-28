@@ -18,7 +18,7 @@
 
         public override string ToString()
         {
-            return base.ToString() + string.Format("     - Due date: {0}", this.DueDate);
+            return base.ToString() + string.Format("\n     - Due date: {0}", this.DueDate);
         }
     }
 }

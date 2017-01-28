@@ -50,7 +50,7 @@
     <Compile Include="Commands\Creating\CreateCourseCommand.cs" />
     <Compile Include="Commands\Creating\CreateCourseResultCommand.cs" />
     <Compile Include="Commands\Creating\CreateLectureCommand.cs" />
-    <Compile Include="Commands\Creating\CreateLectureResouceCommand.cs" />
+    <Compile Include="Commands\Creating\CreateLectureResourceCommand.cs" />
     <Compile Include="Commands\Creating\CreateSeasonCommand.cs" />
     <Compile Include="Commands\Creating\CreateStudentCommand.cs" />
     <Compile Include="Commands\Creating\CreateTrainerCommand.cs" />

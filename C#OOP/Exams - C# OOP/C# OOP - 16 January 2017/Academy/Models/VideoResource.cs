@@ -18,7 +18,7 @@
 
         public override string ToString()
         {
-            return base.ToString() + string.Format("     - Uploaded on: {0}", this.UploadedOn);
+            return base.ToString() + string.Format("\n     - Uploaded on: {0}", this.UploadedOn);
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Academy.Core.Contracts
 
         ILecture CreateLecture(string name, string date, ITrainer trainer);
 
-        ILectureResource CreateLectureResouce(string type, string name, string url);
+        ILectureResource CreateLectureResource(string type, string name, string url);
 
         ICourseResult CreateCourseResult(ICourse course, string examPoints, string coursePoints);
     }
