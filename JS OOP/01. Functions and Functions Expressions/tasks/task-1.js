@@ -1,30 +1,30 @@
-// function solve() {
+function solve() {
 
-//     return function sumNumbers(numbers) {
+    return function sumNumbers(numbers) {
 
-//         if (numbers === undefined) {
-//             throw new Error('You should pass an argument!');
-//         }
+        if (numbers === undefined) {
+            throw new Error('You should pass an argument!');
+        }
 
-//         if (!numbers.length) {
-//             return null;
-//         }
+        if (!numbers.length) {
+            return null;
+        }
 
-//         let sum = 0;
+        let sum = 0;
 
-//         for (let i = 0, len = numbers.length; i < len; i += 1) {
-//             let currEl = +numbers[i];
+        for (let i = 0, len = numbers.length; i < len; i += 1) {
+            let currEl = +numbers[i];
 
-//             if (isNaN(currEl) || !isFinite(currEl)) {
-//                 throw new Error('All elements in the array should be numbers!');
-//             }
+            if (isNaN(currEl) || !isFinite(currEl)) {
+                throw new Error('All elements in the array should be numbers!');
+            }
 
-//             sum += Number(currEl);
-//         }
+            sum += Number(currEl);
+        }
 
-//         return sum;
-//     };
-// }
+        return sum;
+    };
+}
 
 module.exports = solve;
 
