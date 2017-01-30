@@ -1,4 +1,4 @@
-(function solve() {
+function solve() {
 
     return function sumNumbers(numbers) {
 
@@ -25,14 +25,15 @@
         return sum;
     };
 
-}());
+}
 
-console.log(solve()([5]));
-// console.log(result([]));
-// console.log(result([1, 'john', 3]));
-// console.log(result([1, 2, 3]));
-// console.log(result([1, '2', 3]));
-// console.log(result([1, '2.23', 3]));
-// console.log(result([1.77, '2.23', 3]));
+module.exports = solve;
 
-//module.exports = solve;
+console.log(solve()([1, 2, 3]));
+console.log(solve()([]));
+console.log(solve()([1, 'john', 3]));
+console.log(solve()([1, 2, 3]));
+console.log(solve()([1, '2', 3]));
+console.log(solve()([1, '2.23', 3]));
+console.log(solve()([1.77, '2.23', 3]));
+
