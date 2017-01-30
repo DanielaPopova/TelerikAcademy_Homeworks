@@ -58,6 +58,10 @@ function solve() {
 
             //vaidate category
             if (categories.indexOf(book.category) === -1) {
+                
+                if (!book.category || book.category.length < 2 || book.category.length > 100) {
+                    throw new Error('Category must be between 2 and 100 characters!');
+                }
                 categories.push(book.category);
             }
 
