@@ -9,124 +9,123 @@ function solve() {
         };
     }
 
-	function getShoppingCart() {
+    function getShoppingCart() {
 
-      let products = [];
+        let products = [];
 
-      function add(product) {        
-           products.push(product);
+        function add(product) {
+            products.push(product);
 
-           return this;
-      }
+            return this;
+        }
 
-      function remove(product) {
+        function remove(product) {
 
-          if (!products) {
-              throw new Error('There are no products in the shopping card!');
-          }
+            if (!products) {
+                throw new Error('There are no products in the shopping card!');
+            }
 
-          if (!products.includes(product)) {
-              throw new Error('There is no such product in the shopping card!');
-          } 
+            if (!products.includes(product)) {
+                throw new Error('There is no such product in the shopping card!');
+            }
 
-          for (let i = 0, len = products.length; i < len; i += 1) {
-              let currProduct = products[i];
+            for (let i = 0, len = products.length; i < len; i += 1) {
+                let currProduct = products[i];
 
-              if (product.productType === currProduct.productType &&
-                  product.name === currProduct.name &&
-                  product.price === currProduct.price) {
-                  products.splice(i, 1);
-                break;
-              }
-          }
+                if (product.productType === currProduct.productType &&
+                    product.name === currProduct.name &&
+                    product.price === currProduct.price) {
+                    products.splice(i, 1);
+                    break;
+                }
+            }
 
-          return this; 
-      }
+            return this;
+        }
 
-      function showCost() {
-          
-          let sum = 0;
+        function showCost() {
 
-          products.forEach(pr => {
-              sum += pr.price;
-          });
+            let sum = 0;
 
-          return sum;
-      }
+            products.forEach(pr => {
+                sum += pr.price;
+            });
 
-      function showProductTypes() {
-          
-          uniqueProducts = [];
+            return sum;
+        }
 
-          for (let i = 0, len = products.length; i < len; i += 1) {
-              let currProduct = products[i];
+        function showProductTypes() {
 
-              if (!uniqueProducts.includes(currProduct.productType)) {
-                  uniqueProducts.push(currProduct.productType);
-              }
-          }
+            uniqueProducts = [];
 
-          return uniqueProducts.sort();
-      }
+            for (let i = 0, len = products.length; i < len; i += 1) {
+                let currProduct = products[i];
 
-      function getInfo() {        
-          
-          let productInfo = {};              
-                        
-          for(const product of products) {
+                if (!uniqueProducts.includes(currProduct.productType)) {
+                    uniqueProducts.push(currProduct.productType);
+                }
+            }
 
-              if (!productInfo[product.name]) {
-                  productInfo[product.name] = {
-                      name: product.name,
-                      totalPrice: 0,
-                      quantity: 0
-                  };
-              }
+            return uniqueProducts.sort();
+        }
 
-              productInfo[product.name].totalPrice += product.price;
-              productInfo[product.name].quantity += 1;
-          } 
-            
-          let totalPrice = showCost(),
-              allProducts = Object.keys(productInfo).map(groupName => productInfo[groupName]);
-          //let totalPrice = allProducts.reduce((total, current) => total + current.totalPrice, 0);
+        function getInfo() {
 
-          return {
-              totalPrice: totalPrice,
-              products: allProducts
-          };         
-      }
+            let productInfo = {};
 
-      return {
-          products: products,
-          add: add,
-          remove: remove,
-          showCost: showCost,
-          showProductTypes: showProductTypes,
-          getInfo: getInfo
-      };
+            for (const product of products) {
 
-      //helper function
-      // function contains(item) {
-          
-      //     for (let product in products) {
-      //         if (product.productType === item.productType &&
-      //             product.name === item.name &&
-      //             product.price === item.price) {
+                if (!productInfo[product.name]) {
+                    productInfo[product.name] = {
+                        name: product.name,
+                        totalPrice: 0,
+                        quantity: 0
+                    };
+                }
 
-      //           return true;
-      //         }
-      //     }
+                productInfo[product.name].totalPrice += product.price;
+                productInfo[product.name].quantity += 1;
+            }
 
-      //     return false;
-      // }
+            let totalPrice = showCost(),
+                allProducts = Object.keys(productInfo).map(groupName => productInfo[groupName]);
+            //let totalPrice = allProducts.reduce((total, current) => total + current.totalPrice, 0);
 
-	}
+            return {
+                totalPrice: totalPrice,
+                products: allProducts
+            };
+        }
 
-	return {
-		getProduct: getProduct,
-		getShoppingCart: getShoppingCart
-	};
+        return {
+            products: products,
+            add: add,
+            remove: remove,
+            showCost: showCost,
+            showProductTypes: showProductTypes,
+            getInfo: getInfo
+        };
+
+        //helper function
+        // function contains(item) {
+
+        //     for (let product in products) {
+        //         if (product.productType === item.productType &&
+        //             product.name === item.name &&
+        //             product.price === item.price) {
+
+        //           return true;
+        //         }
+        //     }
+
+        //     return false;
+        // }
+
+    }
+
+    return {
+        getProduct: getProduct,
+        getShoppingCart: getShoppingCart
+    };
 }
-
 module.exports = solve();
