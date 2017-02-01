@@ -87,8 +87,9 @@ function solve() {
               productInfo[product.name].quantity += 1;
           } 
             
-          let allProducts = Object.keys(productInfo).map(groupName => productInfo[groupName]);
-              totalPrice = allProducts.reduce((total, current) => total + current.totalPrice, 0);
+          let totalPrice = showCost(),
+              allProducts = Object.keys(productInfo).map(groupName => productInfo[groupName]);
+          //let totalPrice = allProducts.reduce((total, current) => total + current.totalPrice, 0);
 
           return {
               totalPrice: totalPrice,
