@@ -69,8 +69,31 @@ function solve() {
           return uniqueProducts.sort();
       }
 
-      function getInfo() {
-        // body...
+      function getInfo() {        
+          
+          let productInfo = {};              
+                        
+          for(const product of products) {
+
+              if (!productInfo[product.name]) {
+                  productInfo[product.name] = {
+                      name: product.name,
+                      totalPrice: 0,
+                      quantity: 0
+                  };
+              }
+
+              productInfo[product.name].totalPrice += product.price;
+              productInfo[product.name].quantity += 1;
+          } 
+            
+          let allProducts = Object.keys(productInfo).map(groupName => productInfo[groupName]);
+              totalPrice = allProducts.reduce((total, current) => total + current.totalPrice, 0);
+
+          return {
+              totalPrice: totalPrice,
+              products: allProducts
+          };         
       }
 
       return {
@@ -105,8 +128,20 @@ function solve() {
 	};
 }
 
-let result = solve();
-console.log(result.getProduct('Sweets', 'Shokolad Milka', 2));
-console.log(result.getProduct());
-
 module.exports = solve();
+
+// const {getProduct, getShoppingCart} = solve();
+
+// let cart = getShoppingCart();
+
+// let pr1 = getProduct("Sweets", "Shokolad Milka", 2);
+// cart.add(pr1);
+// console.log(cart.showCost());
+// // prints `2`
+
+// let pr2 = getProduct("Groceries", "Salad", 0.5);
+// cart.add(pr2);
+// cart.add(pr2);
+
+// console.log(cart.getInfo());
+
