@@ -11,6 +11,7 @@
     {
         protected override void ArrangeCarsRepositoryMock()
         {
+            
             this.CarsData = Mock.Create<ICarsRepository>();
             Mock.Arrange(() => this.CarsData.Add(Arg.IsAny<Car>())).DoNothing();
             Mock.Arrange(() => this.CarsData.All()).Returns(this.FakeCarCollection);
