@@ -86,7 +86,7 @@ function solve() {
                 productInfo[product.name].totalPrice += product.price;
                 productInfo[product.name].quantity += 1;
             }
-
+            console.log(productInfo);
             let totalPrice = showCost(),
                 allProducts = Object.keys(productInfo).map(groupName => productInfo[groupName]);
             //let totalPrice = allProducts.reduce((total, current) => total + current.totalPrice, 0);
@@ -128,4 +128,15 @@ function solve() {
         getShoppingCart: getShoppingCart
     };
 }
-module.exports = solve();
+
+const {getProduct, getShoppingCart} = solve();
+
+let cart = getShoppingCart();
+
+let pr1 = getProduct("Sweets", "Shokolad Milka", 2);
+cart.add(pr1);
+let pr2 = getProduct("Groceries", "Salad", 0.5);
+cart.add(pr2);
+//cart.getInfo();
+console.log(cart.getInfo());
+//module.exports = solve();
