@@ -56,7 +56,7 @@ function solve() {
 
         function showProductTypes() {
 
-            uniqueProducts = [];
+            let uniqueProducts = [];
 
             for (let i = 0, len = products.length; i < len; i += 1) {
                 let currProduct = products[i];
