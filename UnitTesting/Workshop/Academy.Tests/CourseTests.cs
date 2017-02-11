@@ -301,7 +301,6 @@
             
             //Act/Assert
             StringAssert.Contains(message, course.ToString());
-        }
-        
+        }        
     }
 }
