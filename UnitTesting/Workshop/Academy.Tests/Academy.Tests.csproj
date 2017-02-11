@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="CourseTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SeasonTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Academy\Academy.csproj">
