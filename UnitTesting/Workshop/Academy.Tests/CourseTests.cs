@@ -6,6 +6,7 @@
     using NUnit.Framework;
     using Academy.Models;
     using Academy.Models.Contracts;
+    using Moq;
 
     [TestFixture]
     public class CourseTests
@@ -92,6 +93,8 @@
 
             //Act/Assert
             Assert.IsInstanceOf<IList<ILecture>>(course.Lectures);
+            //Assert.AreEqual(0, course.Lectures.Count);
+            //Assert.IsNotNull(course.Lectures);
         }
 
         [Test]
@@ -268,7 +271,37 @@
             course.EndingDate = validDate;
 
             //Assert
-            Assert.AreEqual(validDate, course.EndingDate);
+            Assert.AreEqual(validDate, course.EndingDate);            
         }
+
+        [Test]
+        public void ToString_ListOfLectures_ShouldReturnPassedData()
+        {
+            //Arrange
+            var course = new Course("testName", 7, new DateTime(), new DateTime());
+
+            var lectureMock = new Mock<ILecture>();
+            lectureMock.Setup(x => x.ToString());
+            
+            course.Lectures.Add(lectureMock.Object);
+
+            //Act
+            course.ToString();
+
+            //Assert
+            lectureMock.Verify(x => x.ToString(), Times.Once);
+        }
+
+        [Test]
+        public void ToString_ListOfLecturesIsEmpty_ShouldReturnPassedDataAndCorrectMessage()
+        {
+            //Arrange
+            var course = new Course("testName", 5, new DateTime(), new DateTime());
+            string message = "There are no lectures";
+            
+            //Act/Assert
+            StringAssert.Contains(message, course.ToString());
+        }
+        
     }
 }
