@@ -59,6 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AcademyFactoryTests.cs" />
     <Compile Include="CourseTests.cs" />
     <Compile Include="Mocks\UserMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
