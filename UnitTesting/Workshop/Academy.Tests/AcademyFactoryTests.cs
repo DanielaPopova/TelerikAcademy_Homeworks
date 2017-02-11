@@ -30,8 +30,8 @@
 
             //Act
             var actual = academyFactory.CreateLectureResource(type, "someName", "someUrl");
-           
-            //Assert
+
+            //Assert            
             //Assert.IsInstanceOf<ILectureResource>(actual); --true
             //Assert.That(actual, Is.InstanceOf<Resource>()); --> true           
             Assert.IsTrue(actual.GetType() == typeof(VideoResource), "Type should be {0}", actual.GetType().Name);
@@ -77,6 +77,6 @@
 
             //Assert
             Assert.IsTrue(actual.GetType() == typeof(HomeworkResource), "Type should be {0}", actual.GetType().Name);
-        }
+        }        
     }
 }
