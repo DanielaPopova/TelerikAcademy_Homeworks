@@ -60,7 +60,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AcademyFactoryTests.cs" />
+    <Compile Include="AddStudentToCourseCommandTests.cs" />
+    <Compile Include="AddStudentToSeasonCommandTests.cs" />
     <Compile Include="CourseTests.cs" />
+    <Compile Include="Mocks\AddStudentToCourseCommandMock.cs" />
+    <Compile Include="Mocks\AddStudentToSeasonCommandMock.cs" />
     <Compile Include="Mocks\UserMock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeasonTests.cs" />
