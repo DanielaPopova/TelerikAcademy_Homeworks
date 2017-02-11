@@ -180,7 +180,7 @@
             var actualMessage = command.Execute(parameters);
 
             //Assert
-            StringAssert.Contains(studentMock.Object.Username, actualMessage);
+            StringAssert.Contains(username, actualMessage);
             StringAssert.Contains(seasonId, actualMessage);
         }
     }
