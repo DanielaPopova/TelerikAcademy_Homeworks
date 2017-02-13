@@ -40,5 +40,37 @@
             //Assert.AreSame(categoryMock.Object, cosmeticsEngine.Categories[categoryName]);
             Assert.IsTrue(cosmeticsEngine.Categories.ContainsKey(categoryName));
         }
+
+        [Test]
+        public void Start_ValidInputStringForAddToCategoryCommand_ShouldAddProductToCategory()
+        {
+            //Arrange
+            string categoryName = "categoryName";
+            string productName = "productName";
+
+            var factoryMock = new Mock<ICosmeticsFactory>();
+            var shoppingCartMock = new Mock<IShoppingCart>();
+            var commandParserMock = new Mock<ICommandParser>();
+
+            var commandMock = new Mock<ICommand>();
+            
+            commandMock.SetupGet(c => c.Name).Returns("AddToCategory");
+            commandMock.SetupGet(c => c.Parameters).Returns(new List<string>() { categoryName, productName });
+            commandParserMock.Setup(c => c.ReadCommands()).Returns(new List<ICommand> { commandMock.Object });
+
+            var categoryMock = new Mock<ICategory>();
+            categoryMock.SetupGet(cat => cat.Name).Returns(categoryName);
+            var productMock = new Mock<IProduct>();
+            
+            var engine = new CosmeticsEngineMock(factoryMock.Object, shoppingCartMock.Object, commandParserMock.Object);
+            engine.Categories.Add(categoryName, categoryMock.Object);
+            engine.Products.Add(productName, productMock.Object);
+
+            //Act
+            engine.Start();
+
+            //Assert
+            categoryMock.Verify(c => c.AddProduct(It.IsAny<IProduct>()), Times.Once);
+        }
     }
 }
