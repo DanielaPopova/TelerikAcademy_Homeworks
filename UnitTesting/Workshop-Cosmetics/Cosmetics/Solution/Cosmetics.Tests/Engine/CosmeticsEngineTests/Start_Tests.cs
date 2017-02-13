@@ -1,14 +1,12 @@
 ﻿namespace Cosmetics.Tests.Engine.CosmeticsEngineTests
 {
-    using System;
+    using System.Collections.Generic;
 
     using NUnit.Framework;
-    using Cosmetics.Contracts;
-    using Cosmetics.Engine;
-    using Cosmetics.Products;
     using Moq;
+
+    using Cosmetics.Contracts;
     using Mocks;
-    using System.Collections.Generic;
 
     [TestFixture]
     public class Start_Tests
@@ -42,8 +40,5 @@
             //Assert.AreSame(categoryMock.Object, cosmeticsEngine.Categories[categoryName]);
             Assert.IsTrue(cosmeticsEngine.Categories.ContainsKey(categoryName));
         }
-
-
-
     }
 }

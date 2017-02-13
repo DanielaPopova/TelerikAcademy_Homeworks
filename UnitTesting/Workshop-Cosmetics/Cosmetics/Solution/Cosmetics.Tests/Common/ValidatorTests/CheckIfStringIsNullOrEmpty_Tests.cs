@@ -1,7 +1,8 @@
 ﻿namespace Cosmetics.Tests.Common.ValidatorTests
 {
-    using NUnit.Framework;
     using System;
+
+    using NUnit.Framework;
     using Cosmetics.Common;
 
     [TestFixture]

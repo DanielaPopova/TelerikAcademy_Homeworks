@@ -1,6 +1,7 @@
 ﻿namespace Cosmetics.Tests.Common.ValidatorTests
 {
     using System;
+
     using Cosmetics.Common;
     using NUnit.Framework;
 

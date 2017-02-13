@@ -1,9 +1,10 @@
 ﻿namespace Cosmetics.Tests.Engine.CommandTests
 {
     using System;
+    using System.Collections.Generic;
+
     using NUnit.Framework;
     using Cosmetics.Engine;
-    using System.Collections.Generic;
 
     [TestFixture]
     public class Parse_Tests
