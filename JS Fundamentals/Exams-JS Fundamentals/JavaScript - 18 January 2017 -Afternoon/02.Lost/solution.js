@@ -68,15 +68,3 @@ console.log(solve([
     '10 12 5 5 3',
     '12 5 5 5 6'
       ]));
-
-
-
-
-// for (let row = 0; row < rows; row += 1) {
-      //     for (let col = 0; col < cols; col += 1) {
-
-            
-      //         //console.log(field[row][col]);
-      //     }
-          
-      // }
