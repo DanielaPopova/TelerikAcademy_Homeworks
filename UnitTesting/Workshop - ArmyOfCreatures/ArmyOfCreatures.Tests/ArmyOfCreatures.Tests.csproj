@@ -108,6 +108,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Console\Commands\AddCommandTests.cs" />
+    <Compile Include="Logic\Battles\BattleManagerTests.cs" />
+    <Compile Include="Logic\Battles\CreatureIdentifierTests.cs" />
+    <Compile Include="Logic\Specialties\DoubleDefenseWhenDefendingTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -119,6 +123,7 @@
       <Name>ArmyOfCreatures</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
