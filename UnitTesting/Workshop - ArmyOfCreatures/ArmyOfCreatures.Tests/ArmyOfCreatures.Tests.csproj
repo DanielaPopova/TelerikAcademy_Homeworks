@@ -109,8 +109,10 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Console\Commands\AddCommandTests.cs" />
+    <Compile Include="Extended\ExtendedCreaturesFactoryTests.cs" />
     <Compile Include="Logic\Battles\BattleManagerTests.cs" />
     <Compile Include="Logic\Battles\CreatureIdentifierTests.cs" />
+    <Compile Include="Logic\Battles\CreaturesInBattleTests.cs" />
     <Compile Include="Logic\Specialties\DoubleDefenseWhenDefendingTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
