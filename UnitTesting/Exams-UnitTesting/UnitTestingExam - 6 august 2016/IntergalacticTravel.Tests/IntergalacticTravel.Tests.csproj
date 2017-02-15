@@ -104,14 +104,8 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="BusinessOwner\CollectProfits_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ResourcesFactory\GetResources_Should.cs" />
-    <Compile Include="TeleportStation\Constructor_Should.cs" />
-    <Compile Include="TeleportStation\PayProfits_Should.cs" />
-    <Compile Include="TeleportStation\TeleportUnit_Should.cs" />
-    <Compile Include="UnitsFactory\GetUnit_Should.cs" />
-    <Compile Include="Unit\Pay_Should.cs" />
+    <Compile Include="UnitsFactoryTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
