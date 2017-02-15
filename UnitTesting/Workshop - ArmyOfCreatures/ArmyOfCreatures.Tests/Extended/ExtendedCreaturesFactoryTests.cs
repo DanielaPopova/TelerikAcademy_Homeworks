@@ -21,6 +21,9 @@
 
             //Act/Assert
             Assert.That(() => factory.CreateCreature(invalidType), Throws.ArgumentException.With.Message.Contain("Invalid creature type"));
+
+            var er = Assert.Throws<ArgumentException>(() => factory.CreateCreature(invalidType));
+            StringAssert.Contains("Invalid creature type", er.Message);
         }
 
         /*CreateCreature should return the corresponding creature type based on the string that is passed as a method argument.
@@ -41,6 +44,7 @@
 
             //Assert
             Assert.AreEqual(expectedType, actualType);
+            Assert.IsInstanceOf(expectedType, factory.CreateCreature(stringType));
         }
     }
 }
