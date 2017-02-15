@@ -1,7 +1,5 @@
 ﻿namespace IntergalacticTravel.Tests
-{
-    using System;
-
+{   
     using NUnit.Framework;
     using Exceptions;
 
