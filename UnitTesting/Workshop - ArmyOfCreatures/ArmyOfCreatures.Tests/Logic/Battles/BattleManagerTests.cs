@@ -89,5 +89,117 @@
 
             Assert.That(() => battleManager.AddCreatures(creatureID, 2), Throws.ArgumentException.With.Message.Contains("Invalid ArmyNumber"));
         }
+
+        //Attacking with null identifier should throw ArgumentNullException
+        [Test]
+        public void Attack_AttackerIdentifierIsNull_ShouldThrowArgumentNullException()
+        {
+            //Arrange
+            var factoryMock = new Mock<ICreaturesFactory>();
+            var loggerMock = new Mock<ILogger>();
+            var battleManager = new BattleManager(factoryMock.Object, loggerMock.Object);
+
+            CreatureIdentifier attackerID = null;
+            var defenderID = CreatureIdentifier.CreatureIdentifierFromString("Angel(1)");
+
+            //Act/Assert
+            Assert.Throws<ArgumentNullException>(() => battleManager.Attack(attackerID, defenderID));
+        }
+
+        [Test]
+        public void Attack_DefenderIdentifierIsNull_ShouldThrowArgumentNullException()
+        {
+            //Arrange
+            var factoryMock = new Mock<ICreaturesFactory>();
+            var loggerMock = new Mock<ILogger>();
+            var battleManager = new BattleManager(factoryMock.Object, loggerMock.Object);
+
+            var attackerCreature = new Angel();
+            var attackerID = CreatureIdentifier.CreatureIdentifierFromString("Angel(1)");
+            CreatureIdentifier defenderID = null;
+
+            //Attacker should be added first => then check null for defender
+            factoryMock.Setup(f => f.CreateCreature(It.IsAny<string>())).Returns(attackerCreature);
+            battleManager.AddCreatures(attackerID, 2);
+
+            //Act/Assert
+            var er = Assert.Throws<ArgumentNullException>(() => battleManager.Attack(attackerID, defenderID));
+            StringAssert.Contains("identifier", er.Message);
+        }
+
+        //Attacking with null unit should throw ArgumentException
+        [Test]
+        public void Attack_AttackerUnitIsNull_ShouldThrowArgumentException()
+        {
+            //Arrange
+            var factoryMock = new Mock<ICreaturesFactory>();
+            var loggerMock = new Mock<ILogger>();
+            var battleManager = new BattleManager(factoryMock.Object, loggerMock.Object);
+
+            //Assure that always Angel will be returned
+            var creature = new Angel();
+            factoryMock.Setup(f => f.CreateCreature(It.IsAny<string>())).Returns(creature);
+            
+            var fakeAttackerID = CreatureIdentifier.CreatureIdentifierFromString("NotAngel(1)");
+            var defenderID = CreatureIdentifier.CreatureIdentifierFromString("Angel(2)");
+
+            //Adding both attacker/defender to collections first/secondArmyCreatures
+            //fakeAttacker won't be found since CreateCreatures always returns Angel...not NotAngel
+            battleManager.AddCreatures(fakeAttackerID, 5);
+            battleManager.AddCreatures(defenderID, 10);
+
+            //Act/Assert
+            Assert.That(() => battleManager.Attack(fakeAttackerID, defenderID), Throws.ArgumentException.With.Message.Contains("Attacker not found"));
+        }
+
+        [Test]
+        public void Attack_DefenderUnitIsNull_ShouldThrowArgumentException()
+        {
+            //Arrange
+            var factoryMock = new Mock<ICreaturesFactory>();
+            var loggerMock = new Mock<ILogger>();
+            var battleManager = new BattleManager(factoryMock.Object, loggerMock.Object);
+            
+            var creature = new Angel();
+            factoryMock.Setup(f => f.CreateCreature(It.IsAny<string>())).Returns(creature);
+
+            var attackerID = CreatureIdentifier.CreatureIdentifierFromString("Angel(1)");
+            var fakeDefenderID = CreatureIdentifier.CreatureIdentifierFromString("NotAngel(2)");
+           
+            battleManager.AddCreatures(attackerID, 5);
+            battleManager.AddCreatures(fakeDefenderID, 10);
+
+            //Act/Assert
+            Assert.That(() => battleManager.Attack(attackerID, fakeDefenderID), Throws.ArgumentException.With.Message.Contains("Defender not found"));
+        }
+
+        //Attacking successful should call WriteLine from Logger exactly 6 times
+        [Test]
+        public void Attack_IfSuccessful_ShouldCallWriteLineFromLogger6Times()
+        {
+            //Arrange
+            var factoryMock = new Mock<ICreaturesFactory>();
+            var loggerMock = new Mock<ILogger>();
+            var battleManager = new BattleManager(factoryMock.Object, loggerMock.Object);
+
+            //loggerMock.Setup(l => l.WriteLine(It.IsAny<string>()));
+
+            var creature = new Angel();
+            factoryMock.Setup(f => f.CreateCreature(It.IsAny<string>())).Returns(creature);
+
+            var attackerID = CreatureIdentifier.CreatureIdentifierFromString("Angel(1)");
+            var defenderID = CreatureIdentifier.CreatureIdentifierFromString("Angel(2)");
+
+            battleManager.AddCreatures(attackerID, 5);
+            battleManager.AddCreatures(defenderID, 10);
+
+            battleManager.Attack(attackerID, defenderID);
+
+            //Act/Assert
+            loggerMock.Verify(l => l.WriteLine(It.IsAny<string>()), Times.Exactly(6));
+        }
+
+        //Attacking with two Behemoths should return right result (two Behemoths attack 1 Behemoth and the expected result is 56)
+        //- could be tried with all the other creatures
     }
 }

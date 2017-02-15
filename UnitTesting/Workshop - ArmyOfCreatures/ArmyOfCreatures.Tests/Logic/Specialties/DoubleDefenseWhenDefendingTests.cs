@@ -11,6 +11,7 @@
     [TestFixture]
     public class DoubleDefenseWhenDefendingTests
     {
+        //ApplyWhenDefending should throw ArgumentNullException, when the "ICreaturesInBattle defenderWithSpecialty" is null.
         [Test]
         public void ApplyWhenDefending_DefenderWithSpecialtyIsNull_ShouldThrowArgumentNullExceotion()
         {
@@ -23,6 +24,7 @@
             Assert.Throws<ArgumentNullException>(() => defense.ApplyWhenDefending(nullDefender, attackerMock.Object));
         }
 
+        //ApplyWhenDefending should throw ArgumentNullException, when the "ICreaturesInBattle attacker" is null.
         [Test]
         public void ApplyWhenDefending_AttackerIsNull_ShouldThrowArgumentNullExceotion()
         {
@@ -35,6 +37,7 @@
             Assert.Throws<ArgumentNullException>(() => defense.ApplyWhenDefending(defenderMock.Object, nullAttacker));
         }
 
+        //ApplyWhenDefending should return and not change the CurrentDefense property of "defenderWithSpecialty", when the effect is expired.
         //[Test]
         //public void ApplyWhenDefending_EffectIsExpired_ShouldNotChangeCurrentDefenceOfDefenderWithSpecialty()
         //{
@@ -49,9 +52,10 @@
 
         //    //Act/Assert
         //    defense.ApplyWhenDefending(defenderWithSpecialtyMock.Object, attackerMock.Object);
-            
+
         //}
 
+        //ApplyWhenDefending should multiply by 2 the CurrentDefense property of "defenderWithSpecialty", when the effect has not expired.
         [Test]
         public void ApplyWhenDefending_EffectIsNotExpired_ShouldDoubleCurrentDefenceOfDefenderWithSpecialty()
         {

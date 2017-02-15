@@ -25,6 +25,10 @@
             Assert.Throws<ArgumentNullException>(() => sut.DealDamage(defender));
         }
 
-        //Deal Damage should return expected result        
+        //Deal Damage should return expected result  
+
+        //Skip should call ApplyOnSkip the count of the specialties times (think about how to make it)
+
+        //ToString should output expected result      
     }
 }

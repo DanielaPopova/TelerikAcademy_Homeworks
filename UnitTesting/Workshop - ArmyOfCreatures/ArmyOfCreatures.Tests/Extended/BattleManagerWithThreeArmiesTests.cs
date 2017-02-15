@@ -1,14 +1,14 @@
 ﻿namespace ArmyOfCreatures.Tests.Extended
-{
-    using System;
+{    
+    using System.Collections.Generic;
+    using System.Reflection;
+
+    using ArmyOfCreatures.Logic;
+    using ArmyOfCreatures.Extended;
+    using ArmyOfCreatures.Logic.Battles;
 
     using NUnit.Framework;
     using Moq;
-    using ArmyOfCreatures.Logic;
-    using ArmyOfCreatures.Extended;
-    using System.Collections.Generic;
-    using ArmyOfCreatures.Logic.Battles;
-    using System.Reflection;
 
     public class BattleManagerWithThreeArmiesTests
     {
