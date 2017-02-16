@@ -96,6 +96,7 @@
             pathMock.SetupGet(path => path.TargetLocation.Planet.Units).Returns(new List<IUnit>() { unitInSameLocationMock.Object});
 
             var galacticMapMock = new List<IPath>() { pathMock.Object };
+
             var locationMock = new Mock<ILocation>();
             locationMock.SetupGet(loc => loc.Planet.Name).Returns("somePlanet");
             locationMock.SetupGet(loc => loc.Planet.Galaxy.Name).Returns("someGalaxy");
@@ -132,6 +133,7 @@
             pathMock.SetupGet(path => path.TargetLocation.Planet.Galaxy.Name).Returns("someOtherGalaxy");
 
             var galacticMapMock = new List<IPath>() { pathMock.Object };
+
             var locationMock = new Mock<ILocation>();
             locationMock.SetupGet(loc => loc.Planet.Name).Returns("somePlanet");
             locationMock.SetupGet(loc => loc.Planet.Galaxy.Name).Returns("someGalaxy");
@@ -168,6 +170,7 @@
             pathMock.SetupGet(path => path.TargetLocation.Planet.Galaxy.Name).Returns("someGalaxy");
 
             var galacticMapMock = new List<IPath>() { pathMock.Object };
+
             var locationMock = new Mock<ILocation>();
             locationMock.SetupGet(loc => loc.Planet.Name).Returns("somePlanet");
             locationMock.SetupGet(loc => loc.Planet.Galaxy.Name).Returns("someGalaxy");
@@ -189,6 +192,329 @@
             //Act/Assert
             var exc = Assert.Throws<LocationNotFoundException>(() => station.TeleportUnit(unitToTeleportMock.Object, targetlocationMock.Object));
             StringAssert.Contains("Planet", exc.Message);
+        }
+
+        //TeleportUnit should throw InsufficientResourcesException, with a message that contains the string "FREE LUNCH",
+        //when trying to teleport a unit to a given Location, but the service costs more than the unit's current available resources.
+        [Test]
+        public void TeleportUnit_UnitCannotPay_ShouldThrowInsufficientResourcesExceptionWithExpectedMessage()
+        {
+            //Arrange
+            var ownerMock = new Mock<IBusinessOwner>();
+
+            var pathMock = new Mock<IPath>();
+            pathMock.SetupGet(path => path.TargetLocation.Planet.Name).Returns("somePlanet");
+            pathMock.SetupGet(path => path.TargetLocation.Planet.Galaxy.Name).Returns("someGalaxy");
+            pathMock.Setup(x => x.Cost.BronzeCoins).Returns(30);
+            pathMock.Setup(x => x.Cost.SilverCoins).Returns(40);
+            pathMock.Setup(x => x.Cost.GoldCoins).Returns(50);
+
+            var unitInPathUnitsMock = new Mock<IUnit>();
+            unitInPathUnitsMock.SetupGet(unit => unit.CurrentLocation.Planet.Name).Returns("someOtherPlanet");
+            unitInPathUnitsMock.SetupGet(unit => unit.CurrentLocation.Planet.Galaxy.Name).Returns("someotherGalaxy");
+            unitInPathUnitsMock.SetupGet(unit => unit.CurrentLocation.Coordinates.Latitude).Returns(14.0);
+            unitInPathUnitsMock.SetupGet(unit => unit.CurrentLocation.Coordinates.Longtitude).Returns(16.0);
+
+            pathMock.SetupGet(path => path.TargetLocation.Planet.Units).Returns(new List<IUnit>() { unitInPathUnitsMock.Object });
+
+            var galacticMapMock = new List<IPath>() { pathMock.Object };
+
+            var locationMock = new Mock<ILocation>();
+            locationMock.SetupGet(loc => loc.Planet.Name).Returns("somePlanet");
+            locationMock.SetupGet(loc => loc.Planet.Galaxy.Name).Returns("someGalaxy");
+
+            var station = new ExtendedTeleportStation(ownerMock.Object, galacticMapMock, locationMock.Object);
+
+            var unitToTeleportMock = new Mock<IUnit>();
+            unitToTeleportMock.SetupGet(unit => unit.CurrentLocation.Planet.Name).Returns("somePlanet");
+            unitToTeleportMock.SetupGet(unit => unit.CurrentLocation.Planet.Galaxy.Name).Returns("someGalaxy");
+            unitToTeleportMock.SetupGet(unit => unit.CurrentLocation.Coordinates.Latitude).Returns(12.0);
+            unitToTeleportMock.SetupGet(unit => unit.CurrentLocation.Coordinates.Longtitude).Returns(15.0);
+            unitToTeleportMock.Setup(unit => unit.CanPay(It.IsAny<IResources>())).Returns(false);
+
+            //Without setup CanPay() to false
+            //var resourcesMock = new Mock<IResources>();
+            //resourcesMock.SetupGet(res => res.BronzeCoins).Returns(20);
+            //resourcesMock.SetupGet(res => res.SilverCoins).Returns(30);
+            //resourcesMock.SetupGet(res => res.GoldCoins).Returns(40);
+
+            //unitToTeleportMock.SetupGet(unit => unit.Resources).Returns(resourcesMock.Object);
+
+            var targetlocationMock = new Mock<ILocation>();
+            targetlocationMock.SetupGet(loc => loc.Planet.Name).Returns("somePlanet");
+            targetlocationMock.SetupGet(loc => loc.Planet.Galaxy.Name).Returns("someGalaxy");
+            targetlocationMock.SetupGet(loc => loc.Coordinates.Latitude).Returns(12.0);
+            targetlocationMock.SetupGet(loc => loc.Coordinates.Longtitude).Returns(15.0);
+
+            //Act/Assert
+            var exc = Assert.Throws<InsufficientResourcesException>(() => station.TeleportUnit(unitToTeleportMock.Object, targetlocationMock.Object));
+            StringAssert.Contains("FREE LUNCH", exc.Message);
+        }
+
+        //TeleportUnit should require a payment from the unitToTeleport for the provided services,
+        //when all of the validations pass successfully and the unit is ready for teleportation.
+        [Test]
+        public void TeleportUnit_UnitIsReadyForTeleportation_ShouldRequirePaymentFromUnitToTeleport()
+        {
+            //Arrange
+            var ownerMock = new Mock<IBusinessOwner>();
+
+            var pathMock = new Mock<IPath>();
+            pathMock.SetupGet(path => path.TargetLocation.Planet.Name).Returns("somePlanet");
+            pathMock.SetupGet(path => path.TargetLocation.Planet.Galaxy.Name).Returns("someGalaxy");
+            pathMock.SetupGet(x => x.Cost.BronzeCoins).Returns(10);
+            pathMock.SetupGet(x => x.Cost.SilverCoins).Returns(10);
+            pathMock.SetupGet(x => x.Cost.GoldCoins).Returns(10);
+
+            var unitInPathUnitsMock = new Mock<IUnit>();
+            unitInPathUnitsMock.SetupGet(unit => unit.CurrentLocation.Planet.Name).Returns("someOtherPlanet");
+            unitInPathUnitsMock.SetupGet(unit => unit.CurrentLocation.Planet.Galaxy.Name).Returns("someotherGalaxy");
+            unitInPathUnitsMock.SetupGet(unit => unit.CurrentLocation.Coordinates.Latitude).Returns(14.0);
+            unitInPathUnitsMock.SetupGet(unit => unit.CurrentLocation.Coordinates.Longtitude).Returns(16.0);
+
+            pathMock.SetupGet(path => path.TargetLocation.Planet.Units).Returns(new List<IUnit>() { unitInPathUnitsMock.Object });
+
+            var galacticMapMock = new List<IPath>() { pathMock.Object };
+
+            var locationMock = new Mock<ILocation>();
+            locationMock.SetupGet(loc => loc.Planet.Name).Returns("somePlanet");
+            locationMock.SetupGet(loc => loc.Planet.Galaxy.Name).Returns("someGalaxy");
+
+            var station = new ExtendedTeleportStation(ownerMock.Object, galacticMapMock, locationMock.Object);
+
+            var unitToTeleportMock = new Mock<IUnit>();
+            unitToTeleportMock.SetupGet(unit => unit.CurrentLocation.Planet.Name).Returns("somePlanet");
+            unitToTeleportMock.SetupGet(unit => unit.CurrentLocation.Planet.Galaxy.Name).Returns("someGalaxy");
+            unitToTeleportMock.SetupGet(unit => unit.CurrentLocation.Coordinates.Latitude).Returns(12.0);
+            unitToTeleportMock.SetupGet(unit => unit.CurrentLocation.Coordinates.Longtitude).Returns(15.0);
+            unitToTeleportMock.Setup(unit => unit.CanPay(It.IsAny<IResources>())).Returns(true);
+            unitToTeleportMock.Setup(unit => unit.Pay(pathMock.Object.Cost)).Returns(pathMock.Object.Cost);            
+            unitToTeleportMock.Setup(x => x.CurrentLocation.Planet.Units).Returns(new List<IUnit> { unitToTeleportMock.Object });
+
+            var targetlocationMock = new Mock<ILocation>();
+            targetlocationMock.SetupGet(loc => loc.Planet.Name).Returns("somePlanet");
+            targetlocationMock.SetupGet(loc => loc.Planet.Galaxy.Name).Returns("someGalaxy");
+            targetlocationMock.SetupGet(loc => loc.Coordinates.Latitude).Returns(12.0);
+            targetlocationMock.SetupGet(loc => loc.Coordinates.Longtitude).Returns(15.0);
+
+            //Act
+            station.TeleportUnit(unitToTeleportMock.Object, targetlocationMock.Object);
+
+            //Assert
+            unitToTeleportMock.Verify(unit => unit.Pay(pathMock.Object.Cost), Times.Once);
+        }
+
+        //TeleportUnit should obtain a payment from the unitToTeleport for the provided services,
+        //when all of the validations pass successfully and the unit is ready for teleportation,
+        //and as a result - the amount of Resources of the TeleportStation must be increased by the amount of the payment.
+        [Test]
+        public void TeleportUnit_UnitIsReadyToTeleport_ShouldIncreaseTeleportStationResourcesByTheAmountOfPayment()
+        {
+            //Arrange
+            var ownerMock = new Mock<IBusinessOwner>();
+
+            var pathMock = new Mock<IPath>();
+            pathMock.SetupGet(path => path.TargetLocation.Planet.Name).Returns("somePlanet");
+            pathMock.SetupGet(path => path.TargetLocation.Planet.Galaxy.Name).Returns("someGalaxy");
+            pathMock.SetupGet(x => x.Cost.BronzeCoins).Returns(10);
+            pathMock.SetupGet(x => x.Cost.SilverCoins).Returns(10);
+            pathMock.SetupGet(x => x.Cost.GoldCoins).Returns(10);
+
+            var unitInPathUnitsMock = new Mock<IUnit>();
+            unitInPathUnitsMock.SetupGet(unit => unit.CurrentLocation.Planet.Name).Returns("someOtherPlanet");
+            unitInPathUnitsMock.SetupGet(unit => unit.CurrentLocation.Planet.Galaxy.Name).Returns("someotherGalaxy");
+            unitInPathUnitsMock.SetupGet(unit => unit.CurrentLocation.Coordinates.Latitude).Returns(14.0);
+            unitInPathUnitsMock.SetupGet(unit => unit.CurrentLocation.Coordinates.Longtitude).Returns(16.0);
+
+            pathMock.SetupGet(path => path.TargetLocation.Planet.Units).Returns(new List<IUnit>() { unitInPathUnitsMock.Object });
+
+            var galacticMapMock = new List<IPath>() { pathMock.Object };
+
+            var locationMock = new Mock<ILocation>();
+            locationMock.SetupGet(loc => loc.Planet.Name).Returns("somePlanet");
+            locationMock.SetupGet(loc => loc.Planet.Galaxy.Name).Returns("someGalaxy");
+
+            var station = new ExtendedTeleportStation(ownerMock.Object, galacticMapMock, locationMock.Object);
+
+            var unitToTeleportMock = new Mock<IUnit>();
+            unitToTeleportMock.SetupGet(unit => unit.CurrentLocation.Planet.Name).Returns("somePlanet");
+            unitToTeleportMock.SetupGet(unit => unit.CurrentLocation.Planet.Galaxy.Name).Returns("someGalaxy");
+            unitToTeleportMock.SetupGet(unit => unit.CurrentLocation.Coordinates.Latitude).Returns(12.0);
+            unitToTeleportMock.SetupGet(unit => unit.CurrentLocation.Coordinates.Longtitude).Returns(15.0);
+            unitToTeleportMock.Setup(unit => unit.CanPay(It.IsAny<IResources>())).Returns(true);
+            unitToTeleportMock.Setup(unit => unit.Pay(pathMock.Object.Cost)).Returns(pathMock.Object.Cost);
+            unitToTeleportMock.Setup(x => x.CurrentLocation.Planet.Units).Returns(new List<IUnit> { unitToTeleportMock.Object });
+
+            var targetlocationMock = new Mock<ILocation>();
+            targetlocationMock.SetupGet(loc => loc.Planet.Name).Returns("somePlanet");
+            targetlocationMock.SetupGet(loc => loc.Planet.Galaxy.Name).Returns("someGalaxy");
+            targetlocationMock.SetupGet(loc => loc.Coordinates.Latitude).Returns(12.0);
+            targetlocationMock.SetupGet(loc => loc.Coordinates.Longtitude).Returns(15.0);
+
+            //Act
+            station.TeleportUnit(unitToTeleportMock.Object, targetlocationMock.Object);
+
+            //Assert
+            Assert.AreEqual(pathMock.Object.Cost.BronzeCoins, station.Resources.BronzeCoins); //10
+            Assert.AreEqual(pathMock.Object.Cost.SilverCoins, station.Resources.SilverCoins); //10
+            Assert.AreEqual(pathMock.Object.Cost.GoldCoins, station.Resources.GoldCoins); //10
+        }
+
+        //TeleportUnit should Set the unitToTeleport's previous location to unitToTeleport's current location,
+        //when all of the validations pass successfully and the unit is being teleported.
+        [Test]
+        public void TeleportUnit_UnitIsReadyToTeleport_ShouldSetUnitsPreviousLocationToCurrentLocation()
+        {
+            //Arrange
+            var ownerMock = new Mock<IBusinessOwner>();
+
+            var pathMock = new Mock<IPath>();
+            pathMock.SetupGet(path => path.TargetLocation.Planet.Name).Returns("somePlanet");
+            pathMock.SetupGet(path => path.TargetLocation.Planet.Galaxy.Name).Returns("someGalaxy");
+            pathMock.SetupGet(x => x.Cost.BronzeCoins).Returns(10);
+            pathMock.SetupGet(x => x.Cost.SilverCoins).Returns(10);
+            pathMock.SetupGet(x => x.Cost.GoldCoins).Returns(10);
+
+            var unitInPathUnitsMock = new Mock<IUnit>();
+            unitInPathUnitsMock.SetupGet(unit => unit.CurrentLocation.Planet.Name).Returns("someOtherPlanet");
+            unitInPathUnitsMock.SetupGet(unit => unit.CurrentLocation.Planet.Galaxy.Name).Returns("someotherGalaxy");
+            unitInPathUnitsMock.SetupGet(unit => unit.CurrentLocation.Coordinates.Latitude).Returns(14.0);
+            unitInPathUnitsMock.SetupGet(unit => unit.CurrentLocation.Coordinates.Longtitude).Returns(16.0);
+
+            pathMock.SetupGet(path => path.TargetLocation.Planet.Units).Returns(new List<IUnit>() { unitInPathUnitsMock.Object });
+
+            var galacticMapMock = new List<IPath>() { pathMock.Object };
+
+            var locationMock = new Mock<ILocation>();
+            locationMock.SetupGet(loc => loc.Planet.Name).Returns("somePlanet");
+            locationMock.SetupGet(loc => loc.Planet.Galaxy.Name).Returns("someGalaxy");
+
+            var station = new ExtendedTeleportStation(ownerMock.Object, galacticMapMock, locationMock.Object);
+
+            var unitToTeleportMock = new Mock<IUnit>();
+            unitToTeleportMock.SetupGet(unit => unit.CurrentLocation.Planet.Name).Returns("somePlanet");
+            unitToTeleportMock.SetupGet(unit => unit.CurrentLocation.Planet.Galaxy.Name).Returns("someGalaxy");
+            unitToTeleportMock.SetupGet(unit => unit.CurrentLocation.Coordinates.Latitude).Returns(12.0);
+            unitToTeleportMock.SetupGet(unit => unit.CurrentLocation.Coordinates.Longtitude).Returns(15.0);
+            unitToTeleportMock.Setup(unit => unit.CanPay(It.IsAny<IResources>())).Returns(true);
+            unitToTeleportMock.Setup(unit => unit.Pay(pathMock.Object.Cost)).Returns(pathMock.Object.Cost);
+            unitToTeleportMock.Setup(x => x.CurrentLocation.Planet.Units).Returns(new List<IUnit> { unitToTeleportMock.Object });
+
+            var targetlocationMock = new Mock<ILocation>();
+            targetlocationMock.SetupGet(loc => loc.Planet.Name).Returns("somePlanet");
+            targetlocationMock.SetupGet(loc => loc.Planet.Galaxy.Name).Returns("someGalaxy");
+            targetlocationMock.SetupGet(loc => loc.Coordinates.Latitude).Returns(12.0);
+            targetlocationMock.SetupGet(loc => loc.Coordinates.Longtitude).Returns(15.0);
+
+            //Act
+            station.TeleportUnit(unitToTeleportMock.Object, targetlocationMock.Object);
+
+            //Assert
+            unitToTeleportMock.VerifySet(x => x.PreviousLocation = x.CurrentLocation, Times.Once());
+        }
+
+        //TeleportUnit should Set the unitToTeleport's current location to targetLocation,
+        //when all of the validations pass successfully and the unit is being teleported.
+        [Test]
+        public void TeleportUnit_UnitIsReadyToTeleport_ShouldSetUnitsCurrentLocationTotargetLocation()
+        {
+            //Arrange
+            var ownerMock = new Mock<IBusinessOwner>();
+
+            var pathMock = new Mock<IPath>();
+            pathMock.SetupGet(path => path.TargetLocation.Planet.Name).Returns("somePlanet");
+            pathMock.SetupGet(path => path.TargetLocation.Planet.Galaxy.Name).Returns("someGalaxy");
+            pathMock.SetupGet(x => x.Cost.BronzeCoins).Returns(10);
+            pathMock.SetupGet(x => x.Cost.SilverCoins).Returns(10);
+            pathMock.SetupGet(x => x.Cost.GoldCoins).Returns(10);
+
+            var unitInPathUnitsMock = new Mock<IUnit>();
+            unitInPathUnitsMock.SetupGet(unit => unit.CurrentLocation.Planet.Name).Returns("someOtherPlanet");
+            unitInPathUnitsMock.SetupGet(unit => unit.CurrentLocation.Planet.Galaxy.Name).Returns("someotherGalaxy");
+            unitInPathUnitsMock.SetupGet(unit => unit.CurrentLocation.Coordinates.Latitude).Returns(14.0);
+            unitInPathUnitsMock.SetupGet(unit => unit.CurrentLocation.Coordinates.Longtitude).Returns(16.0);
+
+            pathMock.SetupGet(path => path.TargetLocation.Planet.Units).Returns(new List<IUnit>() { unitInPathUnitsMock.Object });
+
+            var galacticMapMock = new List<IPath>() { pathMock.Object };
+
+            var locationMock = new Mock<ILocation>();
+            locationMock.SetupGet(loc => loc.Planet.Name).Returns("somePlanet");
+            locationMock.SetupGet(loc => loc.Planet.Galaxy.Name).Returns("someGalaxy");
+
+            var station = new ExtendedTeleportStation(ownerMock.Object, galacticMapMock, locationMock.Object);
+
+            var unitToTeleportMock = new Mock<IUnit>();
+            unitToTeleportMock.SetupGet(unit => unit.CurrentLocation.Planet.Name).Returns("somePlanet");
+            unitToTeleportMock.SetupGet(unit => unit.CurrentLocation.Planet.Galaxy.Name).Returns("someGalaxy");
+            unitToTeleportMock.SetupGet(unit => unit.CurrentLocation.Coordinates.Latitude).Returns(12.0);
+            unitToTeleportMock.SetupGet(unit => unit.CurrentLocation.Coordinates.Longtitude).Returns(15.0);
+            unitToTeleportMock.Setup(unit => unit.CanPay(It.IsAny<IResources>())).Returns(true);
+            unitToTeleportMock.Setup(unit => unit.Pay(pathMock.Object.Cost)).Returns(pathMock.Object.Cost);
+            unitToTeleportMock.Setup(x => x.CurrentLocation.Planet.Units).Returns(new List<IUnit> { unitToTeleportMock.Object });
+
+            var targetlocationMock = new Mock<ILocation>();
+            targetlocationMock.SetupGet(loc => loc.Planet.Name).Returns("somePlanet");
+            targetlocationMock.SetupGet(loc => loc.Planet.Galaxy.Name).Returns("someGalaxy");
+            targetlocationMock.SetupGet(loc => loc.Coordinates.Latitude).Returns(12.0);
+            targetlocationMock.SetupGet(loc => loc.Coordinates.Longtitude).Returns(15.0);
+
+            //Act
+            station.TeleportUnit(unitToTeleportMock.Object, targetlocationMock.Object);
+
+            //Assert
+            unitToTeleportMock.VerifySet(x => x.CurrentLocation = targetlocationMock.Object, Times.Once());
+        }
+
+        //TeleportUnit should Add the unitToTeleport to the list of Units of the targetLocation (Planet.Units),
+        //when all of the validations pass successfully and the unit is on its way to being teleported.
+        //TODO
+        [Test]
+        public void TeleportUnit_UnitIsReadyToTeleport_ShouldAddUnitToTeleportToTargetLocationPlanetUnits()
+        {
+            //Arrange
+            var ownerMock = new Mock<IBusinessOwner>();
+
+            var pathMock = new Mock<IPath>();
+            pathMock.SetupGet(path => path.TargetLocation.Planet.Name).Returns("somePlanet");
+            pathMock.SetupGet(path => path.TargetLocation.Planet.Galaxy.Name).Returns("someGalaxy");
+            pathMock.SetupGet(x => x.Cost.BronzeCoins).Returns(10);
+            pathMock.SetupGet(x => x.Cost.SilverCoins).Returns(10);
+            pathMock.SetupGet(x => x.Cost.GoldCoins).Returns(10);
+
+            var unitInPathUnitsMock = new Mock<IUnit>();
+            unitInPathUnitsMock.SetupGet(unit => unit.CurrentLocation.Planet.Name).Returns("someOtherPlanet");
+            unitInPathUnitsMock.SetupGet(unit => unit.CurrentLocation.Planet.Galaxy.Name).Returns("someotherGalaxy");
+            unitInPathUnitsMock.SetupGet(unit => unit.CurrentLocation.Coordinates.Latitude).Returns(14.0);
+            unitInPathUnitsMock.SetupGet(unit => unit.CurrentLocation.Coordinates.Longtitude).Returns(16.0);
+
+            pathMock.SetupGet(path => path.TargetLocation.Planet.Units).Returns(new List<IUnit>() { unitInPathUnitsMock.Object });
+
+            var galacticMapMock = new List<IPath>() { pathMock.Object };
+
+            var locationMock = new Mock<ILocation>();
+            locationMock.SetupGet(loc => loc.Planet.Name).Returns("somePlanet");
+            locationMock.SetupGet(loc => loc.Planet.Galaxy.Name).Returns("someGalaxy");
+
+            var station = new ExtendedTeleportStation(ownerMock.Object, galacticMapMock, locationMock.Object);
+
+            var unitToTeleportMock = new Mock<IUnit>();
+            unitToTeleportMock.SetupGet(unit => unit.CurrentLocation.Planet.Name).Returns("somePlanet");
+            unitToTeleportMock.SetupGet(unit => unit.CurrentLocation.Planet.Galaxy.Name).Returns("someGalaxy");
+            unitToTeleportMock.SetupGet(unit => unit.CurrentLocation.Coordinates.Latitude).Returns(12.0);
+            unitToTeleportMock.SetupGet(unit => unit.CurrentLocation.Coordinates.Longtitude).Returns(15.0);
+            unitToTeleportMock.Setup(unit => unit.CanPay(It.IsAny<IResources>())).Returns(true);
+            unitToTeleportMock.Setup(unit => unit.Pay(pathMock.Object.Cost)).Returns(pathMock.Object.Cost);
+            unitToTeleportMock.Setup(x => x.CurrentLocation.Planet.Units).Returns(new List<IUnit> { unitToTeleportMock.Object });
+
+            var targetlocationMock = new Mock<ILocation>();
+            targetlocationMock.SetupGet(loc => loc.Planet.Name).Returns("somePlanet");
+            targetlocationMock.SetupGet(loc => loc.Planet.Galaxy.Name).Returns("someGalaxy");
+            targetlocationMock.SetupGet(loc => loc.Coordinates.Latitude).Returns(12.0);
+            targetlocationMock.SetupGet(loc => loc.Coordinates.Longtitude).Returns(15.0);
+
+            //Act
+            station.TeleportUnit(unitToTeleportMock.Object, targetlocationMock.Object);
         }
     }
 }
