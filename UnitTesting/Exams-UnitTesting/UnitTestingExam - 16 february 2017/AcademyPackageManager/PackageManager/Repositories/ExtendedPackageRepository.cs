@@ -27,5 +27,10 @@
                 return base.packages;
             }
         }
+
+        public override bool Update(IPackage package)
+        {
+            return true;
+        }
     }
 }

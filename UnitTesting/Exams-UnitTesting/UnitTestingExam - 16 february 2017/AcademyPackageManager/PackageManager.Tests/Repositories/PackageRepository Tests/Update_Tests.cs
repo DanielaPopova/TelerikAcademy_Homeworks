@@ -59,24 +59,24 @@
 
             var packageInPackages = new Mock<IPackage>();
             packageInPackages.SetupGet(p => p.Name).Returns("someName");
-            packageInPackages.Setup(p => p.Version).Returns(new PackageVersion(2, 3, 2, Enums.VersionType.beta));
+            packageInPackages.Setup(p => p.Version).Returns(new PackageVersion(1, 2, 3, VersionType.alpha));
 
             var packages = new List<IPackage>() { packageInPackages.Object };
 
             var repo = new PackageRepository(loggerMock.Object, packages);
 
             var packageToUpdateMock = new Mock<IPackage>();
-            packageToUpdateMock.SetupGet(p => p.Name).Returns("someName");
-            packageToUpdateMock.SetupGet(p => p.Version).Returns(new PackageVersion(1, 2, 3, VersionType.alpha));
+            packageToUpdateMock.SetupGet(p => p.Name).Returns("someName");            
+            packageToUpdateMock.SetupGet(p => p.Version).Returns(new PackageVersion(2, 3, 2, VersionType.beta));
             packageToUpdateMock.Setup(p => p.CompareTo(It.IsAny<IPackage>())).Returns(1);
 
             //Act
             repo.Update(packageToUpdateMock.Object);
 
-            //Assert
-            Assert.AreSame(packageToUpdateMock.Object.Version, packageInPackages.Object.Version);
-            //Assert.AreEqual(1, packageInPackages.Object.Version.Major);
-            //Assert.AreEqual(packageToUpdateMock.Object.Version.Major, packageInPackages.Object.Version.Major);
+            //Assert - should be against sut?
+            Assert.AreEqual(packageInPackages.Object.Version, packageToUpdateMock.Object.Version);
+            //Assert.AreEqual(2, packageInPackages.Object.Version.Major);
+            //Assert.AreEqual(packageInPackages.Object.Version.Major, packageToUpdateMock.Object.Version.Major);
         }
 
         [Test]
@@ -87,7 +87,7 @@
 
             var packageInPackages = new Mock<IPackage>();
             packageInPackages.SetupGet(p => p.Name).Returns("someName");
-            packageInPackages.SetupGet(p => p.Version).Returns(new PackageVersion(2, 3, 2, Enums.VersionType.beta));
+            packageInPackages.SetupGet(p => p.Version).Returns(new PackageVersion(2, 3, 2, VersionType.beta));
 
             var packages = new List<IPackage>() { packageInPackages.Object };
 
@@ -95,7 +95,7 @@
 
             var packageToUpdateMock = new Mock<IPackage>();
             packageToUpdateMock.SetupGet(p => p.Name).Returns("someName");
-            packageToUpdateMock.SetupGet(p => p.Version).Returns(new PackageVersion(1, 2, 3, Enums.VersionType.alpha));
+            packageToUpdateMock.SetupGet(p => p.Version).Returns(new PackageVersion(1, 2, 3, VersionType.alpha));
             packageToUpdateMock.Setup(p => p.CompareTo(It.IsAny<IPackage>())).Returns(1);
 
             //Act/Assert
@@ -171,5 +171,31 @@
             //Assert
             loggerMock.Verify(l => l.Log(It.IsAny<string>()), Times.Once);
         }
+
+        //Testing for packageFound.Version = package.Version with real objects - integration test?
+        [Test]
+        public void Update_PackageWithLowerVersionIsFound_ShouldBeSuccessfullyUpdated_RealObjects()
+        {
+            //Arrange
+            var loggerMock = new Mock<ILogger>();
+
+            var packageInPackages = new Package("someName", new PackageVersion(1, 2, 3, VersionType.alpha));
+            
+
+            var packages = new List<IPackage>() { packageInPackages };
+
+            var repo = new PackageRepository(loggerMock.Object, packages);
+
+            var packageToUpdateMock = new Package("someName", new PackageVersion(2, 3, 2, VersionType.beta));            
+
+            //Act
+            repo.Update(packageToUpdateMock);
+
+            //Assert
+            Assert.AreSame(packageToUpdateMock.Version, packageInPackages.Version);
+            Assert.AreEqual(2, packageInPackages.Version.Major);
+            Assert.AreEqual(packageToUpdateMock.Version.Major, packageInPackages.Version.Major);
+        }
+
     }
 }
