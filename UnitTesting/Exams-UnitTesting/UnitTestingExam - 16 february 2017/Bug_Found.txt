@@ -1,1 +1,3 @@
 // Where is the bug :)
+GetAll() method - Adds everytime a package => cannot produce empty collection
+Delete() method - should return when there are dependencies (allDependencies.Count > 0) and hence - cannot remove the package
