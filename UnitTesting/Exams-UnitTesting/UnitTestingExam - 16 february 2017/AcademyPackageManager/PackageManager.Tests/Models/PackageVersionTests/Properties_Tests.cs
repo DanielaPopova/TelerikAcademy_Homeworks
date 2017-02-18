@@ -91,20 +91,32 @@
             //Act/Assert
             Assert.DoesNotThrow(() => new PackageVersion(validMajor, validMinor, validPatch, validVersionType));
         }
-
-        //TODO
+        
         //Test for valid and invalid value VersionType
-        //[Test]
-        //public void Constuctor_PassedVersionTypeIsInvalid_ShouldThrowArgumentException()
-        //{
-        //    //Arrange
-        //    int validMajor = 5;
-        //    int validMinor = 3;
-        //    int validPatch = 4;
-        //    var invalidVersionType = Enum.Parse(typeof(VersionType), "invalid");
+        [Test]
+        public void Constuctor_PassedVersionTypeIsInvalid_ShouldThrowArgumentException()
+        {
+            //Arrange
+            int validMajor = 5;
+            int validMinor = 3;
+            int validPatch = 4;
+            int invalidVersionType = 5;
 
-        //    //Act/Assert
-        //    Assert.Throws<ArgumentException>(() => new PackageVersion(validMajor, validMinor, validPatch, (VersionType)invalidVersionType));
-        //}
+            //Act/Assert
+            Assert.Throws<ArgumentException>(() => new PackageVersion(validMajor, validMinor, validPatch, (VersionType)invalidVersionType));
+        }
+
+        [Test]
+        public void Constuctor_PassedVersionTypeIsValid_ShouldNotThrowArgumentException()
+        {
+            //Arrange
+            int validMajor = 5;
+            int validMinor = 3;
+            int validPatch = 4;
+            var validVersionType = VersionType.alpha;
+
+            //Act/Assert
+            Assert.DoesNotThrow(() => new PackageVersion(validMajor, validMinor, validPatch, validVersionType));
+        }
     }
 }
