@@ -574,7 +574,7 @@ describe('Regular tests', () => {
                 it('shoud throw when commander is not found', () => {
                     const spellcastWithInvalidCommanderName = () => MANAGER.spellcast('George', 'Some spell', 13)
 
-                    expect(spellcastWithInvalidCommanderName).to.throw(Error, "Can't cast with non-existant commander George!")
+                    expect(spellcastWithInvalidCommanderName).to.throw(Error, "Can\'t cast with non-existant commander George!")
                 })
 
                 it('should throw when spell is not found', () => {

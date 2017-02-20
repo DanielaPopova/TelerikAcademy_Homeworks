@@ -63,7 +63,7 @@ function solve() {
             }
         },
         isCountValid: function(count){
-            if(Number.isNaN(count) || count < 0 || (count | 0) !== count){
+            if(Number.isNaN(count) || typeof count !== 'number' || count < 0 || (count | 0) !== count){
                 throw new Error(ERROR_MESSAGES.INVALID_COUNT);
             }
         },
@@ -73,7 +73,7 @@ function solve() {
             }
         },
         isValidMana: function(mana){
-            if(Number.isNaN(x) || typeof x !== 'number' || x <= 0 ){
+            if(Number.isNaN(mana) || typeof mana !== 'number' || mana <= 0 ){
                 throw new Error(ERROR_MESSAGES.INVALID_MANA);
             }
         }
@@ -238,11 +238,10 @@ function solve() {
     }
 
     const battlemanagerData = {
-        commanders: [],
-        armyUnitsObj: {},
+        commanders: [],        
         armyUnits: [],
     };   
-
+    //cyki
     Array.prototype.filterByProperty = function(query, propName) {
       if(!query.hasOwnProperty(propName)) {
         return this;
@@ -252,7 +251,7 @@ function solve() {
       return this.filter(x => x[propName] === value);
     };
 
-    const battlemanager = {       
+    const battlemanager = {             
 
         getCommander: function(name, alignment, mana){
             return new Commander(name, alignment, mana);
@@ -265,8 +264,7 @@ function solve() {
                 damage = options.damage,
                 health = options.health;
             
-            let unit = new ArmyUnit(name, alignment, damage, health, count, speed);
-            battlemanagerData.armyUnitsObj[unit.id] = unit;
+            let unit = new ArmyUnit(name, alignment, damage, health, count, speed);            
             battlemanagerData.armyUnits.push(unit);
 
             return unit;
@@ -306,44 +304,70 @@ function solve() {
                 .sort((x, y) => x.name.localeCompare(y.name));
         },
         findArmyUnitById: function(id){
-
+            return battlemanagerData.armyUnits.find(u => u.id === id);
         },
-        findArmyUnits: function(query){
-
+        findArmyUnits: function (query) {
+            return battlemanagerData.armyUnits
+                .filter(unit => Object.keys(query).every(prop => query[prop] === unit[prop]))
+                .sort((a, b) => {
+                    let comparator = b.speed - a.speed;
+                    if(comparator === 0){
+                        return a.name.localeCompare(b.name);
+                    }
+                    return comparator;
+                });
         },
         spellcast: function(casterName, spellName, targetUnitId){
+            let commander = battlemanagerData.commanders.find(c => c.name === casterName);
+            if(!commander){
+                throw new Error("Can\'t cast with non-existant commander " + casterName + '!');
+            }
 
+            let spell = commander.spellbook.find(s => s.name === spellName);
+            if(!spell){
+                throw new Error(casterName + " doesn\'t know " + spellName);
+            }
+
+            let effect = spell.effect;
+
+            let armyUnit = battlemanagerData.armyUnits.find(u => u.id === targetUnitId);
+            if(!armyUnit){
+                throw new Error(ERROR_MESSAGES.TARGET_NOT_FOUND);
+            }
+
+            if(commander.mana < spell.manaCost){
+                throw new Error(ERROR_MESSAGES.NOT_ENOUGH_MANA);
+            }
+
+            spell.effect(armyUnit);
+            commander.mana -= spell.manaCost;
+
+            return this;
         },
-        battle: function(attacker, defender){
+        battle: function (attacker, defender) {
+            try {
+                let realAttacker = new ArmyUnit(attacker.name, attacker.alignment, attacker.damage, attacker.health, attacker.count, attacker.speed);
+                let realDefender = new ArmyUnit(defender.name, defender.alignment, defender.damage, defender.health, defender.count, defender.speed);
 
+                let attackerTotalDamage = attacker.damage * attacker.count,
+                    defenderLeftHealth = defender.health * defender.count - attackerTotalDamage,
+                    newCount = Math.ceil(defenderLeftHealth / defender.health);
+
+                if (newCount < 0) {
+                    defender.count = 0;
+                } else {
+                    defender.count = newCount;
+                }
+
+                return this;
+            } catch (error) {
+                error.message = ERROR_MESSAGES.INVALID_BATTLE_PARTICIPANT;
+                throw error;
+            }
         }
     };
 
     return battlemanager;
 }
-
-const battlemanager = solve();
-
-const cyki = battlemanager.getCommander('Cyki', 'good', 15),
-    koce = battlemanager.getCommander('Koce', 'good', 20);
-
-battlemanager.addCommanders(cyki, koce);
-
-const penguins = battlemanager.getArmyUnit({
-        name: 'Penguin Warriors',
-        alignment: 'neutral',
-        damage: 15,
-        health: 40,
-        speed: 10,
-        count: 120
-    }),
-    cavalry = battlemanager.getArmyUnit({
-        name: 'Horsemen',
-        alignment: 'good',
-        damage: 40,
-        health: 60,
-        speed: 50,
-        count: 50
-    });
 
 module.exports = solve;
