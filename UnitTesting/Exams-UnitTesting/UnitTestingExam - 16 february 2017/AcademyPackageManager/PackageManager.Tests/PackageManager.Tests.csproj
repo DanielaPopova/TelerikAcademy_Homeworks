@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\InstallCommand Tests.cs" />
+    <Compile Include="Core\Mocks\PackageInstallerMock.cs" />
     <Compile Include="Core\PackageInstallerTests.cs" />
     <Compile Include="Models\PackageTests\CompareTo_Tests.cs" />
     <Compile Include="Models\PackageTests\Constructor_Tests.cs" />

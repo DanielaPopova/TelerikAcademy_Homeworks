@@ -51,35 +51,6 @@
 
         //Test for successfully updated package when there is package found with lower version
         [Test]
-        [Ignore("cannot assign packageFound.Version to package.Version, probably because of Returns, then how to check the change?")]
-        public void Update_PackageWithLowerVersionIsFound_ShouldBeSuccessfullyUpdated()
-        {
-            //Arrange
-            var loggerMock = new Mock<ILogger>();
-
-            var packageInPackages = new Mock<IPackage>();
-            packageInPackages.SetupGet(p => p.Name).Returns("someName");
-            packageInPackages.Setup(p => p.Version).Returns(new PackageVersion(1, 2, 3, VersionType.alpha));
-
-            var packages = new List<IPackage>() { packageInPackages.Object };
-
-            var repo = new PackageRepository(loggerMock.Object, packages);
-
-            var packageToUpdateMock = new Mock<IPackage>();
-            packageToUpdateMock.SetupGet(p => p.Name).Returns("someName");            
-            packageToUpdateMock.SetupGet(p => p.Version).Returns(new PackageVersion(2, 3, 2, VersionType.beta));
-            packageToUpdateMock.Setup(p => p.CompareTo(It.IsAny<IPackage>())).Returns(1);
-
-            //Act
-            repo.Update(packageToUpdateMock.Object);
-
-            //Assert - should be against sut?
-            Assert.AreEqual(packageInPackages.Object.Version, packageToUpdateMock.Object.Version);
-            //Assert.AreEqual(2, packageInPackages.Object.Version.Major);
-            //Assert.AreEqual(packageInPackages.Object.Version.Major, packageToUpdateMock.Object.Version.Major);
-        }
-
-        [Test]
         public void Update_PackageWithLowerVersionIsFound_ShouldReturnTrue()
         {
             //Arrange

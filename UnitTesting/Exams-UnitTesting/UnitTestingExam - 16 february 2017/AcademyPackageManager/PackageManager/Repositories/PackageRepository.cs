@@ -90,6 +90,8 @@ namespace PackageManager.Repositories
                 this.logger.Log(string.Format("{0}: The package is a dependency and could not be removed!", package.Name));
                 this.logger.Log("Aborting");
                 this.logger.Log("Please remove the dependencies first!");
+
+                return package;
             }
 
             this.packages.Remove(packageFound);
