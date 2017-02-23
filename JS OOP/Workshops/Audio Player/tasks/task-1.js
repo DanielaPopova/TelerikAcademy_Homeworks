@@ -282,8 +282,8 @@ function solve() {
         }
     }
 
-    return {
-        getPlayer: function (name) {            
+    const module = {
+        getPlayer: function (name) {   
             return new Player(name);
         },
         getPlaylist: function (name) {
@@ -296,7 +296,11 @@ function solve() {
             return new Video(title, author, imdbRating);
         }
     };
+
+    return module;
 }
+
+module.exports = solve;
 
 let result = solve();
 let playerOne = result.getPlayer('Dubstep');
@@ -316,4 +320,3 @@ playerOne.addPlaylist(playlist3);
 playerTwo.addPlaylist(playlist1).addPlaylist(playlist2);
 console.log(playerTwo.search('know'));
 
-module.exports = solve;
