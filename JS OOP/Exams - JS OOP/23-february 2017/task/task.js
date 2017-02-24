@@ -20,7 +20,7 @@ function solve() {
 		},
 		isNumberPositive: function(num){
 			if(typeof num !== 'number' || num < 0){
-				throw new Error('Number must be positive!');
+				throw new Error('Number must be positive and integer!');
 			}
 		},
 		isRatingValid: function(num){
@@ -98,32 +98,36 @@ function solve() {
 			this._rating = newRating;
 		}
 
-		release(options){
+		release(options) {
 			if (typeof options === 'number') {
-				if (options < this.version) {
+				
+				if (options <= this.version) {
 					throw new Error('Not e new version!');
 				}
-
+				
 				this.version = options;
-			} else if (typeof options === 'object'){
-				if(!options.version){
+			} else if (typeof options === 'object') {
+
+				if (!options.version) {
 					throw new Error('Unspecified value for version!');
 				}
 
-				if(options.version < this.version){
+				if (options.version <= this.version) {
 					throw new Error('Not e new version!');
 				}
-
+								
 				this.version = options.version;
 
-				if(options.hasOwnProperty('description')){
+				if (options.hasOwnProperty('description')) {
 					this.description = options.description;
 				}
 
-				if(options.hasOwnProperty('rating')){
+				if (options.hasOwnProperty('rating')) {
 					this.rating = options.rating;
 				}
-			}			
+			} 
+
+			return this;
 		}
 	}
 
