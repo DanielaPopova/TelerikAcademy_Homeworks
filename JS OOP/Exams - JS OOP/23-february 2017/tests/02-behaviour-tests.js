@@ -418,7 +418,7 @@ describe('Behaviour tests', function() {
     });
 
     describe('listMostPopularApps()', function() {
-      it('expect listMostRecentApps() to return count most popular apps when count is provided', function() {
+      it('expect listMostPopularApps() to return count most popular apps when count is provided', function() {
         const store = result.createStore('store', 'description', 1, 4);
         const apps = Array.from({length: 7})
           .map((_, i) => result.createApp('Stamat' + i, 'description of an app', 5, 9 - i));
@@ -430,7 +430,7 @@ describe('Behaviour tests', function() {
 
         expect(actualNames).to.eql(expectedNames); // deep equal
       });
-      it('expect listMostRecentApps() to return most popular apps, sorted correctly when there are equal ratings', function() {
+      it('expect listMostPopularApps() to return most popular apps, sorted correctly when there are equal ratings', function() {
         const store = result.createStore('store', 'description', 1, 4);
         const apps = Array.from({length: 17})
           .map((_, i) => result.createApp('Stamat' + i, 'description of an app', 5, 6));
@@ -444,7 +444,7 @@ describe('Behaviour tests', function() {
         store.uploadApp(apps[13]);
         store.uploadApp(apps[3]);
 
-        const actualNames = store.listMostRecentApps(3).map(x => x.name);
+        const actualNames = store.listMostPopularApps(3).map(x => x.name);
         const expectedNames = [apps[3].name, apps[13].name, apps[7].name];
 
         expect(actualNames).to.eql(expectedNames); // deep equal
