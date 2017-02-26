@@ -26,7 +26,7 @@ class LinkedList {
     }
 
     get first(){
-        //return this._head;
+        return this._head;
     }
 
     get last() {
@@ -60,9 +60,9 @@ class LinkedList {
     }
 }
 
+module.exports = LinkedList;
 // var node = new listNode(5);
 // console.log(node._value);
 let list = new LinkedList();
 list.append(7).append(8, 9, 10);
 console.log(list);
-//module.exports = LinkedList;
