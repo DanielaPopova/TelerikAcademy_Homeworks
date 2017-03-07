@@ -1,10 +1,10 @@
 (function () {
 	let b = navigator.appName;
-	let	addScroll = false;
-	let	off = 0;
-	let	txt = "";
-	let	pX = 0;
-	let	pY = 0;
+	let addScroll = false;
+	let off = 0;
+	let txt = "";
+	let pX = 0;
+	let pY = 0;
 
 	if ((navigator.userAgent.indexOf('MSIE 5') > 0) || (navigator.userAgent.indexOf('MSIE 6')) > 0) {
 		addScroll = true;
@@ -31,7 +31,7 @@
 			if (document.all['ToolTip'].style.visibility == 'visible') {
 				PopTip();
 			}
-		}		
+		}
 	}
 
 	function PopTip() {
@@ -72,7 +72,7 @@
 
 	function HideTip() {
 		let args = HideTip.arguments;
-		
+
 		if (b == "Netscape") {
 			document.layers['ToolTip'].visibility = 'hide';
 		} else {
