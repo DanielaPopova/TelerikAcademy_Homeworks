@@ -1,3 +1,3 @@
-1. divs-inside-divs [DEMO](https://cdn.rawgit.com/DanielaPopova/TelerikAcademy_Homeworks/e2fed534/JS%20DOM%20UI/01.%20Document%20Object%20Model/01.%20DivsInsideDivs.html)
+1. divs-inside-divs [DEMO](https://cdn.rawgit.com/DanielaPopova/TelerikAcademy_Homeworks/76b1eec1/JS%20DOM%20UI/01.%20Document%20Object%20Model/01.%20DivsInsideDivs.html)
 2. get-input-value [DEMO](https://cdn.rawgit.com/DanielaPopova/TelerikAcademy_Homeworks/f1ee3bc0/JS%20DOM%20UI/01.%20Document%20Object%20Model/02.%20GetInputValue.html)
 3. change-backgorund [DEMO](https://cdn.rawgit.com/DanielaPopova/TelerikAcademy_Homeworks/f1ee3bc0/JS%20DOM%20UI/01.%20Document%20Object%20Model/03.%20ChangeBackgorund.html) 
