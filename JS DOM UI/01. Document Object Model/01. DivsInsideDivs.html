@@ -45,20 +45,22 @@
       
       <script>
           var divsQuery = document.querySelectorAll('div div');
+          console.log('Printing with querySelectorAll');
           printCollection(divsQuery);
 
           var allDivs = document.getElementsByTagName('div');
           var divsWithinDivs = [];
           for (i = 0, len = allDivs.length; i < len; i += 1) {
               var currDiv = allDivs[i];
-
               if (currDiv.parentNode.nodeName === 'DIV') {
                   divsWithinDivs.push(currDiv);
               }
           }
+
+          console.log('Printing with getElementsByTagName');          
           printCollection(divsWithinDivs);
 
-          function printCollection(collection) {
+          function printCollection(collection) {            
             var i, len;
             for (i = 0, len = collection.length; i < len; i += 1) {
                 console.log(collection[i]);
