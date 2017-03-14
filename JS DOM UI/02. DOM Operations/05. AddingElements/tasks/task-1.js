@@ -1,33 +1,34 @@
 module.exports = function solve() {
-  return function (element, contents) {
-    let domElement,
-      content,
-      div,
-      docFragment = document.createDocumentFragment();
-
+   return function (element, contents) {
+   
     if (typeof element !== 'string' && !(element instanceof HTMLElement)) {  //element.nodeType != 1
-      throw new Error();
+      throw new Error('Provided element must be a valid string id or DOM element!');
     }
+
+    let domElement;
 
     if (typeof element === 'string') {
       domElement = document.getElementById(element);
-      if (!domElement) {
-        throw new Error();
+
+      if (domElement === null) {
+        throw new Error('There is no such DOM element with that id!');
       }
+
     } else {
       domElement = element;
     }
 
-    for (let i = 0; i < contents.length; i += 1) {
-      content = contents[i];
+    for (let i = 0, len = contents.length; i < len; i += 1) {
+      let currContent = contents[i];
 
-      if (typeof content !== 'string' && typeof content !== 'number') {
-        throw new Error();
+      if (typeof currContent !== 'string' && typeof currContent !== 'number') {
+        throw new Error('Invalid contents type!');
       }
     }
 
     domElement.innerHTML = '';
-    div = document.createElement('div');
+    let div = document.createElement('div'),
+        docFragment = document.createDocumentFragment();
 
     for (let i = 0; i < contents.length; i += 1) {
       let currentDiv = div.cloneNode(true);
