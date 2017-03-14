@@ -1,5 +1,16 @@
+/*
+Remarks:
+ShowMenu/HideMenu with parameter - menuId, prevent repeated code
+eval() - not good practice
+document.all/document.layers - obsolete, used respectively in IE/Netscape - use getElementById() instead
+change visibility through style property
+pixelLeft/Top/Right return integer number - left/top/right (recommended) return string, containing "px" - parseInt is needed
+evn and event in mouseMove - I'm guessing it's the same
+event.x/y - alias for clientX/Y
+*/
+
 (function () {
-	let b = navigator.appName;
+	let browserName = navigator.appName;
 	let addScroll = false;
 	let off = 0;
 	let txt = "";
@@ -12,33 +23,32 @@
 
 	document.onmousemove = mouseMove;
 
-	if (b == 'Netscape') {
+	if (browserName === 'Netscape') {
 		document.captureEvents(Event.MOUSEMOVE);
 	}
 
 	function mouseMove(evn) {
-		if (b == 'Netscape') {
+		if (browserName == 'Netscape') {
 			pX = evn.pageX - 5;
 			pY = evn.pageY;
 
-			if (document.layers['ToolTip'].visibility == 'show') {
+			if (document.getElementById('ToolTip').style.visibility === 'show') {
 				PopTip();
 			}
 		} else {
 			pX = event.x - 5;
 			pY = event.y;
 
-			if (document.all['ToolTip'].style.visibility == 'visible') {
+			if (document.getElementById('ToolTip').style.visibility === 'visible') {
 				PopTip();
 			}
 		}
 	}
 
 	function PopTip() {
-		let theLayer;
+		let theLayer = document.getElementById('ToolTip');
 
-		if (b == "Netscape") {
-			theLayer = eval('document.layers[\'ToolTip\']');
+		if (browserName === "Netscape") {			
 
 			if ((pX + 120) > window.innerWidth) {
 				pX = window.innerWidth - 150;
@@ -46,9 +56,8 @@
 
 			theLayer.left = pX + 10;
 			theLayer.top = pY + 15;
-			theLayer.visibility = 'show';
-		} else {
-			theLayer = eval('document.all[\'ToolTip\']');
+			theLayer.style.visibility = 'show';
+		} else {			
 
 			if (theLayer) {
 				pX = event.x - 5;
@@ -71,52 +80,33 @@
 	}
 
 	function HideTip() {
-		let args = HideTip.arguments;
+		let args = HideTip.arguments; //never used, could be replaced by HideMenu with changed name - HideElement
 
-		if (b == "Netscape") {
-			document.layers['ToolTip'].visibility = 'hide';
+		if (browserName === "Netscape") {
+			document.getElementById('ToolTip').style.visibility = 'hide';
 		} else {
-			document.all['ToolTip'].style.visibility = 'hidden';
+			document.getElementById('ToolTip').style.visibility = 'hidden';
 		}
 	}
 
-	function HideMenu1() {
-		if (b == "Netscape") {
-			document.layers['menu1'].visibility = 'hide';
+	function HideMenu(menuId) {
+		let theLayer = document.getElementById(menuId);
+
+		if (browserName === "Netscape") {
+			theLayer.style.visibility = 'hide';
 		} else {
-			document.all['menu1'].style.visibility = 'hidden';
+			theLayer.style.visibility = 'hidden';
 		}
 	}
 
-	function ShowMenu1() {
-		let theLayer;
+	function ShowMenu(menuId) {
+		let theLayer = document.getElementById(menuId);
 
-		if (b == "Netscape") {
-			theLayer = eval('document.layers[\'menu1\']');
-			theLayer.visibility = 'show';
-		} else {
-			theLayer = eval('document.all[\'menu1\']');
+		if (browserName === "Netscape") {			
+			theLayer.style.visibility = 'show';
+		} else {			
 			theLayer.style.visibility = 'visible';
 		}
 	}
-
-	function HideMenu2() {
-		if (b == "Netscape") {
-			document.layers['menu2'].visibility = 'hide';
-		} else {
-			document.all['menu2'].style.visibility = 'hidden';
-		}
-	}
-
-	function ShowMenu2() {
-		let theLayer;
-
-		if (b == "Netscape") {
-			theLayer = eval('document.layers[\'menu2\']');
-			theLayer.visibility = 'show';
-		} else {
-			theLayer = eval('document.all[\'menu2\']');
-			theLayer.style.visibility = 'visible';
-		}
-	}
+	
 }());
