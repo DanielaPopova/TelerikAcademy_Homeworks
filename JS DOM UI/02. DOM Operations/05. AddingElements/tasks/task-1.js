@@ -30,7 +30,7 @@ module.exports = function solve() {
     let div = document.createElement('div'),
         docFragment = document.createDocumentFragment();
 
-    for (let i = 0; i < contents.length; i += 1) {
+    for (let i = 0, len = contents.length; i < len; i += 1) {
       let currentDiv = div.cloneNode(true);
 
       currentDiv.innerHTML = contents[i];
