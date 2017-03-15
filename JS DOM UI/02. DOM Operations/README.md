@@ -1,4 +1,5 @@
 01. create-div-elements [DEMO](https://cdn.rawgit.com/DanielaPopova/TelerikAcademy_Homeworks/933e8c2f/JS%20DOM%20UI/02.%20DOM%20Operations/01.%20CreateDivElements/index.html)
-02. circular-path [DEMO](https://cdn.rawgit.com/DanielaPopova/TelerikAcademy_Homeworks/933e8c2f/JS%20DOM%20UI/02.%20DOM%20Operations/02.%20CircularPath/index.html)
+02. circular-path [DEMO - setInterval](https://cdn.rawgit.com/DanielaPopova/TelerikAcademy_Homeworks/933e8c2f/JS%20DOM%20UI/02.%20DOM%20Operations/02.%20CircularPath/index.html)
+				  [DEMO - requestAnimationFrame]()	
 03. color-set [DEMO](https://cdn.rawgit.com/DanielaPopova/TelerikAcademy_Homeworks/933e8c2f/JS%20DOM%20UI/02.%20DOM%20Operations/03.%20ColorSet/index.html)
 04. tag-cloud [DEMO](https://cdn.rawgit.com/DanielaPopova/TelerikAcademy_Homeworks/933e8c2f/JS%20DOM%20UI/02.%20DOM%20Operations/04.%20TagCloud/index.html)
