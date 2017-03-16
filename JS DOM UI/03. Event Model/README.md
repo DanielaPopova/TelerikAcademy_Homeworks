@@ -1,3 +1,3 @@
 1. Show/Hide [DEMO](https://cdn.rawgit.com/DanielaPopova/TelerikAcademy_Homeworks/49ddc9a4/JS%20DOM%20UI/03.%20Event%20Model/01.%20ShowHide/tasks/task-1.html)
-2. TODOList [DEMO]()
-	* updated [DEMO]()
+2. TODOList [DEMO](https://cdn.rawgit.com/DanielaPopova/TelerikAcademy_Homeworks/af1f07bb/JS%20DOM%20UI/03.%20Event%20Model/02.%20TODOList/index.html)
+	* updated [DEMO](https://cdn.rawgit.com/DanielaPopova/TelerikAcademy_Homeworks/af1f07bb/JS%20DOM%20UI/03.%20Event%20Model/02.%20TODOList-updated/index.html)
