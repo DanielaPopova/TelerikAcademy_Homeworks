@@ -18,4 +18,3 @@ Create a function that takes an id or DOM element and:
 * Throws if:
   * The provided DOM element is non-existant
   * The id is neither a string nor a DOM element
-* [DEMO](https://cdn.rawgit.com/DanielaPopova/TelerikAcademy_Homeworks/49ddc9a4/JS%20DOM%20UI/03.%20Event%20Model/01.%20ShowHide/tasks/task-1.html)
