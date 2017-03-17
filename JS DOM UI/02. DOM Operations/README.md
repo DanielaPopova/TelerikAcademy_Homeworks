@@ -3,3 +3,4 @@
 				  [DEMO - requestAnimationFrame](https://cdn.rawgit.com/DanielaPopova/TelerikAcademy_Homeworks/c3c69359/JS%20DOM%20UI/02.%20DOM%20Operations/02.%20CircularPath_requestAnimationFrame/index.html)	
 03. color-set [DEMO](https://cdn.rawgit.com/DanielaPopova/TelerikAcademy_Homeworks/933e8c2f/JS%20DOM%20UI/02.%20DOM%20Operations/03.%20ColorSet/index.html)
 04. tag-cloud [DEMO](https://cdn.rawgit.com/DanielaPopova/TelerikAcademy_Homeworks/933e8c2f/JS%20DOM%20UI/02.%20DOM%20Operations/04.%20TagCloud/index.html)
+05. adding-elements [DEMO](https://cdn.rawgit.com/DanielaPopova/TelerikAcademy_Homeworks/e1b697d1/JS%20DOM%20UI/02.%20DOM%20Operations/05.%20AddingElements/tasks/index.html)
