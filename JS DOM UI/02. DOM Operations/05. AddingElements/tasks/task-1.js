@@ -1,4 +1,4 @@
-module.exports = function solve() {
+function solve() {
    return function (element, contents) {
    
     if (typeof element !== 'string' && !(element instanceof HTMLElement)) {  //element.nodeType != 1
@@ -40,3 +40,5 @@ module.exports = function solve() {
     domElement.appendChild(docFragment);
   };
 };
+
+module.exports = solve();
