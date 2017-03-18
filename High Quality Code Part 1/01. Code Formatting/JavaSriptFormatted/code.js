@@ -13,7 +13,7 @@ event.x/y - alias for clientX/Y
 	let browserName = navigator.appName;
 	let addScroll = false;
 	let off = 0;
-	let txt = "";
+	let txt = '';
 	let pX = 0;
 	let pY = 0;
 
@@ -33,19 +33,19 @@ event.x/y - alias for clientX/Y
 			pY = evn.pageY;
 
 			if (document.getElementById('ToolTip').style.visibility === 'show') {
-				PopTip();
+				popTip();
 			}
 		} else {
 			pX = event.x - 5;
 			pY = event.y;
 
 			if (document.getElementById('ToolTip').style.visibility === 'visible') {
-				PopTip();
+				popTip();
 			}
 		}
 	}
 
-	function PopTip() {
+	function popTip() {
 		let theLayer = document.getElementById('ToolTip');
 
 		if (browserName === "Netscape") {			
@@ -79,7 +79,7 @@ event.x/y - alias for clientX/Y
 		}
 	}
 
-	function HideTip() {
+	function hideTip() {
 		let args = HideTip.arguments; //never used, could be replaced by HideMenu with changed name - HideElement
 
 		if (browserName === "Netscape") {
@@ -89,7 +89,7 @@ event.x/y - alias for clientX/Y
 		}
 	}
 
-	function HideMenu(menuId) {
+	function hideMenu(menuId) {
 		let theLayer = document.getElementById(menuId);
 
 		if (browserName === "Netscape") {
@@ -99,7 +99,7 @@ event.x/y - alias for clientX/Y
 		}
 	}
 
-	function ShowMenu(menuId) {
+	function showMenu(menuId) {
 		let theLayer = document.getElementById(menuId);
 
 		if (browserName === "Netscape") {			
