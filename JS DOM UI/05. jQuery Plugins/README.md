@@ -1,1 +1,1 @@
-01. task-1-dropdown-list [DEMO](https://cdn.rawgit.com/DanielaPopova/TelerikAcademy_Homeworks/c4232c32/JS%20DOM%20UI/05.%20jQuery%20Plugins/task-1/tasks/task-1.html)
+01. task-1-dropdown-list [DEMO](https://cdn.rawgit.com/DanielaPopova/TelerikAcademy_Homeworks/139cff0f/JS%20DOM%20UI/05.%20jQuery%20Plugins/task-1/tasks/task-1.html)
