@@ -37,8 +37,7 @@ function solve() {
       $divToDisplay.text($clicked.text());
       $select.val($clicked.attr('data-value'));
 
-      var $container = $(this)
-        .css('display', 'none');
+      var $container = $(this).hide();
     });
 
     for (var i = 0; i < $options.length; i += 1) {
