@@ -80,7 +80,7 @@ event.x/y - alias for clientX/Y
 	}
 
 	function hideTip() {
-		let args = HideTip.arguments; //never used, could be replaced by HideMenu with changed name - HideElement
+		let args = hideTip.arguments; //never used, could be replaced by HideMenu with changed name - HideElement
 
 		if (browserName === "Netscape") {
 			document.getElementById('ToolTip').style.visibility = 'hide';
