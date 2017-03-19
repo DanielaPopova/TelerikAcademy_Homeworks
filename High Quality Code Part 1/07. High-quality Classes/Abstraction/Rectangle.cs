@@ -1,41 +1,73 @@
-﻿using System;
-
-namespace Abstraction
+﻿namespace Abstraction
 {
-    class Rectangle : Figure
+    using System;
+
+    using Contracts;
+
+    public class Rectangle : Figure, IRectangle
     {
-        public Rectangle()
-            : base(0, 0)
-        {
-        }
+        private double width;
+        private double height;
 
         public Rectangle(double width, double height)
-            : base(width, height)
         {
+            this.Width = width;
+            this.Height = height;
         }
 
-        public override double Radius
+        public double Width
         {
             get
             {
-                throw new NotImplementedException("Rectangle does not have Radius");
+                return this.width;
             }
-            set
+
+            private set
             {
-                throw new NotImplementedException("Rectangle does not have Radius");
+                if (value <= 0)
+                {
+                    throw new ArgumentException("Width cannot be equal to or less than zero!");
+                }
+
+                this.width = value;
             }
         }
 
-        public double CalcPerimeter()
+        public double Height
+        {
+            get
+            {
+                return this.height;
+            }
+
+            private set
+            {
+                if (value <= 0)
+                {
+                    throw new ArgumentException("Height cannot be equal to or less than zero!");
+                }
+
+                this.height = value;
+            }
+        }
+         
+        public override double CalculatePerimeter()
         {
             double perimeter = 2 * (this.Width + this.Height);
             return perimeter;
         }
 
-        public double CalcSurface()
+        public override double CalculateSurface()
         {
             double surface = this.Width * this.Height;
             return surface;
+        }
+
+        public override string ToString()
+        {
+            return string.Format(("I am a rectangle. " +
+                "My perimeter is {0:f2}. My surface is {1:f2}."),
+                this.CalculatePerimeter(), this.CalculateSurface());
         }
     }
 }

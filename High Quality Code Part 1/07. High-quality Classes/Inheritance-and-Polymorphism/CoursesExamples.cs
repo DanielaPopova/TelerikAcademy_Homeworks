@@ -1,11 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace InheritanceAndPolymorphism
+﻿namespace InheritanceAndPolymorphism
 {
-    class CoursesExamples
+    using System;
+    using System.Collections.Generic;
+
+    using Models;
+
+    public class CoursesExamples
     {
-        static void Main()
+        public static void Main()
         {
             LocalCourse localCourse = new LocalCourse("Databases");
             Console.WriteLine(localCourse);
