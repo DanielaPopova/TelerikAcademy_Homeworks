@@ -41,7 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Methods.cs" />
+    <Compile Include="Enums\NumberFormatType.cs" />
+    <Compile Include="GeometricCalculation.cs" />
+    <Compile Include="StartUp.cs" />
+    <Compile Include="NumberCalculation.cs" />
     <Compile Include="Student.cs" />
   </ItemGroup>
   <ItemGroup>
