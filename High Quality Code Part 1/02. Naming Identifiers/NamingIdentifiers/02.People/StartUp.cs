@@ -12,7 +12,7 @@
             var person = personFactory.CreatePerson(8805257188);
 
             Console.WriteLine($"Name: {person.Name}");
-            Console.WriteLine($"EGN: {person.EGN}");
+            Console.WriteLine($"Age: {person.Age}");
             Console.WriteLine($"Gender: {person.Gender}");
         }
     }

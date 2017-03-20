@@ -7,7 +7,7 @@
     {
         public string Name { get; set; }
 
-        public long EGN { get; set; }
+        public int Age { get; set; }
 
         public GenderType Gender { get; set; }       
     }

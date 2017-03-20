@@ -1,14 +1,17 @@
 ﻿namespace People.Models
 {
+    using System;
+
     using Contracts;
     using Enums;
 
     public class PersonFactory
     {
         public IPerson CreatePerson(long egn)
-        {
+        {            
+            int yearOfBirth = int.Parse("19" + egn.ToString().Substring(0, 2));
             IPerson person = new Person();
-            person.EGN = egn;
+            person.Age = DateTime.Now.Year - yearOfBirth;
 
             if (egn % 2 == 0)
             {                

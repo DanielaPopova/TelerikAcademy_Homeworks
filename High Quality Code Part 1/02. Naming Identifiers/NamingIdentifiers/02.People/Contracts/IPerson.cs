@@ -6,7 +6,7 @@
     {
         string Name { get; set; }
 
-        long EGN { get; set; }
+        int Age { get; set; }
 
         GenderType Gender { get; set; }        
     }
