@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\ICourse.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\OffsiteCourse.cs" />
     <Compile Include="Models\LocalCourse.cs" />

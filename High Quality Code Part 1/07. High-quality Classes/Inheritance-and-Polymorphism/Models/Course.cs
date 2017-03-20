@@ -4,7 +4,9 @@
     using System.Collections.Generic;
     using System.Text;
 
-    public abstract class Course
+    using Contracts;
+
+    public abstract class Course : ICourse
     {
         private string name;
 
@@ -45,19 +47,7 @@
 
         public string TeacherName { get; set; }
 
-        public IList<string> Students { get; set; }
-
-        protected string GetStudentsAsString()
-        {
-            if (this.Students == null || this.Students.Count == 0)
-            {
-                return "{ }";
-            }
-            else
-            {
-                return "{ " + string.Join(", ", this.Students) + " }";
-            }
-        }
+        public ICollection<string> Students { get; set; }        
 
         public override string ToString()
         {
@@ -74,6 +64,18 @@
             result.Append(" }");
 
             return result.ToString();
+        }
+
+        protected string GetStudentsAsString()
+        {
+            if (this.Students == null || this.Students.Count == 0)
+            {
+                return "{ }";
+            }
+            else
+            {
+                return "{ " + string.Join(", ", this.Students) + " }";
+            }
         }
     }
 }
