@@ -6,10 +6,8 @@
     {
         string Name { get; set; }
 
-        int Age { get; set; }
+        long EGN { get; set; }
 
-        GenderType Gender { get; set; }
-
-        IPerson MakePerson(int age);
+        GenderType Gender { get; set; }        
     }
 }

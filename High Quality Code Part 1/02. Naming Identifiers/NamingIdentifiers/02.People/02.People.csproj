@@ -46,6 +46,7 @@
     <Compile Include="Contracts\IPerson.cs" />
     <Compile Include="Enums\GenderType.cs" />
     <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\PersonFactory.cs" />
     <Compile Include="StartUp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
