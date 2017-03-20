@@ -1,6 +1,6 @@
 ﻿namespace Mines.Contracts
 {
-    public interface IScore
+    public interface IPlayer
     {
         string Name { get; set; }
 

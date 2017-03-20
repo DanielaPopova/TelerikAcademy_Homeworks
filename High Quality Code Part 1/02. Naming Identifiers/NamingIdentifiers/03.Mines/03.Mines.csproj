@@ -43,8 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contracts\IScore.cs" />
-    <Compile Include="Models\Score.cs" />
+    <Compile Include="Contracts\IPlayer.cs" />
+    <Compile Include="Models\Player.cs" />
     <Compile Include="StartUp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

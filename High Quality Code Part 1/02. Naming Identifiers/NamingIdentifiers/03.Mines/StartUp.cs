@@ -18,9 +18,9 @@
             string command = string.Empty;
             char[,] board = CreateGameBoard();
             char[,] mines = FillBoardWithMines();
-            int counter = 0;
+            int moves = 0;
             bool isMineDetonated = false;
-            List<IScore> topPlayers = new List<IScore>(6);
+            List<IPlayer> topPlayers = new List<IPlayer>(6);
             int row = 0;
             int col = 0;
             bool startGame = true;
@@ -69,10 +69,10 @@
                             if (mines[row, col] == '-')
                             {
                                 NextMove(board, mines, row, col);
-                                counter++;
+                                moves++;
                             }
 
-                            if (MaxEmptyFields == counter)
+                            if (MaxEmptyFields == moves)
                             {
                                 winGame = true;
                             }
@@ -95,34 +95,34 @@
                 if (isMineDetonated)
                 {
                     ShowGameBoard(mines);
-                    Console.Write("\nYou stepped on a mine! Final score: {0}.\nEnter your nickname: ", counter);
+                    Console.Write("\nYou stepped on a mine! Final score: {0}.\nEnter your nickname: ", moves);
                     string nickname = Console.ReadLine();
-                    var score = new Score(nickname, counter);
+                    var player = new Player(nickname, moves);
 
                     if (topPlayers.Count < 5)
                     {
-                        topPlayers.Add(score);
+                        topPlayers.Add(player);
                     }
                     else
                     {
                         for (int i = 0; i < topPlayers.Count; i++)
                         {
-                            if (topPlayers[i].Result < score.Result)
+                            if (topPlayers[i].Result < player.Result)
                             {
-                                topPlayers.Insert(i, score);
+                                topPlayers.Insert(i, player);
                                 topPlayers.RemoveAt(topPlayers.Count - 1);
                                 break;
                             }
                         }
                     }
 
-                    topPlayers.Sort((IScore r1, IScore r2) => r2.Name.CompareTo(r1.Name));
-                    topPlayers.Sort((IScore r1, IScore r2) => r2.Result.CompareTo(r1.Result));
+                    topPlayers.Sort((IPlayer r1, IPlayer r2) => r2.Name.CompareTo(r1.Name));
+                    topPlayers.Sort((IPlayer r1, IPlayer r2) => r2.Result.CompareTo(r1.Result));
                     ShowTopScores(topPlayers);
 
                     board = CreateGameBoard();
                     mines = FillBoardWithMines();
-                    counter = 0;
+                    moves = 0;
                     isMineDetonated = false;
                     startGame = true;
                 }
@@ -133,13 +133,13 @@
                     ShowGameBoard(mines);
                     Console.WriteLine("Please enter your name: ");
                     string name = Console.ReadLine();
-                    var score = new Score(name, counter);
-                    topPlayers.Add(score);
+                    var player = new Player(name, moves);
+                    topPlayers.Add(player);
                     ShowTopScores(topPlayers);
 
                     board = CreateGameBoard();
                     mines = FillBoardWithMines();
-                    counter = 0;
+                    moves = 0;
                     winGame = false;
                     startGame = true;
                 }
@@ -181,35 +181,35 @@
                 }
             }
 
-            List<int> numbers = new List<int>();
+            List<int> minesList = new List<int>();
+            Random randomGenerator = new Random();
 
-            while (numbers.Count < 15)
+            while (minesList.Count < 15)
             {
-                Random randomGenerator = new Random();
-                int randomNumber = randomGenerator.Next(50);
+                int mineIndex = randomGenerator.Next(50);
 
-                if (!numbers.Contains(randomNumber))
+                if (!minesList.Contains(mineIndex))
                 {
-                    numbers.Add(randomNumber);
+                    minesList.Add(mineIndex);
                 }
             }
 
-            foreach (int number in numbers)
+            foreach (int index in minesList)
             {
-                int col = number / boardColumns;
-                int row = number % boardColumns;
+                int row = index / boardColumns;
+                int col = index % boardColumns;
 
-                if (row == 0 && number != 0)
+                if (col == 0 && index != 0)
                 {
-                    col--;
-                    row = boardColumns;
+                    row--;
+                    col = boardColumns;
                 }
                 else
                 {
-                    row++;
+                    col++;
                 }
 
-                board[col, row - 1] = '*';
+                board[row, col - 1] = '*';
             }
 
             return board;
@@ -239,7 +239,7 @@
             Console.WriteLine("   ---------------------\n");
         }
 
-        private static void ShowTopScores(List<IScore> topPlayers)
+        private static void ShowTopScores(List<IPlayer> topPlayers)
         {
             Console.WriteLine("\nBest scores:");
 

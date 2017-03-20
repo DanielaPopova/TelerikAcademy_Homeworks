@@ -1,16 +1,14 @@
 ﻿namespace Mines.Models
-{
-    using System;
-
+{  
     using Mines.Contracts;
 
-    public class Score : IScore
+    public class Player : IPlayer
     {        
-        public Score()
+        public Player()
         {
         }
 
-        public Score(string name, int result)
+        public Player(string name, int result)
         {
             this.Name = name;
             this.Result = result;
