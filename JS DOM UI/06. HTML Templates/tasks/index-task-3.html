@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>List View</title>
+</head>
+<body>
+    <ul id="books-list" data-template="book-item-template"></ul>
+    <script id="book-item-template" type="text/x-handlebars-template">  
+             
+        <li class="book-item">
+            <a href="/#books/{{id}}">
+                <strong>{{title}}</strong>
+            </a>
+        </li>
+       
+    </script>
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/handlebars.min.js"></script>    
+    <script>       
+    </script>
+    <script>        
+        var data = [{title: 'JavaScript: The Good Parts', id: 1},
+                    {title: 'Secrets of the JavaScript Ninja', id: 2},
+                    {title: 'Core HTML5 Canvas', id: 3},
+                    {title: 'JavaScript Patterns', id: 4}];
+
+        $.fn.listview = function(data){
+            var template = $("#" + this.attr('data-template')).html(),
+                listTemplate = Handlebars.compile(template); 
+                
+            for (var i = 0, len = data.length; i < len; i += 1) {
+                this.append(listTemplate(data[i]));
+            }
+            return this;
+        };
+
+        $('#books-list').listview(data);
+    </script>
+</body>
+</html>
