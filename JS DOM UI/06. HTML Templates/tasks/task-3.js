@@ -2,7 +2,7 @@ function solve(){
   return function(){
     $.fn.listview = function(data){
         var template = $("#" + this.attr('data-template')).html(),
-            listTemplate = Handlebars.compile(template),
+            listTemplate = handlebars.compile(template),
             i, 
             len;
 
