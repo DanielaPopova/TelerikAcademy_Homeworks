@@ -1,14 +1,30 @@
 {
-  "name": "task-2",
+  "name": "dom-and-jquery-tests-with-mocha",
   "version": "1.0.0",
-  "description": "* Given the HTML (`index.html`), CSS (`styles.css`), JavaScript (`scripts.js` and `jquery.min.js`) and images build a jQuery plugin for a simple gallery control * The gallery must:   * Show all available images in a tabular view with rows and columns   * Columns per row are optional and should be passed as parameter to the plugin   * If no columns are given to the plugin, the default is 4   * When the user clicks on an image, the clicked image as well as its previous and next images from the DOM are shown enlarged and fixed at the center of screen   * When the gallery shows an enlarged image, the background should be blurred and not clickable or usable at all   * When the user clicks on the already enlarged image, the gallery should return to the initial state and show all available images (allowing the user to click on them again)   * When the user clicks on the image on the right of the enlarged image, the gallery should enlarge the next image in the DOM   * If no next image is available, the gallery should show the first image as next   * When the user clicks on the image on the left of the enlarged image, the gallery should enlarge the previous image in the DOM   * If no previous image is available, the gallery should show the last image as previous   * _HINT_     * Take a closer look at the provided CSS styles. * To get a better understanding of the gallery, you are provided with visual examples in the result folder",
+  "description": "",
   "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node node_modules/mocha/bin/mocha  tests/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Minkov/DOM-and-jQuery-tests-with-Mocha.git"
   },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Minkov/DOM-and-jQuery-tests-with-Mocha/issues"
+  },
+  "homepage": "https://github.com/Minkov/DOM-and-jQuery-tests-with-Mocha",
+  "devDependencies": {},
   "dependencies": {
-    "@types/jquery": "^2.0.41"
+    "chai": "^3.2.0",
+    "handlebars": "^3.0.3",
+    "jquery": "^2.1.4",
+    "jsdom": "^5.6.1",
+    "mocha": "^2.2.5"
   }
 }
