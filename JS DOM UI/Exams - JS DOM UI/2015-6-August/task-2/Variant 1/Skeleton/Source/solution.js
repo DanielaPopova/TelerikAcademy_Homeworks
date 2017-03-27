@@ -11,9 +11,51 @@
             return WEEK_DAY_NAMES[this.getDay()];
         };
 		
-		// you are welcome :)
-		var date = new Date();
-		console.log(date.getDayName());
-		console.log(date.getMonthName());
+        var now = new Date();
+        var dateNow = now.getDate() + ' ' + now.getMonthName() + ' ' + now.getFullYear();
+        var monthNow = now.getMonthName() + ' ' + now.getFullYear();
+
+        // Creating elements of the picker
+        var $wrapper = $('<div/>').addClass('datepicker-wrapper').appendTo('div');        
+        var $inputField = $('#date').appendTo($wrapper);
+
+        var $picker = $('<div/>')
+            .addClass('picker')
+            .appendTo($wrapper);
+        var $controls = $('<div/>')
+            .addClass('controls')
+            .appendTo($picker);
+        var $controlButtonLeft = $('<button/>')
+            .addClass('btn')
+            .text('<')
+            .appendTo($controls);
+        var $currentMonth = $('<div/>')
+            .addClass('current-month')
+            .text(monthNow)
+            .appendTo($controls);
+        var $controlButtonRight = $('<button/>')
+            .addClass('btn')
+            .text('>')
+            .appendTo($controls);
+        var $calendar = $('<table>/')
+            .addClass('calendar')
+            .appendTo($picker);        
+        var $currentDate = $('<div/>')
+            .addClass('current-date')
+            .appendTo($picker);
+        var $currentDateLink = $('<a href="#" />')
+            .addClass('current-date-link')
+            .text(dateNow)
+            .appendTo($currentDate);
+		
+        $inputField.on('click', function(){
+            $picker.addClass('picker-visible');
+        });
+
+        $currentDate.on('click', '.current-date-link', function(){
+            $inputField.val($currentDateLink.text());
+        })
+
+        return this;
     };
 };
