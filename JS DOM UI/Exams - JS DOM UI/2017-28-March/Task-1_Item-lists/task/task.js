@@ -110,7 +110,8 @@ function solve() {
 			var target = ev.target;
 
 			if(target.className === 'delete'){				
-				var liText = target.parentElement.innerText;
+				var liText = target.parentElement.textContent;
+				console.log(liText);
 				var parent = target.parentElement;
 				var ol = parent.parentElement;
 				
@@ -141,8 +142,7 @@ function solve() {
 			inputField.value = '';
 		});
 
-		function addItem(newItem, toColumn){
-			newItem = newItem.trim();
+		function addItem(newItem, toColumn){			
 			var newLi = li.cloneNode(true);
 			newLi.innerHTML = newLi.innerHTML + newItem;
 
