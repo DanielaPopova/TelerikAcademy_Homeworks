@@ -110,8 +110,7 @@ function solve() {
 			var target = ev.target;
 
 			if(target.className === 'delete'){				
-				var liText = target.parentElement.textContent;
-				console.log(liText);
+				var liText = target.parentElement.textContent;				
 				var parent = target.parentElement;
 				var ol = parent.parentElement;
 				
