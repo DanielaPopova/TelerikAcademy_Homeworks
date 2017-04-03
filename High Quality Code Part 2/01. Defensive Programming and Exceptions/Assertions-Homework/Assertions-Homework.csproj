@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssertionsHomework.cs" />
+    <Compile Include="Utils\Search.cs" />
+    <Compile Include="Utils\Sort.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

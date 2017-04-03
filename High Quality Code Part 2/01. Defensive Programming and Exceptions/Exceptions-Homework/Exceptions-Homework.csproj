@@ -41,12 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CSharpExam.cs" />
-    <Compile Include="ExamResult.cs" />
-    <Compile Include="SimpleMathExam.cs" />
+    <Compile Include="Models\CSharpExam.cs" />
+    <Compile Include="Models\ExamResult.cs" />
+    <Compile Include="Models\SimpleMathExam.cs" />
     <Compile Include="ExceptionsHomework.cs" />
-    <Compile Include="Exam.cs" />
-    <Compile Include="Student.cs" />
+    <Compile Include="Models\Exam.cs" />
+    <Compile Include="Models\Student.cs" />
+    <Compile Include="Utils\Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
