@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarSystem", "SolarSystem.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem02_CompareSimpleMaths", "..\Problem02_CompareSimpleMaths\Problem02_CompareSimpleMaths.csproj", "{0F2BD717-8876-448B-BD3C-0A1ADE03C49A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem03_CompareAdvancedMaths", "..\Problem03_CompareAdvancedMaths\Problem03_CompareAdvancedMaths.csproj", "{AD185E95-D869-48CF-9A1B-2F8B405B40EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{0F2BD717-8876-448B-BD3C-0A1ADE03C49A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F2BD717-8876-448B-BD3C-0A1ADE03C49A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F2BD717-8876-448B-BD3C-0A1ADE03C49A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD185E95-D869-48CF-9A1B-2F8B405B40EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD185E95-D869-48CF-9A1B-2F8B405B40EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD185E95-D869-48CF-9A1B-2F8B405B40EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD185E95-D869-48CF-9A1B-2F8B405B40EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
