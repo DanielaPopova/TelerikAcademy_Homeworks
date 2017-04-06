@@ -41,7 +41,7 @@
             PrintResults();
         }
 
-        // Stackoverflow
+        // Taken from stackoverflow
         private static TimeSpan CalculateAverageTimeSpan(IList<TimeSpan> allTimeSpans)
         {
             double doubleAverageTicks = allTimeSpans.Average(timeSpan => timeSpan.Ticks);
@@ -73,8 +73,7 @@
             Console.WriteLine(CalculateAverageTimeSpan(allTimeSpansDouble));
             Console.WriteLine(CalculateAverageTimeSpan(allTimeSpansDecimal));
         }
-
-        // Method for Square Root
+       
         private static TimeSpan GetPerformanceForSquareRoot(dynamic number)
         {
             Stopwatch sw = new Stopwatch();            
@@ -89,8 +88,7 @@
 
             return sw.Elapsed;
         }
-
-        // Method for Natural Logarithm
+        
         private static TimeSpan GetPerformanceForLogarithm(dynamic number)
         {
             Stopwatch sw = new Stopwatch();
@@ -105,8 +103,7 @@
 
             return sw.Elapsed;
         }
-
-        //Method for Sinus
+        
         private static TimeSpan GetPerformanceForSinus(dynamic number)
         {
             Stopwatch sw = new Stopwatch();

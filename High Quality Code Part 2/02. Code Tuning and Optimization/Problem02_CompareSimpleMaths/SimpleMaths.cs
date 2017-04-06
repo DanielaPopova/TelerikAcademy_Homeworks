@@ -66,7 +66,7 @@
             PrintResults();
         }
 
-        // Stackoverflow
+        // Taken from stackoverflow
         private static TimeSpan CalculateAverageTimeSpan(IList<TimeSpan> allTimeSpans)
         {
             double doubleAverageTicks = allTimeSpans.Average(timeSpan => timeSpan.Ticks);
@@ -104,8 +104,7 @@
             Console.WriteLine(CalculateAverageTimeSpan(allTimeSpansDouble));
             Console.WriteLine(CalculateAverageTimeSpan(allTimeSpansDecimal));
         }
-
-        // Method for Addition
+        
         private static TimeSpan GetPerformanceForAdd(dynamic number)
         {
             Stopwatch sw = new Stopwatch();
@@ -120,9 +119,8 @@
             sw.Stop();
 
             return sw.Elapsed;
-        }
-       
-        // Method for Subtraction
+        }       
+        
         private static TimeSpan GetPerformanceForSubtract(dynamic number)
         {
             Stopwatch sw = new Stopwatch();
@@ -138,8 +136,7 @@
 
             return sw.Elapsed;
         }
-
-        // Method for Multiplicaiton
+        
         private static TimeSpan GetPerformanceForMultiply(dynamic number)
         {
             Stopwatch sw = new Stopwatch();
@@ -155,8 +152,7 @@
 
             return sw.Elapsed;
         }
-
-        // Method for Division
+        
         private static TimeSpan GetPerformanceForDivide(dynamic number)
         {
             Stopwatch sw = new Stopwatch();
@@ -172,8 +168,7 @@
 
             return sw.Elapsed;
         }
-
-        // Method for Increment - After
+        
         private static TimeSpan GetPerformanceForPostfixIncrement(dynamic number)
         {
             Stopwatch sw = new Stopwatch();            
@@ -188,8 +183,7 @@
 
             return sw.Elapsed;
         }
-
-        // Method for Increment - Before
+        
         private static TimeSpan GetPerformanceForPrefixIncrement(dynamic number)
         {
             Stopwatch sw = new Stopwatch();
