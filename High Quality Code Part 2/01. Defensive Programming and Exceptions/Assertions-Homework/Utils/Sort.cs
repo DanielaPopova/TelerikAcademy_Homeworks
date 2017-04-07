@@ -8,7 +8,7 @@
         public static void SelectionSort<T>(T[] array)
            where T : IComparable<T>
         {
-            Debug.Assert(array.Length > 0, "Array should not be empty!");
+            Debug.Assert(array != null && array.Length > 0, "Array cannot be null or empty!");
 
             for (int index = 0; index < array.Length - 1; index++)
             {
@@ -20,7 +20,7 @@
         private static int FindMinElementIndex<T>(T[] array, int startIndex, int endIndex)
            where T : IComparable<T>
         {
-            Debug.Assert(array.Length > 0, "Array should not be empty!");
+            Debug.Assert(array != null && array.Length > 0, "Array cannot be null or empty!");
 
             Debug.Assert(startIndex >= 0, "Start index should be a positive number!");
             Debug.Assert(startIndex < array.Length, "Start index should be smaller than array lenght!");

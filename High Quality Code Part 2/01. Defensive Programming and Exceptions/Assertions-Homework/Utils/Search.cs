@@ -8,7 +8,7 @@
         public static int BinarySearch<T>(T[] array, T value)
            where T : IComparable<T>
         {
-            Debug.Assert(array.Length > 0, "Cannot search in an emptry array!");
+            Debug.Assert(array != null && array.Length > 0, "Array cannot be null or empty!");
 
             int index = BinarySearch(array, value, 0, array.Length - 1);
 
@@ -20,7 +20,7 @@
         private static int BinarySearch<T>(T[] array, T value, int startIndex, int endIndex)
             where T : IComparable<T>
         {
-            Debug.Assert(array.Length > 0, "Cannot search in an empty array!");
+            Debug.Assert(array != null && array.Length > 0, "Array cannot be null or empty!");
 
             while (startIndex <= endIndex)
             {
