@@ -1,4 +1,10 @@
-﻿namespace RotatingWalkInMatrix
+﻿//TODO:
+//get rid of out parameters
+//get rid of ref (Coordinates class?)
+//fix while
+//implement Matrix class
+//implement Matrix Utils?
+namespace RotatingWalkInMatrix
 {
     using System;
 
