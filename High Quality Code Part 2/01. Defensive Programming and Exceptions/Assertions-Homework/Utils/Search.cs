@@ -21,12 +21,12 @@
             where T : IComparable<T>
         {
             Debug.Assert(array != null && array.Length > 0, "Array cannot be null or empty!");
+            Debug.Assert(startIndex >= 0 && startIndex < array.Length, "Start index is out of the array range!");
+            Debug.Assert(endIndex >= 0 && endIndex < array.Length, "End index is out of the array range!");
+            Debug.Assert(endIndex >= startIndex, "End index cannot be smaller than start index!");
 
             while (startIndex <= endIndex)
             {
-                Debug.Assert(startIndex >= 0 && startIndex < array.Length, "Start index is out of the array range!");
-                Debug.Assert(endIndex >= 0 && endIndex < array.Length, "End index is out of the array range!");
-
                 int midIndex = (startIndex + endIndex) / 2;
                 if (array[midIndex].Equals(value))
                 {
