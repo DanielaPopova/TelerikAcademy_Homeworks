@@ -37,8 +37,17 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IReader.cs" />
+    <Compile Include="Contracts\IWriter.cs" />
+    <Compile Include="Models\Coordinates.cs" />
+    <Compile Include="Models\SquareMatrix.cs" />
+    <Compile Include="Providers\Reader.cs" />
+    <Compile Include="Providers\Writer.cs" />
     <Compile Include="StartUp.cs" />
+    <Compile Include="Utils\Engine.cs" />
+    <Compile Include="Utils\MatrixExtensions.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
