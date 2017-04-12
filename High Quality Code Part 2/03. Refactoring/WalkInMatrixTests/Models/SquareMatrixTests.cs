@@ -38,14 +38,39 @@
             Assert.Throws<IndexOutOfRangeException>(() => invalid = matrix[row, col]);
         }
 
-        [TestCase(0, 0)]
-        [TestCase(1, 2)]
-        [TestCase(3, 3)]
-        public void Indexator_GettingValidRowAndCol_ShouldReturnCorrectValue(int row, int col)
+        [TestCase(-1, 2)]
+        [TestCase(4, 2)]
+        [TestCase(-1, 4)]
+        public void Indexator_SettingMatrixCellWithInvalidRowAndColToValue_ShouldThrowIndexOutOfRangeException(int row, int col)
         {
             int validSize = 4;
             var matrix = new SquareMatrix(validSize);
-            int validValue = 0;
+           
+            Assert.Throws<IndexOutOfRangeException>(() => matrix[row, col] = 2);
+        }
+
+        [TestCase(0, 0)]
+        [TestCase(1, 2)]
+        [TestCase(3, 3)]
+        public void Indexator_GettingMatrixCellWithValidRowAndCol_ShouldReturnCorrectValue(int row, int col)
+        {
+            int validSize = 4;
+            var matrix = new SquareMatrix(validSize);            
+
+            Assert.AreEqual(0, matrix[row, col]);
+        }
+
+        [TestCase(0, 0)]
+        [TestCase(1, 2)]
+        [TestCase(3, 3)]
+        public void Indexator_SettingMatrixCellWithValidRowAndColToValue_ShouldReturnCorrectValue(int row, int col)
+        {
+            int validSize = 4;
+            var matrix = new SquareMatrix(validSize);
+            int validValue = 2;
+
+            // Act
+            matrix[row, col] = 2;
 
             Assert.AreEqual(validValue, matrix[row, col]);
         }
