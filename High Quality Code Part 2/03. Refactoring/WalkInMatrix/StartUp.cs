@@ -14,7 +14,7 @@
             var matrixCell = new Coordinates(0, 0);
             var direction = new Coordinates(1, 1);
 
-            engine.FillMatrixInCircularPattern(matrix, matrixCell, direction); 
+            engine.FillMatrixInCircularPattern(matrix, matrixCell, direction);
         }
     }
 }
