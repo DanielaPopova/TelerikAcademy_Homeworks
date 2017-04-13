@@ -6,6 +6,8 @@
 
     public class Engine
     {
+        private static Engine instanceHolder = new Engine();
+
         private IWriter writer;
         private IReader reader;
 
@@ -19,7 +21,7 @@
         {
             get
             {
-                return new Engine();
+                return instanceHolder;
             }
         }
 
@@ -53,6 +55,8 @@
                     if (matrixCell != null)
                     {
                         counter++;
+                        direction.X = 1;
+                        direction.Y = 1;
                         continue;
                     }
                     else

@@ -21,7 +21,8 @@
 
         [TestCase(0)]
         [TestCase(-2)]
-        public void Size_PassedValueIsSmallerThanZero_ShouldThrowArgumentException(int invalidSize)
+        [TestCase(101)]
+        public void Size_PassedValueIsInvalid_ShouldThrowArgumentException(int invalidSize)
         {  
             Assert.Throws<ArgumentException>(() => new SquareMatrix(invalidSize));
         }

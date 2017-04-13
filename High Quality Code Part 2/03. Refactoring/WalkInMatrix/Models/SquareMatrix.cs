@@ -4,7 +4,10 @@
     using System.Text;
 
     public class SquareMatrix
-    {       
+    {
+        private const int MinSize = 1;
+        private const int MaxSize = 100;
+           
         private int size;        
         private int[,] matrix;
 
@@ -23,9 +26,9 @@
 
             private set
             {
-                if(value <= 0)
+                if(value < MinSize || value > MaxSize)
                 {
-                    throw new ArgumentException("Matrix size cannot be 0 or smaller!");
+                    throw new ArgumentException("Matrix size is in range 1 - 100!");
                 }
 
                 this.size = value;

@@ -20,6 +20,7 @@
             int[] possibleDirectionsRow = { 1, 1, 1, 0, -1, -1, -1, 0 };
             int[] possibleDirectionsCol = { 1, 0, -1, -1, -1, 0, 1, 1 };
             int step = 0;
+
             for (int i = 0; i < 8; i++)
             {
                 if (possibleDirectionsRow[i] == direction.X && possibleDirectionsCol[i] == direction.Y)
@@ -37,6 +38,7 @@
         {
             int[] possibleDirectionsRow = { 1, 1, 1, 0, -1, -1, -1, 0 };
             int[] possibleDirectionsCol = { 1, 0, -1, -1, -1, 0, 1, 1 };
+
             for (int i = 0; i < 8; i++)
             {
                 if (matrixCell.X + possibleDirectionsRow[i] >= matrix.Size || matrixCell.X + possibleDirectionsRow[i] < 0)
@@ -63,18 +65,13 @@
 
         public static Coordinates FindEmptyCell(SquareMatrix matrix)
         {            
-            int currentRow = 0;
-            int currentCol = 0;
-
             for (int row = 0; row < matrix.Size; row++)
             {
                 for (int col = 0; col < matrix.Size; col++)
                 {
                     if (matrix[row, col] == 0)
-                    {
-                        currentRow = row;
-                        currentCol = col;
-                        return new Coordinates(currentRow, currentCol);
+                    {                        
+                        return new Coordinates(row, col);
                     }
                 }
             }
