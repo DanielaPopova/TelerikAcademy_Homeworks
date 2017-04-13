@@ -3,7 +3,9 @@
     using System;
     using System.Text;
 
-    public class SquareMatrix
+    using WalkInMatrix.Contracts;
+
+    public class SquareMatrix : IMatrix
     {
         private const int MinSize = 1;
         private const int MaxSize = 100;

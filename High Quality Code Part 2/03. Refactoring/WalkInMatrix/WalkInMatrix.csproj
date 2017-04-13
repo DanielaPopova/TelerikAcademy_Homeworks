@@ -37,6 +37,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\ICoordinates.cs" />
+    <Compile Include="Contracts\IMatrix.cs" />
     <Compile Include="Contracts\IReader.cs" />
     <Compile Include="Contracts\IWriter.cs" />
     <Compile Include="Models\Coordinates.cs" />

@@ -1,7 +1,6 @@
 ﻿namespace WalkInMatrix.Utils
 {   
-    using WalkInMatrix.Contracts;
-    using WalkInMatrix.Models;
+    using WalkInMatrix.Contracts;   
     using WalkInMatrix.Providers;
 
     public class Engine
@@ -40,7 +39,7 @@
             return size;
         }
 
-        public void FillMatrixInCircularPattern(SquareMatrix matrix, Coordinates matrixCell, Coordinates direction)
+        public void FillMatrixInCircularPattern(IMatrix matrix, ICoordinates matrixCell, ICoordinates direction)
         {
             int counter = 1;
 

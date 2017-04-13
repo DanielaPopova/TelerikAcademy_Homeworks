@@ -1,10 +1,11 @@
 ﻿namespace WalkInMatrix.Utils
-{    
+{
+    using WalkInMatrix.Contracts;
     using WalkInMatrix.Models;
 
     public static class MatrixExtensions
     {        
-        public static bool IsOutsideMatrixBorders(Coordinates matrixCell, Coordinates direction, int size)
+        public static bool IsOutsideMatrixBorders(ICoordinates matrixCell, ICoordinates direction, int size)
         {
             if (matrixCell.X + direction.X >= size || matrixCell.X + direction.X < 0 ||
                 matrixCell.Y + direction.Y >= size || matrixCell.Y + direction.Y < 0)
@@ -15,7 +16,7 @@
             return false;
         }
 
-       public static void ChangeDirection(Coordinates direction)
+       public static void ChangeDirection(ICoordinates direction)
         {
             int[] possibleDirectionsRow = { 1, 1, 1, 0, -1, -1, -1, 0 };
             int[] possibleDirectionsCol = { 1, 0, -1, -1, -1, 0, 1, 1 };
@@ -34,7 +35,7 @@
             direction.Y = possibleDirectionsCol[(step + 1) % 8];
         }
 
-        public static bool IsNearCellEmpty(SquareMatrix matrix, Coordinates matrixCell)
+        public static bool IsNearCellEmpty(IMatrix matrix, ICoordinates matrixCell)
         {
             int[] possibleDirectionsRow = { 1, 1, 1, 0, -1, -1, -1, 0 };
             int[] possibleDirectionsCol = { 1, 0, -1, -1, -1, 0, 1, 1 };
@@ -63,7 +64,7 @@
             return false;
         }
 
-        public static Coordinates FindEmptyCell(SquareMatrix matrix)
+        public static Coordinates FindEmptyCell(IMatrix matrix)
         {            
             for (int row = 0; row < matrix.Size; row++)
             {
