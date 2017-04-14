@@ -7,10 +7,7 @@
     using WalkInMatrix.Utils;
 
     public class SquareMatrix : IMatrix
-    {
-        private const int MinSize = 1;
-        private const int MaxSize = 100;
-
+    { 
         private int size;
         private int[,] matrix;
 
@@ -29,26 +26,21 @@
 
             private set
             {
-                if (value < MinSize || value > MaxSize)
+                if (value < 1)
                 {
-                    throw new ArgumentException("Matrix size is in range 1 - 100!");
+                    throw new ArgumentException("Matrix size cannot be zero or smaller!");
                 }
 
                 this.size = value;
             }
         }
 
-        public int[,] Matrix
+        public void FillMatrixInCircularPattern()
         {
-            get
-            {
-                return this.matrix;
-            }
-        }
-
-        public void FillMatrixInCircularPattern(ICoordinates matrixCell, ICoordinates delta)
-        {
-            int counter = 1;
+            // Awlays starts from:
+            int counter = 1;           
+            ICoordinates delta = new Coordinates(1, 1);
+            ICoordinates matrixCell = new Coordinates(0, 0);
 
             while (true)
             {

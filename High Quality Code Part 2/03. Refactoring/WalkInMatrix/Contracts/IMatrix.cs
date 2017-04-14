@@ -2,10 +2,8 @@
 {
     public interface IMatrix
     {
-        int Size { get; }
-        
-        int[,] Matrix { get; }
+        int Size { get; } 
 
-        void FillMatrixInCircularPattern(ICoordinates matrixCell, ICoordinates delta);
+        void FillMatrixInCircularPattern();
     }
 }

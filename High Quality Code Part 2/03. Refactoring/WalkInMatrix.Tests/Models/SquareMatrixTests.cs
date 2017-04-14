@@ -20,8 +20,7 @@
         }
 
         [TestCase(0)]
-        [TestCase(-2)]
-        [TestCase(101)]
+        [TestCase(-1)]        
         public void Size_PassedValueIsInvalid_ShouldThrowArgumentException(int invalidSize)
         {  
             Assert.Throws<ArgumentException>(() => new SquareMatrix(invalidSize));
