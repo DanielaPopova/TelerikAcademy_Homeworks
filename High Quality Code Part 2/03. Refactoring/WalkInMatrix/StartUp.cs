@@ -1,20 +1,22 @@
 ﻿namespace WalkInMatrix
 {
+    using Utils;
+    using WalkInMatrix.Contracts;
     using WalkInMatrix.Models;
-    using WalkInMatrix.Utils;
-    
+    using WalkInMatrix.Providers;
+
     public class StartUp
     {        
-        static void Main()
+        public static void Main()
         {
-            var engine = Engine.Instance;
-
-            int matrixSize = engine.GetMatrixSize();
-            var matrix = new SquareMatrix(matrixSize);
-            var matrixCell = new Coordinates(0, 0);
-            var direction = new Coordinates(1, 1);
-
-            engine.FillMatrixInCircularPattern(matrix, matrixCell, direction);
-        }
+            var writer = new Writer();
+            var reader = new Reader();
+            var engine = new Engine(writer, reader);
+            var startCell = new Coordinates(0, 0);
+            var startDirection = new Coordinates(1, 1);
+            var matrix = engine.ProcessInput();
+            
+            engine.ExecuteWalkInMatrix(matrix, startCell, startDirection);
+        }        
     }
 }

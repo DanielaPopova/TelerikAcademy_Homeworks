@@ -5,9 +5,8 @@
     /// <summary>
     /// Used for finding:
     /// a cell in a square matrix through given row and column;
-    /// a possible direction to move in a square matrix
+    /// a possible direction to move in a square matrix through given delta
     /// </summary>
-
     public class Coordinates : ICoordinates
     {
         public Coordinates(int x, int y)

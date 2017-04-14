@@ -1,81 +1,39 @@
 ﻿namespace WalkInMatrix.Utils
-{   
-    using WalkInMatrix.Contracts;   
-    using WalkInMatrix.Providers;
-
+{
+    using Contracts;
+    using Models;
+    
     public class Engine
     {
-        private static Engine instanceHolder = new Engine();
-
-        private IWriter writer;
-        private IReader reader;
-
-        private Engine()
+        public Engine(IWriter writer, IReader reader)
         {
-            this.writer = new Writer();
-            this.reader = new Reader();
+            this.Writer = writer;
+            this.Reader = reader;
         }
 
-        public static Engine Instance
-        {
-            get
-            {
-                return instanceHolder;
-            }
-        }
+        public IWriter Writer { get; set; }
 
-        public int GetMatrixSize()
+        public IReader Reader { get; set; }
+
+        public IMatrix ProcessInput()
         {
-            this.writer.WriteLine("Enter a positive number in range 1 - 100:");
-            string input = this.reader.ReadLine();
+            this.Writer.WriteLine("Enter a positive number in range 1 - 100:");
+            string input = this.Reader.ReadLine();
             int size = 0;
 
             while (!int.TryParse(input, out size))
             {
-                this.writer.WriteLine("You haven't entered a correct positive number");
-                input = this.reader.ReadLine();
+                this.Writer.WriteLine("You haven't entered a correct positive number, try again!");
+                input = this.Reader.ReadLine();
             }
 
-            return size;
+            return new SquareMatrix(size);
         }
 
-        public void FillMatrixInCircularPattern(IMatrix matrix, ICoordinates matrixCell, ICoordinates direction)
+        public void ExecuteWalkInMatrix(IMatrix matrix, ICoordinates startingPoint, ICoordinates startDirection)
         {
-            int counter = 1;
-
-            while (true)
-            {
-                matrix[matrixCell.X, matrixCell.Y] = counter;
-
-                if (!MatrixExtensions.IsNearCellEmpty(matrix, matrixCell))
-                {
-                    matrixCell = MatrixExtensions.FindEmptyCell(matrix);
-
-                    if (matrixCell != null)
-                    {
-                        counter++;
-                        direction.X = 1;
-                        direction.Y = 1;
-                        continue;
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-
-                while (MatrixExtensions.IsOutsideMatrixBorders(matrixCell, direction, matrix.Size) ||
-                     matrix[matrixCell.X + direction.X, matrixCell.Y + direction.Y] != 0)
-                {
-                    MatrixExtensions.ChangeDirection(direction);
-                }
-
-                matrixCell.X += direction.X;
-                matrixCell.Y += direction.Y;
-                counter++;
-            }
-
-            this.writer.WriteLine(matrix.ToString());
-        }       
+            matrix.FillMatrixInCircularPattern(startingPoint, startDirection);
+            this.Writer.WriteLine(matrix.ToString());
+        }
     }
 }

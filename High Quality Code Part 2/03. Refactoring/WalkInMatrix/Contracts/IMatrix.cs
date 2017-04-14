@@ -4,6 +4,8 @@
     {
         int Size { get; }
         
-        int this[int x, int y] { get;  set; }     
+        int[,] Matrix { get; }
+
+        void FillMatrixInCircularPattern(ICoordinates matrixCell, ICoordinates delta);
     }
 }
