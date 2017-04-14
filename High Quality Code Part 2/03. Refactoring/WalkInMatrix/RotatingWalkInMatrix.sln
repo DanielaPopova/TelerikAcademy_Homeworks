@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalkInMatrix", "WalkInMatrix.csproj", "{4D520899-7061-4EAA-B67E-D14EE8B30462}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalkInMatrix.Tests", "..\WalkInMatrixTests\WalkInMatrix.Tests.csproj", "{BC77D415-77BB-4080-95FF-3AE8E91F261C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalkInMatrix.Tests", "..\WalkInMatrix.Tests\WalkInMatrix.Tests.csproj", "{BC77D415-77BB-4080-95FF-3AE8E91F261C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

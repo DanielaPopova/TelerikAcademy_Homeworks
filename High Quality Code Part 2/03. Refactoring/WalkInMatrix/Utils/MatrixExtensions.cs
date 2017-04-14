@@ -5,13 +5,14 @@
 
     public static class MatrixExtensions
     {  
-       public static void ChangeDirectionDelta(this int[,] matrix, ICoordinates delta)
-        {
+       public static void ChangeDirection(ICoordinates delta)
+        {    
+            // TODO: Some random numbers - not cool        
             int[] possibleDirectionsRow = { 1, 1, 1, 0, -1, -1, -1, 0 };
             int[] possibleDirectionsCol = { 1, 0, -1, -1, -1, 0, 1, 1 };           
            
             for (int i = 0; i < 8; i++)
-            {
+            {                
                 if (possibleDirectionsRow[i] == delta.X && possibleDirectionsCol[i] == delta.Y)
                 {
                     delta.X = possibleDirectionsRow[(i + 1) % 8];

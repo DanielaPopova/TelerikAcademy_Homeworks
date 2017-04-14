@@ -75,7 +75,7 @@
                 while (this.matrix.IsOutsideMatrixBorders(matrixCell, delta) ||
                      this.matrix[matrixCell.X + delta.X, matrixCell.Y + delta.Y] != 0)
                 {
-                    this.matrix.ChangeDirectionDelta(delta);
+                    MatrixExtensions.ChangeDirection(delta);
                 }
 
                 matrixCell.X += delta.X;
