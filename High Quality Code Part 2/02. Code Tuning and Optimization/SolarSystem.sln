@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarSystem", "SolarSystem.csproj", "{2F30E9AF-8256-40AF-B356-EA14E55CE9D7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SolarSystem", "Problem01_SolarSystem\SolarSystem.csproj", "{2F30E9AF-8256-40AF-B356-EA14E55CE9D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem02_CompareSimpleMaths", "..\Problem02_CompareSimpleMaths\Problem02_CompareSimpleMaths.csproj", "{0F2BD717-8876-448B-BD3C-0A1ADE03C49A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem02_CompareSimpleMaths", "Problem02_CompareSimpleMaths\Problem02_CompareSimpleMaths.csproj", "{0F2BD717-8876-448B-BD3C-0A1ADE03C49A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem03_CompareAdvancedMaths", "..\Problem03_CompareAdvancedMaths\Problem03_CompareAdvancedMaths.csproj", "{AD185E95-D869-48CF-9A1B-2F8B405B40EB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem03_CompareAdvancedMaths", "Problem03_CompareAdvancedMaths\Problem03_CompareAdvancedMaths.csproj", "{AD185E95-D869-48CF-9A1B-2F8B405B40EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
