@@ -2,12 +2,13 @@
 {
     using System;
 
-    using WalkInMatrix.Contracts;
+    using WalkInMatrix.Contracts;   
+    using WalkInMatrix.Models;
+    using WalkInMatrix.Providers;
     using WalkInMatrix.Utils;
 
     using Moq;
-    using NUnit.Framework;
-    using WalkInMatrix.Providers;
+    using NUnit.Framework;    
 
     [TestFixture]
     public class EngineTests
@@ -55,7 +56,6 @@
         [Test]
         public void Constructor_ShouldReturnInstanceOfIReader()
         {
-            
             var writerMock = new Mock<IWriter>();
             var reader = new Reader();
 
@@ -67,7 +67,6 @@
         [Test]
         public void Constructor_WhenPassedReadeIsValid_ShouldBeCorrectlyAssigned()
         {
-
             var writerMock = new Mock<IWriter>();
             var reader = new Reader();
 
@@ -80,7 +79,7 @@
         public void ProcessInput_PassedInputIsCorrect_ShouldCallWriterOnceOnly()
         {
             var writerMock = new Mock<IWriter>();
-            
+
             var readerMock = new Mock<IReader>();
             readerMock.Setup(s => s.ReadLine()).Returns("4");
 
@@ -140,10 +139,36 @@
             var readerMock = new Mock<IReader>();
             var engine = new Engine(writerMock.Object, readerMock.Object);
 
-            IMatrix nullMatrix = null;            
+            IMatrix nullMatrix = null;
 
             Assert.Throws<NullReferenceException>(() => engine.ExecuteWalkInMatrix(nullMatrix));
-        }        
+        }
+
+        [Test]
+        public void ExecuteWalkInMatrix_PassedMatrixIsValid_ShouldFillMatrixCorrectly()
+        {
+            var expectedMatrix = new int[,]
+            {
+                { 1, 10, 11, 12 },
+                { 9, 2, 15, 13 },
+                { 8, 16, 3, 14 },
+                { 7, 6, 5, 4 },
+            };
+            var actualMatrix = new SquareMatrix(4);
+            var writerMock = new Mock<IWriter>();
+            var readerMock = new Mock<IReader>();
+            var engine = new Engine(writerMock.Object, readerMock.Object);
+
+            engine.ExecuteWalkInMatrix(actualMatrix);
+
+            for (int row = 0; row < 4; row++)
+            {
+                for (int col = 0; col < 4; col++)
+                {
+                    Assert.AreEqual(expectedMatrix[row, col], actualMatrix[row, col]);
+                }
+            }
+        }
 
         [Test]
         public void ExecuteWalkInMatrix_PassedMatrixIsValid_ShouldCallWriterOnce()
@@ -152,12 +177,11 @@
             var readerMock = new Mock<IReader>();
             var engine = new Engine(writerMock.Object, readerMock.Object);
 
-            var matrixMock = new Mock<IMatrix>();    
-            
+            var matrixMock = new Mock<IMatrix>();
+
             engine.ExecuteWalkInMatrix(matrixMock.Object);
 
             writerMock.Verify(w => w.WriteLine(It.IsAny<string>()), Times.Once);
         }
-
     }
 }

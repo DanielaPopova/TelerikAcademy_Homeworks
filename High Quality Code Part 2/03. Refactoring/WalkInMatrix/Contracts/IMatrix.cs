@@ -4,6 +4,8 @@
     {
         int Size { get; } 
 
+        int this[int row, int col] { get;  set; }
+
         void FillMatrixInCircularPattern();
     }
 }

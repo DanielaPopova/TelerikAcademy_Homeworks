@@ -35,6 +35,29 @@
             }
         }
 
+        public int this[int row, int col]
+        {
+            get
+            {
+                if (row < 0 || row >= this.Size || col < 0 || col >= this.Size)
+                {
+                    throw new IndexOutOfRangeException("No such index in the matrix!");
+                }
+
+                return this.matrix[row, col];
+            }
+
+            set
+            {
+                if (row < 0 || row >= this.Size || col < 0 || col >= this.Size)
+                {
+                    throw new IndexOutOfRangeException("No such index in the matrix!");
+                }
+
+                this.matrix[row, col] = value;
+            }
+        }
+
         public void FillMatrixInCircularPattern()
         {
             // Awlays starts from:

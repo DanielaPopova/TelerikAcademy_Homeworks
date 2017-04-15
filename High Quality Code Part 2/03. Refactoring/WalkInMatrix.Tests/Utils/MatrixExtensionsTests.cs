@@ -1,10 +1,10 @@
 ﻿namespace WalkInMatrixTests.Utils
-{ 
+{
     using Moq;
     using NUnit.Framework;
-    
-    using WalkInMatrix.Models;
+
     using WalkInMatrix.Contracts;
+    using WalkInMatrix.Models;
     using WalkInMatrix.Utils;
 
     [TestFixture]
@@ -19,14 +19,14 @@
         /// directionRow[0 + 1]/directionCol[0 + 1] = (1, 0)
         /// </summary>        
         [TestCase(1, 1, 1, 0)]
-        [TestCase(1, 0, 1, -1)]            
+        [TestCase(1, 0, 1, -1)]
         [TestCase(0, 1, 1, 1)]
         public void ChangeDirection_PassedDeltaIsValid_ShouldChangeDeltaCorectly(int deltaX, int deltaY, int expectedDeltaX, int expectedDeltaY)
         {
-            var delta = new Coordinates(deltaX, deltaY);            
+            var delta = new Coordinates(deltaX, deltaY);
 
-            //Arrange
-           MatrixExtensions.ChangeDirection(delta);
+            // Arrange
+            MatrixExtensions.ChangeDirection(delta);
 
             Assert.AreEqual(expectedDeltaX, delta.X);
             Assert.AreEqual(expectedDeltaY, delta.Y);
@@ -41,11 +41,11 @@
         {
             var matrix = new int[,]
             {
-                {1, 0, 0, 0, 0 },
-                {12, 2, 0, 0, 0 },
-                {11, 0, 3, 0, 0 },
-                {10, 0, 0, 4, 0 },
-                {9, 8, 7, 6, 5 }
+                { 1, 0, 0, 0, 0 },
+                { 12, 2, 0, 0, 0 },
+                { 11, 0, 3, 0, 0 },
+                { 10, 0, 0, 4, 0 },
+                { 9, 8, 7, 6, 5 }
             };
 
             var currentPosition = new Coordinates(1, 0); // first empty cell would be [2,1] diagonal clockwise
@@ -59,14 +59,14 @@
         {
             var matrix = new int[,]
             {
-                {1, 13, 14, 15, 16 },
-                {12, 2, 21, 22, 17 },
-                {11, 0, 3, 20, 18 },
-                {10, 0, 0, 4, 19 },
-                {9, 8, 7, 6, 5 }
+                { 1, 13, 14, 15, 16 },
+                { 12, 2, 21, 22, 17 },
+                { 11, 0, 3, 20, 18 },
+                { 10, 0, 0, 4, 19 },
+                { 9, 8, 7, 6, 5 }
             };
-            
-            var currentPosition = new Coordinates(0, 0); 
+
+            var currentPosition = new Coordinates(0, 0);
             var actual = matrix.IsNearCellEmpty(currentPosition);
 
             Assert.AreEqual(false, actual);
@@ -77,11 +77,11 @@
         {
             var matrix = new int[,]
             {
-                {1, 13, 14, 15, 16 },
-                {12, 2, 21, 22, 17 },
-                {11, 0, 3, 20, 18 },
-                {10, 0, 0, 4, 19 },
-                {9, 8, 7, 6, 5 }
+                { 1, 13, 14, 15, 16 },
+                { 12, 2, 21, 22, 17 },
+                { 11, 0, 3, 20, 18 },
+                { 10, 0, 0, 4, 19 },
+                { 9, 8, 7, 6, 5 }
             };
 
             int expectedCoordinatesRow = 2;
@@ -98,11 +98,11 @@
         {
             var matrix = new int[,]
             {
-                {1, 13, 14, 15, 16 },
-                {12, 2, 21, 22, 17 },
-                {11, 23, 3, 20, 18 },
-                {10, 25, 24, 4, 19 },
-                {9, 8, 7, 6, 5 }
+                { 1, 13, 14, 15, 16 },
+                { 12, 2, 21, 22, 17 },
+                { 11, 23, 3, 20, 18 },
+                { 10, 25, 24, 4, 19 },
+                { 9, 8, 7, 6, 5 }
             };
 
             var actualCoordinates = matrix.FindEmptyCell(); // matrix[2, 1] - first found zero          
@@ -115,14 +115,14 @@
         [TestCase(-1, -1)]
         public void IsOutsideMatrixBorders_IfNewPositionIsOutOfRange_ShouldReturnTrue(int deltaX, int deltaY)
         {
-           var matrix = new int[,]
-           {
-                {1, 13, 14, 15, 16 },
-                {12, 2, 21, 22, 17 },
-                {11, 23, 3, 20, 18 },
-                {10, 25, 24, 4, 19 },
-                {9, 8, 7, 6, 5 }
-           };
+            var matrix = new int[,]
+            {
+                { 1, 13, 14, 15, 16 },
+                { 12, 2, 21, 22, 17 },
+                { 11, 23, 3, 20, 18 },
+                { 10, 25, 24, 4, 19 },
+                { 9, 8, 7, 6, 5 }
+            };
 
             var cellMock = new Mock<ICoordinates>();
             cellMock.Setup(cell => cell.X).Returns(0);
@@ -140,11 +140,11 @@
         {
             var matrix = new int[,]
             {
-                {1, 13, 14, 15, 16 },
-                {12, 2, 21, 22, 17 },
-                {11, 23, 3, 20, 18 },
-                {10, 25, 24, 4, 19 },
-                {9, 8, 7, 6, 5 }
+                { 1, 13, 14, 15, 16 },
+                { 12, 2, 21, 22, 17 },
+                { 11, 23, 3, 20, 18 },
+                { 10, 25, 24, 4, 19 },
+                { 9, 8, 7, 6, 5 }
             };
 
             var cellMock = new Mock<ICoordinates>(); // cell in position matrix[0, 0]
