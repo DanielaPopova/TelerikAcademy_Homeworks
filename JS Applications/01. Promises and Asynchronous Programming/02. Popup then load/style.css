@@ -1,0 +1,13 @@
+div {
+    display: none;    
+    width: 300px;
+    height: 100px;
+    background-color: #BA55D3;
+    color: #FFFAFA;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 100px;
+    border: 2px solid black;
+    border-radius: 5px;    
+}
