@@ -21,7 +21,11 @@
             output.innerHTML = '<p>Latitude is ' + latitude.toFixed(5) + '° <br>Longitude is ' + longitude.toFixed(5) + '°</p>';
 
             let img = new Image();
-            img.src = `https://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}&zoom=13&size=400x400&sensor=false`;
+            img.src = `https://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}
+                        &zoom=18
+                        &size=400x400
+                        &markers=color:red%7Clabel:HHH%7C${latitude},${longitude}
+                        &sensor=false`;
 
             output.appendChild(img);
         },
