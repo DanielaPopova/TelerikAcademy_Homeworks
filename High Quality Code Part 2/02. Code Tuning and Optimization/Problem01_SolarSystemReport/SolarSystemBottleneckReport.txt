@@ -1,0 +1,3 @@
+The bottleneck was in file OrbitsCalculator.cs -> method EarthRotation(), line 94.
+The loop is unnecesary, it iterates 360 / 0.00005 times (7 200 000) just to reach the needed value of 360.
+The used profiler is JustTrace.
