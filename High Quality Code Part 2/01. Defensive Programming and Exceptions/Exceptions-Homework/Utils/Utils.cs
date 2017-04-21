@@ -8,6 +8,11 @@
     {
         public static T[] Subsequence<T>(T[] array, int startIndex, int count)
         {
+            if (array == null)
+            {
+                throw new ArgumentException("Array cannot be null!");
+            }
+
             if (array.Length == 0)
             {
                 throw new ArgumentException("Array cannot be empty!");

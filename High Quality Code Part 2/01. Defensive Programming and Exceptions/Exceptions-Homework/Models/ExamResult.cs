@@ -29,7 +29,7 @@
                 if (value < 0)
                 {
                     throw new ArgumentException("Grade cannot be negative!");
-                }
+                }              
 
                 this.grade = value;
             }

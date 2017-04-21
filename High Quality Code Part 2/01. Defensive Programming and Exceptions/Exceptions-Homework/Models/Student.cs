@@ -62,9 +62,9 @@
 
             private set
             {
-                if (value == null || value.Count == 0)
+                if (value == null)
                 {
-                    throw new ArgumentException("Exams cannot be null or empty");
+                    throw new ArgumentException("Exams cannot be null!");
                 }
 
                 this.exams = value;
