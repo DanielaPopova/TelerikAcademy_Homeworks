@@ -6,7 +6,7 @@ Bug reports: --------------------
 Format: #Bug number - Class name - Bug description
 Example: #1 - PartnerBankingService - The variable "money" at line 36 overflows when you try to add more than 2.1 billion dollars.
 --------
-#1 -
-#2 -
-#3 -
-#4 - 
+#1 - Grade Enum - missing grades from 1 to 8 
+#2 - CreateStudentCommand  - the command does not implement ICommand interface
+#3 - TeacherAddMarkCommand  - studentId and teacherId are swapped
+#4 - StudentListMarks - no report message when student has no marks

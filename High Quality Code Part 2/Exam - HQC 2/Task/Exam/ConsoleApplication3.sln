@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApplication3", "ConsoleApplication3\ConsoleApplication3.csproj", "{03FEAB64-C7D3-4E0D-A5A3-1A26B51C5EEB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolSystem", "ConsoleApplication3\SchoolSystem.csproj", "{03FEAB64-C7D3-4E0D-A5A3-1A26B51C5EEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolSystem.Tests", "SchoolSystem.Tests\SchoolSystem.Tests.csproj", "{2BAB1EC1-D10F-418B-AE41-BA60E2C9ED7D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{03FEAB64-C7D3-4E0D-A5A3-1A26B51C5EEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03FEAB64-C7D3-4E0D-A5A3-1A26B51C5EEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03FEAB64-C7D3-4E0D-A5A3-1A26B51C5EEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BAB1EC1-D10F-418B-AE41-BA60E2C9ED7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BAB1EC1-D10F-418B-AE41-BA60E2C9ED7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BAB1EC1-D10F-418B-AE41-BA60E2C9ED7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BAB1EC1-D10F-418B-AE41-BA60E2C9ED7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

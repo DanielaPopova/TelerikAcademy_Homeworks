@@ -4,8 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApplication3 {
-    enum Subjct {
-        Bulgarian, English, Math Programming,
+namespace SchoolSystem.Tests
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+        }
     }
 }
