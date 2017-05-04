@@ -8,9 +8,9 @@
 
     public class Engine
     {
-        private readonly IReader reader;
-        private readonly IWriter writer;
-        private readonly IParser parser;
+        protected readonly IReader reader;
+        protected readonly IWriter writer;
+        protected readonly IParser parser;
 
         public Engine(IReader reader, IWriter writer, IParser parser)
         {
