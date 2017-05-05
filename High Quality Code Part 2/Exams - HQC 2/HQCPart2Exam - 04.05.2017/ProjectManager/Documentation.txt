@@ -1,0 +1,10 @@
+﻿Bugs:
+
+#1 ModelsFactory.cs -> CreateUser() -> username and email were swapped when creating new User
+#2 CommandsFactory.cs -> CreateCommandFromString() -> missing command for creating new user 
+#3 
+#4
+
+Bottleneck:
+
+#1 CommandsFactory - BuildCommand -> unnecessary while cycle
