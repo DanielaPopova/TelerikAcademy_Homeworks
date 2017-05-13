@@ -13,8 +13,7 @@
         private readonly IModelsFactory factory;
 
         public CreateTaskCommand(IDatabase database, IModelsFactory factory)
-        {
-            // guard clause
+        {            
             Guard.WhenArgument(database, "CreateTaskCommand Database").IsNull().Throw();
             Guard.WhenArgument(factory, "CreateTaskCommand ModelsFactory").IsNull().Throw();
 

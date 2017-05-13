@@ -1,13 +1,13 @@
-﻿using ProjectManager.Models.Enums;
-
-namespace ProjectManager.Models.Contracts
+﻿namespace ProjectManager.Models.Contracts
 {
+    using Enums;
+
     public interface ITask
     {
-        string Name { get; }
+        string Name { get; set; }
 
-        IUser Owner { get; }
+        IUser Owner { get; set; }
 
-        State State { get; }
+        TaskState State { get; set; }
     }
 }

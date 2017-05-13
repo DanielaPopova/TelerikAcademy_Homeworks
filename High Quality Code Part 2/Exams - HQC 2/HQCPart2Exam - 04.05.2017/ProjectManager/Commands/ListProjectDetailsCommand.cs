@@ -7,13 +7,12 @@
     using System.Collections.Generic;
     using System.Linq;
 
-    public class ListProjectDetails : ICommand
+    public class ListProjectDetailsCommand : ICommand
     {
         private readonly IDatabase database;
 
-        public ListProjectDetails(IDatabase database)
-        {
-            // guard clause
+        public ListProjectDetailsCommand(IDatabase database)
+        {            
             Guard.WhenArgument(database, "ListProjectDetails Database").IsNull().Throw();
             this.database = database;
         }
@@ -31,8 +30,9 @@
             }
 
             var projectId = int.Parse(parameters[0]);
+            var project = this.database.Projects[projectId];
 
-            return "TODO";
+            return project.ToString();
         }
     }
 }

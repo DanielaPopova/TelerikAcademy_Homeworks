@@ -1,14 +1,14 @@
-﻿using ProjectManager.Common.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Reflection;
-
-namespace ProjectManager.Common.Providers
+﻿namespace ProjectManager.Common.Providers
 {
+    using Contracts;
+    using Exceptions;
+    using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.Linq;
+    using System.Reflection;
 
-    public class Validator
+    public class Validator : IValidator
     {
         public void Validate<T>(T obj) where T : class 
         {

@@ -1,19 +1,18 @@
-﻿using Bytes2you.Validation;
-using ProjectManager.Common.Exceptions;
-using ProjectManager.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace ProjectManager.Commands
+﻿namespace ProjectManager.Commands
 {
+    using Bytes2you.Validation;
+    using Common.Exceptions;
+    using Data;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class ListProjectsCommand : ICommand
     {
         private readonly IDatabase database;
 
         public ListProjectsCommand(IDatabase database)
-        {
-            // guard clause
+        {            
             Guard.WhenArgument(database, "ListProjectsCommand Database").IsNull().Throw();
             this.database = database;
         }

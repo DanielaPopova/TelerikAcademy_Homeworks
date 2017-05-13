@@ -1,8 +1,9 @@
-﻿using ProjectManager.Models;
-using System.Collections.Generic;
-
-namespace ProjectManager.Data
+﻿namespace ProjectManager.Data
 {
+    using System.Collections.Generic;
+
+    using Models.Contracts;
+
     // You are not allowed to modify this class
     public class Database : IDatabase
     {

@@ -2,8 +2,8 @@
 
 #1 ModelsFactory.cs -> CreateUser() -> username and email were swapped when creating new User
 #2 CommandsFactory.cs -> CreateCommandFromString() -> missing command for creating new user 
-#3 
-#4
+#3 Task.cs - missing Owner in ToString()
+#4 FileLogger.cs - commented logging
 
 Bottleneck:
 

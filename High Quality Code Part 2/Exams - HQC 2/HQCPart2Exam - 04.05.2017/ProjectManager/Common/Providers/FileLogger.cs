@@ -1,8 +1,9 @@
-﻿using log4net;
-
-namespace ProjectManager.Common
+﻿namespace ProjectManager.Common
 {
-    public class FileLogger
+    using Contracts;
+    using log4net;
+
+    public class FileLogger : IFileLogger
     {
         private static ILog log;
 

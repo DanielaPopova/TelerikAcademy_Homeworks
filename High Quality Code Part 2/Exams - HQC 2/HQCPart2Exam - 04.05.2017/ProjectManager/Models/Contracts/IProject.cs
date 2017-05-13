@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-
-using ProjectManager.Models.Contracts;
-using ProjectManager.Models.Enums;
-
-namespace ProjectManager.Models
+﻿namespace ProjectManager.Models.Contracts
 {
+    using System;
+    using System.Collections.Generic;
+        
+    using Enums;
+
     public interface IProject
     {
         string Name { get; set; }
@@ -14,7 +13,7 @@ namespace ProjectManager.Models
 
         DateTime EndingDate { get; set; }
 
-        State State { get; set; }
+        ProjectState State { get; set; }
 
         IList<IUser> Users { get; set; }
 

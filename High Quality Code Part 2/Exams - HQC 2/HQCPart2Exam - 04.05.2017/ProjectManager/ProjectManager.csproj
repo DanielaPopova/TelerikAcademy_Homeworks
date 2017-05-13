@@ -51,21 +51,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\Contracts\ICommandsFactory.cs" />
     <Compile Include="Commands\CreateProjectCommand.cs" />
     <Compile Include="Commands\CreateTaskCommand.cs" />
     <Compile Include="Commands\CreateUserCommand.cs" />
-    <Compile Include="Commands\ICommand.cs" />
+    <Compile Include="Commands\Contracts\ICommand.cs" />
     <Compile Include="Commands\CommandsFactory.cs" />
-    <Compile Include="Commands\ListProjectDetails.cs" />
+    <Compile Include="Commands\ListProjectDetailsCommand.cs" />
     <Compile Include="Commands\ListProjectsCommand.cs" />
+    <Compile Include="Common\Contracts\ICommandProcessor.cs" />
+    <Compile Include="Common\Contracts\IEngine.cs" />
+    <Compile Include="Common\Contracts\IFileLogger.cs" />
+    <Compile Include="Common\Contracts\IReader.cs" />
+    <Compile Include="Common\Contracts\IValidator.cs" />
+    <Compile Include="Common\Contracts\IWriter.cs" />
     <Compile Include="Common\Exceptions\UserValidationException.cs" />
+    <Compile Include="Common\Providers\Reader.cs" />
+    <Compile Include="Common\Providers\Writer.cs" />
     <Compile Include="Models\Contracts\IModelsFactory.cs" />
     <Compile Include="Models\Contracts\ITask.cs" />
     <Compile Include="Models\Contracts\IUser.cs" />
-    <Compile Include="Models\Enums\State.cs" />
+    <Compile Include="Models\Enums\ProjectState.cs" />
     <Compile Include="Common\Providers\Validator.cs" />
     <Compile Include="Data\Database.cs" />
     <Compile Include="Models\Contracts\IProject.cs" />
+    <Compile Include="Models\Enums\TaskState.cs" />
     <Compile Include="Models\ModelsFactory.cs" />
     <Compile Include="Data\IDatabase.cs" />
     <Compile Include="Models\Project.cs" />
@@ -78,8 +88,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Common\CommandProcessor.cs" />
-    <Compile Include="Common\FileLogger.cs" />
+    <Compile Include="Common\Providers\CommandProcessor.cs" />
+    <Compile Include="Common\Providers\FileLogger.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

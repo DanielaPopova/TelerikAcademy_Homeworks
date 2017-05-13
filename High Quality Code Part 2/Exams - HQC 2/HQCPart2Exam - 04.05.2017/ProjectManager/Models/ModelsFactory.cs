@@ -1,15 +1,22 @@
-﻿using Bytes2you.Validation;
-using ProjectManager.Common.Exceptions;
-using ProjectManager.Common.Providers;
-using ProjectManager.Models.Contracts;
-using ProjectManager.Models.Enums;
-using System;
-
-namespace ProjectManager.Models
+﻿namespace ProjectManager.Models
 {
+    using System;
+
+    using Bytes2you.Validation;
+    using Common.Contracts;
+    using Common.Exceptions;
+    using Contracts;
+    using Enums;
+    
     public class ModelsFactory : IModelsFactory
-    {     
-        private readonly Validator validator = new Validator();
+    {
+        private readonly IValidator validator;
+
+        public ModelsFactory(IValidator validator)
+        {
+            Guard.WhenArgument(validator, "ModelsFactory Validator").IsNull().Throw();
+            this.validator = validator;
+        }       
 
         public IProject CreateProject(string name, string startingDate, string endingDate, string state)
         {
@@ -29,7 +36,7 @@ namespace ProjectManager.Models
                 throw new UserValidationException("Failed to parse the passed ending date!");
             }
 
-            var project = new Project(name, starting, end, (State)Enum.Parse(typeof(State), state));
+            var project = new Project(name, starting, end, (ProjectState)Enum.Parse(typeof(ProjectState), state));
             this.validator.Validate(project);
 
             return project;
@@ -37,7 +44,7 @@ namespace ProjectManager.Models
 
         public ITask CreateTask(string name, IUser owner, string state)
         {            
-            var task = new Task(name, owner, (State)Enum.Parse(typeof(State), state));
+            var task = new Task(name, owner, (TaskState)Enum.Parse(typeof(TaskState), state));
             this.validator.Validate(task);
 
             return task;

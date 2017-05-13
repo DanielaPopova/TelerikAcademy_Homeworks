@@ -1,11 +1,10 @@
-﻿using Bytes2you.Validation;
-using ProjectManager.Commands;
-using System;
-using System.Linq;
-
-namespace ProjectManager.Common
+﻿namespace ProjectManager.Common
 {
-    public class CommandProcessor
+    using Commands;
+    using Contracts;
+    using System.Linq;
+
+    public class CommandProcessor : ICommandProcessor
     {
         private readonly CommandsFactory factory;
 

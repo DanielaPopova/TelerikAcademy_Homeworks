@@ -13,8 +13,7 @@
         private readonly IModelsFactory factory;
 
         public CreateUserCommand(IDatabase database, IModelsFactory factory)
-        {
-            // guard clause
+        {            
             Guard.WhenArgument(database, "CreateUserCommand Database").IsNull().Throw();
             Guard.WhenArgument(factory, "CreateUserCommand ModelsFactory").IsNull().Throw();
 

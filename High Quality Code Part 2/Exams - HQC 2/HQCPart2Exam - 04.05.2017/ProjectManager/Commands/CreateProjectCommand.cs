@@ -1,20 +1,19 @@
-﻿using Bytes2you.Validation;
-using ProjectManager.Common.Exceptions;
-using ProjectManager.Data;
-using ProjectManager.Models.Contracts;
-using System.Collections.Generic;
-using System.Linq;
-
-namespace ProjectManager.Commands
+﻿namespace ProjectManager.Commands
 {
+    using Bytes2you.Validation;
+    using Common.Exceptions;
+    using Data;
+    using Models.Contracts;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class CreateProjectCommand : ICommand
     {
         private readonly IDatabase database;
         private readonly IModelsFactory factory;
 
         public CreateProjectCommand(IDatabase database, IModelsFactory factory)
-        {
-            // guard clause
+        {            
             Guard.WhenArgument(database, "CreateProjectCommand Database").IsNull().Throw();
             Guard.WhenArgument(factory, "CreateProjectCommand ModelsFactory").IsNull().Throw();
 

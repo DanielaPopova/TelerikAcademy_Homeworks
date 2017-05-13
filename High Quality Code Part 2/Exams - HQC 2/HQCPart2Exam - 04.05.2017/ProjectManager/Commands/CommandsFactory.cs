@@ -1,11 +1,11 @@
-﻿using ProjectManager.Common.Exceptions;
-using ProjectManager.Data;
-using ProjectManager.Models.Contracts;
-using System;
-
-namespace ProjectManager.Commands
+﻿namespace ProjectManager.Commands
 {
-    public class CommandsFactory
+    using Common.Exceptions;
+    using Contracts;
+    using Data;
+    using Models.Contracts;
+
+    public class CommandsFactory : ICommandsFactory
     {
         private readonly IDatabase database;
         private readonly IModelsFactory modelsFactory;
@@ -15,37 +15,49 @@ namespace ProjectManager.Commands
             this.database = database;
             this.modelsFactory = modelsFactory;
         }
-
-        // TODO: Fill other commands, document
+       
         public ICommand CreateCommandFromString(string commandName)
-        {
-            var cmd = this.BuildCommand(commandName);
-
-            switch (cmd)
+        { 
+            switch (commandName.ToLower())
             {
                 case "createproject":
-                    return new CreateProjectCommand(this.database, this.modelsFactory);
+                    return this.CreateProjectCommand();
                 case "createuser":
-                    return new CreateUserCommand(this.database, this.modelsFactory);
+                    return this.CreateUserCommand();
                 case "createtask":
-                    return new CreateTaskCommand(this.database, this.modelsFactory);
+                    return this.CreateTaskCommand();
                 case "listprojects":
-                    return new ListProjectsCommand(this.database);
+                    return this.ListProjectsCommand();
+                case "listprojectdetails":
+                    return this.ListProjectDetailsCommand();
                 default:
                     throw new UserValidationException("The passed command is not valid!");
             }
         }
 
-        private string BuildCommand(string parameters)
+        public ICommand CreateProjectCommand()
         {
-            var cmd = string.Empty;
-           
-            for (int i = 0; i < parameters.Length; i++)
-            {
-                cmd += parameters[i].ToString().ToLower();
-            }
+            return new CreateProjectCommand(this.database, this.modelsFactory);
+        }
 
-            return cmd;
+        public ICommand CreateUserCommand()
+        {
+            return new CreateUserCommand(this.database, this.modelsFactory);
+        }
+
+        public ICommand CreateTaskCommand()
+        {
+            return new CreateTaskCommand(this.database, this.modelsFactory);
+        }
+
+        public ICommand ListProjectsCommand()
+        {
+            return new ListProjectsCommand(this.database);
+        }
+
+        public ICommand ListProjectDetailsCommand()
+        {
+            return new ListProjectDetailsCommand(this.database);
         }
     }
 }
