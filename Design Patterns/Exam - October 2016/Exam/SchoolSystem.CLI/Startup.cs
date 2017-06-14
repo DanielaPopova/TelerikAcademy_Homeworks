@@ -1,5 +1,5 @@
-﻿using SchoolSystem.Framework.Core;
-using SchoolSystem.Framework.Core.Providers;
+﻿using Ninject;
+using SchoolSystem.Framework.Core.Contracts;
 
 namespace SchoolSystem.Cli
 {
@@ -7,11 +7,9 @@ namespace SchoolSystem.Cli
     {
         public static void Main()
         {
-            var reader = new ConsoleReaderProvider();
-            var writer = new ConsoleWriterProvider();
-            var parser = new CommandParserProvider();
+            IKernel kernel = new StandardKernel(new SchoolSystemModule());
 
-            var engine = new Engine(reader, writer, parser);
+            IEngine engine = kernel.Get<IEngine>();
             engine.Start();
         }
     }

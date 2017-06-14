@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D8CEC5A9-940A-468B-9892-693A3DC97AB1}</ProjectGuid>
+    <ProjectGuid>{B5C11ED1-5B28-4CE3-958D-6E0FD0EC4BD7}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SchoolSystem.Framework</RootNamespace>
@@ -47,21 +47,35 @@
     <Compile Include="Core\Commands\RemoveTeacherCommand.cs" />
     <Compile Include="Core\Commands\StudentListMarksCommand.cs" />
     <Compile Include="Core\Commands\TeacherAddMarkCommand.cs" />
+    <Compile Include="Core\Contracts\ICommandFactory.cs" />
+    <Compile Include="Core\Contracts\IEngine.cs" />
+    <Compile Include="Core\Contracts\IMarkFactory.cs" />
     <Compile Include="Core\Contracts\IParser.cs" />
     <Compile Include="Core\Contracts\IReader.cs" />
+    <Compile Include="Core\Contracts\IStudentFactory.cs" />
+    <Compile Include="Core\Contracts\ITeacherFactory.cs" />
     <Compile Include="Core\Contracts\IWriter.cs" />
     <Compile Include="Core\Engine.cs" />
     <Compile Include="Core\Providers\CommandParserProvider.cs" />
     <Compile Include="Core\Providers\ConsoleReaderProvider.cs" />
     <Compile Include="Core\Providers\ConsoleWriterProvider.cs" />
     <Compile Include="Models\Abstractions\Person.cs" />
+    <Compile Include="Models\Contracts\IAddStudent.cs" />
+    <Compile Include="Models\Contracts\IAddTeacher.cs" />
+    <Compile Include="Models\Contracts\IGetStudent.cs" />
+    <Compile Include="Models\Contracts\IGetStudentAndTeacher.cs" />
+    <Compile Include="Models\Contracts\IGetTeacher.cs" />
     <Compile Include="Models\Contracts\IMark.cs" />
     <Compile Include="Models\Contracts\IPerson.cs" />
+    <Compile Include="Models\Contracts\IRemoveStudent.cs" />
+    <Compile Include="Models\Contracts\IRemoveTeacher.cs" />
+    <Compile Include="Models\Contracts\ISchool.cs" />
     <Compile Include="Models\Contracts\IStudent.cs" />
     <Compile Include="Models\Contracts\ITeacher.cs" />
     <Compile Include="Models\Enums\Grade.cs" />
     <Compile Include="Models\Enums\Subject.cs" />
     <Compile Include="Models\Mark.cs" />
+    <Compile Include="Models\School.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\Teacher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

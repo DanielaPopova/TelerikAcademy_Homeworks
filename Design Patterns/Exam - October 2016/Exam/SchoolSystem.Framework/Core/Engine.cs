@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-
-using SchoolSystem.Framework.Core.Contracts;
-using SchoolSystem.Framework.Models.Contracts;
+﻿using SchoolSystem.Framework.Core.Contracts;
+using System;
 
 namespace SchoolSystem.Framework.Core
 {
-    public class Engine
+    public class Engine : IEngine
     {
         private const string TerminationCommand = "End";
         private const string NullProvidersExceptionMessage = "cannot be null.";
@@ -38,14 +35,7 @@ namespace SchoolSystem.Framework.Core
             this.reader = readerProvider;
             this.writer = writerProvider;
             this.parser = parserProvider;
-
-            Teachers = new Dictionary<int, ITeacher>();
-            Students = new Dictionary<int, IStudent>();
         }
-
-        public static IDictionary<int, ITeacher> Teachers { get; set; }
-
-        public static IDictionary<int, IStudent> Students { get; set; }
 
         public void Start()
         {

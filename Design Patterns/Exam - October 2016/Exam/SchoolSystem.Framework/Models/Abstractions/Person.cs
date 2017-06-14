@@ -1,7 +1,6 @@
-﻿using System;
+﻿using SchoolSystem.Framework.Models.Contracts;
+using System;
 using System.Text.RegularExpressions;
-
-using SchoolSystem.Framework.Models.Contracts;
 
 namespace SchoolSystem.Framework.Models.Abstractions
 {

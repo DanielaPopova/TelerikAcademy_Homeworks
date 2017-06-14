@@ -82,9 +82,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Commands\CreateStudentCommandTests\Execute_Should.cs" />
+    <Compile Include="Core\Commands\RemoveStudentCommandTests\Execute_Should.cs" />
+    <Compile Include="Core\Commands\TeacherAddMarkCommandTests\Execute_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -93,7 +97,7 @@
       <Name>SchoolSystem.CLI</Name>
     </ProjectReference>
     <ProjectReference Include="..\SchoolSystem.Framework\SchoolSystem.Framework.csproj">
-      <Project>{d8cec5a9-940a-468b-9892-693a3dc97ab1}</Project>
+      <Project>{b5c11ed1-5b28-4ce3-958d-6e0fd0ec4bd7}</Project>
       <Name>SchoolSystem.Framework</Name>
     </ProjectReference>
   </ItemGroup>

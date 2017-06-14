@@ -1,7 +1,6 @@
-﻿using System;
-
-using SchoolSystem.Framework.Models.Contracts;
+﻿using SchoolSystem.Framework.Models.Contracts;
 using SchoolSystem.Framework.Models.Enums;
+using System;
 
 namespace SchoolSystem.Framework.Models
 {
