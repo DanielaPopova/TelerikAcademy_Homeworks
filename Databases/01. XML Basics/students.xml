@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="students.xsl"?>
+<university name="UCTM"
+xmlns="urn:students"
+xmlns:exams="urn:exams"
+xmlns:enrollment="urn:enrollment"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="urn:students students.xsd"> 
+
+  <student>
+    <name>Martin Petkov</name>
+    <sex>Male</sex>
+    <birthDate>1990-12-06</birthDate>
+    <phone>+3598964567</phone>
+    <email>m.petkov@gmail.com</email>
+    <course>4</course>
+    <specialty>Chemical Engineering</specialty>
+    <facultyNumber>01456</facultyNumber>
+    <enrollmentInfo>
+      <enrollment:date>2013-10-15</enrollment:date>
+      <enrollment:score>4.75</enrollment:score>
+    </enrollmentInfo>
+    <exams>
+
+      <exam>
+        <exams:name>Organic Chmeistry</exams:name>
+        <tutor>doc. L. Lilova</tutor>
+        <score>6.00</score>
+      </exam>
+
+      <exam>
+        <exams:name>Hydrodynamic</exams:name>
+        <tutor>doc. H. Minkov</tutor>
+        <score>5.00</score>
+      </exam>
+
+      <exam>
+        <exams:name>Material Science</exams:name>
+        <tutor>prof. A. Petkova</tutor>
+        <score>4.50</score>
+      </exam>
+
+    </exams>
+  </student>
+
+  <student>
+    <name>Dara Ivanova</name>
+    <sex>Female</sex>
+    <birthDate>1989-02-05</birthDate>
+    <phone>+3598663252</phone>
+    <email>dara_ivanova@abv.bg</email>
+    <course>5</course>
+    <specialty>Ecology</specialty>
+    <facultyNumber>02556</facultyNumber>
+    <enrollmentInfo>
+      <enrollment:date>2012-10-10</enrollment:date>
+      <enrollment:score>5.50</enrollment:score>
+    </enrollmentInfo>
+    <exams>
+
+      <exam>
+        <exams:name>Ecology and sustainable development</exams:name>
+        <tutor>doc. M. Markov</tutor>
+        <score>6.00</score>
+      </exam>
+
+      <exam>
+        <exams:name>Wastewater treatment</exams:name>
+        <tutor>prof. B. Velikova</tutor>
+        <score>5.50</score>
+      </exam>
+
+    </exams>
+  </student>
+
+  <student>
+    <name>Georgi Delev</name>
+    <sex>Male</sex>
+    <birthDate>1991-08-20</birthDate>
+    <phone>+3597465123</phone>
+    <email>delev@yahoo.com</email>
+    <course>3</course>
+    <specialty>Industrial management</specialty>
+    <facultyNumber>03668</facultyNumber>
+    <enrollmentInfo>
+      <enrollment:date>2014-09-15</enrollment:date>
+      <enrollment:score>5.00</enrollment:score>
+    </enrollmentInfo>
+    <exams>
+
+      <exam>
+        <exams:name>Economics</exams:name>
+        <tutor>doc. J. Jelev</tutor>
+        <score>4.50</score>
+      </exam>
+
+      <exam>
+        <exams:name>Marketing</exams:name>
+        <tutor>doc. A. Naumova</tutor>
+        <score>5.50</score>
+      </exam>
+
+      <exam>
+        <exams:name>Finance</exams:name>
+        <tutor>prof. J. Jelev</tutor>
+        <score>5.00</score>
+      </exam>
+
+    </exams>
+  </student>
+
+  <student>
+    <name>Mila Askova</name>
+    <sex>Female</sex>
+    <birthDate>1992-12-13</birthDate>
+    <phone>+3594778655</phone>
+    <email>milaa@abv.bg</email>
+    <course>2</course>
+    <specialty>Automation and information technology</specialty>
+    <facultyNumber>06551</facultyNumber>
+    <enrollmentInfo>
+      <enrollment:date>2015-10-21</enrollment:date>
+      <enrollment:score>5.00</enrollment:score>
+    </enrollmentInfo>
+    <exams>
+
+      <exam>
+        <exams:name>Infomatics</exams:name>
+        <tutor>doc. Al. Gonev</tutor>
+        <score>5.50</score>
+      </exam>
+
+      <exam>
+        <exams:name>Electrical engineering</exams:name>
+        <tutor>prof. Dm. Peev</tutor>
+        <score>4.00</score>
+      </exam>
+
+      <exam>
+        <exams:name>Measuring equipment</exams:name>
+        <tutor>doc. I. Hristova</tutor>
+        <score>5.00</score>
+      </exam>
+
+      <exam>
+        <exams:name>Microprocessor technology</exams:name>
+        <tutor>doc. Sv. Sevliev</tutor>
+        <score>6.00</score>
+      </exam>
+
+    </exams>
+  </student>
+
+</university>

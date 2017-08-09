@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:exams="urn:exams"
+           xmlns:enrollment="urn:enrollment"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           attributeFormDefault="unqualified"
+           elementFormDefault="qualified"
+           targetNamespace="urn:students"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="urn:exams" />
+  <xs:import namespace="urn:enrollment" />
+  <xs:element name="university">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="student">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="name" type="xs:string" />
+              <xs:element name="sex">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="Male"/>
+                    <xs:enumeration value="Female"/>
+                    <xs:enumeration value="Other"/>
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="birthDate" type="xs:date" />
+              <xs:element name="phone" type="xs:long" />
+              <xs:element name="email" type="xs:string" />
+              <xs:element name="course" type="xs:unsignedByte" />
+              <xs:element name="specialty" type="xs:string" />
+              <xs:element name="facultyNumber">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:pattern value="[0-9]{5}"/>                    
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="enrollmentInfo">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element ref="enrollment:date" />
+                    <xs:element ref="enrollment:score" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="exams">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element maxOccurs="unbounded" name="exam">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element ref="exams:name" />
+                          <xs:element name="tutor" type="xs:string" />
+                          <xs:element name="score">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:decimal">
+                                <xs:fractionDigits value="2"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute name="name" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

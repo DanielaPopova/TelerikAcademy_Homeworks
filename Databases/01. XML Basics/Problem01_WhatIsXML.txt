@@ -1,0 +1,4 @@
+What does the XML language represent? What is it used for?
+
+XML stands from Extensible Markup Language. Its main purpose is for storing and transporting structured data. XML is software/hardware independent, both human- and machine-readable.
+XML could also be used as a configuration file - java maven project, vs project

@@ -1,0 +1,15 @@
+What do namespaces represent in an XML document? What are they used for?
+
+Namespaces in XML are used to prevent name conflicts between different elements. There could be a default namespace
+with the syntax - xmlns="default namespace", which is valid for all child elements, or using a prefix - xmlns:ns="some namespace".
+Namespaces with prefix are NOT associated with the child elements of the element with that namespace, for example
+<students:student xmlns:students="urn:students">
+	<name>Pesho</name>
+	<age>18</age>
+</students:student>
+Here "name" and "age" don't belong to "students" namespace. Same example with default namespace:
+<student xmlns="urn:students">
+	<name>Pesho</name>
+	<age>18</age>
+</student>
+"name" and "age" belong to the default namespace
