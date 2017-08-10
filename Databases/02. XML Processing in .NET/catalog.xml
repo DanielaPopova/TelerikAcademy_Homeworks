@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<catalog>
+  <album id="1">
+    <name>AlbumName0</name>
+    <artist>Artist0</artist>
+    <releasedYear>1995</releasedYear>
+    <producer>Producer0</producer>
+    <price>15.85</price>
+    <songs>
+
+      <song>
+        <title>SongTitle0</title>
+        <duration>4:01</duration>
+      </song>
+
+      <song>
+        <title>SongTitle1</title>
+        <duration>3:45</duration>
+      </song>
+
+      <song>
+        <title>SongTitle2</title>
+        <duration>5:11</duration>
+      </song>
+
+      <song>
+        <title>SongTitle3</title>
+        <duration>3:24</duration>
+      </song>
+
+      <song>
+        <title>SongTitle4</title>
+        <duration>4:44</duration>
+      </song>
+
+    </songs>
+  </album>
+  <album id="2">
+    <name>AlbumName1</name>
+    <artist>Artist0</artist>
+    <releasedYear>1997</releasedYear>
+    <producer>Producer1</producer>
+    <price>20.20</price>
+    <songs>
+
+      <song>
+        <title>SongTitle5</title>
+        <duration>3:01</duration>
+      </song>
+
+      <song>
+        <title>SongTitle6</title>
+        <duration>3:45</duration>
+      </song>
+
+      <song>
+        <title>SongTitle7</title>
+        <duration>6:01</duration>
+      </song>
+
+      <song>
+        <title>SongTitle8</title>
+        <duration>2:54</duration>
+      </song>
+
+      <song>
+        <title>SongTitle9</title>
+        <duration>3:46</duration>
+      </song>
+
+    </songs>
+  </album>
+  <album id="3">
+    <name>AlbumName2</name>
+    <artist>Artist1</artist>
+    <releasedYear>2015</releasedYear>
+    <producer>Producer2</producer>
+    <price>22.85</price>
+    <songs>
+
+      <song>
+        <title>SongTitle10</title>
+        <duration>4:21</duration>
+      </song>
+
+      <song>
+        <title>SongTitle11</title>
+        <duration>3:34</duration>
+      </song>
+
+      <song>
+        <title>SongTitle12</title>
+        <duration>6:33</duration>
+      </song>
+
+      <song>
+        <title>SongTitle13</title>
+        <duration>3:47</duration>
+      </song>
+
+      <song>
+        <title>SongTitle14</title>
+        <duration>4:06</duration>
+      </song>
+
+    </songs>
+  </album>
+  <album id="4">
+    <name>AlbumName3</name>
+    <artist>Artist2</artist>
+    <releasedYear>2005</releasedYear>
+    <producer>Producer3</producer>
+    <price>18.50</price>
+    <songs>
+
+      <song>
+        <title>SongTitle15</title>
+        <duration>4:20</duration>
+      </song>
+
+      <song>
+        <title>SongTitle16</title>
+        <duration>6:45</duration>
+      </song>
+
+      <song>
+        <title>SongTitle17</title>
+        <duration>5:18</duration>
+      </song>
+
+      <song>
+        <title>SongTitle18</title>
+        <duration>4:10</duration>
+      </song>
+
+    </songs>
+  </album>
+  <album id="5">
+    <name>AlbumName4</name>
+    <artist>Artist3</artist>
+    <releasedYear>2013</releasedYear>
+    <producer>Producer2</producer>
+    <price>25.65</price>
+    <songs>
+
+      <song>
+        <title>SongTitle19</title>
+        <duration>3:18</duration>
+      </song>
+
+      <song>
+        <title>SongTitle20</title>
+        <duration>3:56</duration>
+      </song>
+
+      <song>
+        <title>SongTitle21</title>
+        <duration>5:40</duration>
+      </song>
+
+      <song>
+        <title>SongTitle22</title>
+        <duration>3:59</duration>
+      </song>
+
+      <song>
+        <title>SongTitle23</title>
+        <duration>4:35</duration>
+      </song>
+
+    </songs>
+  </album>
+  <album id="6">
+    <name>AlbumName5</name>
+    <artist>Artist3</artist>
+    <releasedYear>2011</releasedYear>
+    <producer>Producer4</producer>
+    <price>28.00</price>
+    <songs>
+
+      <song>
+        <title>SongTitle24</title>
+        <duration>4:18</duration>
+      </song>
+
+      <song>
+        <title>SongTitle25</title>
+        <duration>3:26</duration>
+      </song>
+
+      <song>
+        <title>SongTitle26</title>
+        <duration>2:40</duration>
+      </song>
+
+      <song>
+        <title>SongTitle27</title>
+        <duration>3:26</duration>
+      </song>
+
+      <song>
+        <title>SongTitle28</title>
+        <duration>4:47</duration>
+      </song>
+
+    </songs>
+  </album>
+</catalog>
