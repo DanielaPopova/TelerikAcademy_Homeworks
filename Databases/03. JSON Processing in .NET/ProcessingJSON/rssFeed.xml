@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns:yt="http://www.youtube.com/xml/schemas/2015" xmlns:media="http://search.yahoo.com/mrss/" xmlns="http://www.w3.org/2005/Atom">
+ <link rel="self" href="http://www.youtube.com/feeds/videos.xml?channel_id=UCLC-vbm7OWvpbqzXaoAMGGw"/>
+ <id>yt:channel:UCLC-vbm7OWvpbqzXaoAMGGw</id>
+ <yt:channelId>UCLC-vbm7OWvpbqzXaoAMGGw</yt:channelId>
+ <title>Telerik Academy</title>
+ <link rel="alternate" href="https://www.youtube.com/channel/UCLC-vbm7OWvpbqzXaoAMGGw"/>
+ <author>
+  <name>Telerik Academy</name>
+  <uri>https://www.youtube.com/channel/UCLC-vbm7OWvpbqzXaoAMGGw</uri>
+ </author>
+ <published>2011-06-24T15:53:13+00:00</published>
+ <entry>
+  <id>yt:video:ciwLhp--Qyw</id>
+  <yt:videoId>ciwLhp--Qyw</yt:videoId>
+  <yt:channelId>UCLC-vbm7OWvpbqzXaoAMGGw</yt:channelId>
+  <title>Изпъкнала обвивка</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=ciwLhp--Qyw"/>
+  <author>
+   <name>Telerik Academy</name>
+   <uri>https://www.youtube.com/channel/UCLC-vbm7OWvpbqzXaoAMGGw</uri>
+  </author>
+  <published>2017-08-05T12:08:27+00:00</published>
+  <updated>2017-08-09T11:57:14+00:00</updated>
+  <media:group>
+   <media:title>Изпъкнала обвивка</media:title>
+   <media:content url="https://www.youtube.com/v/ciwLhp--Qyw?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/ciwLhp--Qyw/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Лекция: Изпъкнала обвивка
+Курс: Структури от данни и алгоритми - юни 2017
+Лектор: Кристиян Цъклев
+Дата: 4 август 2017
+
+Уебсайт на „Академията на Телерик”: https://telerikacademy.com
+
+Следете за предстоящи обучения на „Академията на Телерик” във Facebook: https://www.facebook.com/TelerikAcademy.</media:description>
+   <media:community>
+    <media:starRating count="1" average="5.00" min="1" max="5"/>
+    <media:statistics views="226"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:_0DmBQ4Rrhw</id>
+  <yt:videoId>_0DmBQ4Rrhw</yt:videoId>
+  <yt:channelId>UCLC-vbm7OWvpbqzXaoAMGGw</yt:channelId>
+  <title>Най-близка двойка точки</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=_0DmBQ4Rrhw"/>
+  <author>
+   <name>Telerik Academy</name>
+   <uri>https://www.youtube.com/channel/UCLC-vbm7OWvpbqzXaoAMGGw</uri>
+  </author>
+  <published>2017-08-03T16:09:34+00:00</published>
+  <updated>2017-08-07T23:54:18+00:00</updated>
+  <media:group>
+   <media:title>Най-близка двойка точки</media:title>
+   <media:content url="https://www.youtube.com/v/_0DmBQ4Rrhw?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/_0DmBQ4Rrhw/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Лекция: Най-близка двойка точки
+Курс: Структури от данни и алгоритми - юни 2017
+Лектор: Кристиян Цъклев
+Дата: 3 август 2017
+
+Уебсайт на „Академията на Телерик”: https://telerikacademy.com
+
+Следете за предстоящи обучения на „Академията на Телерик” във Facebook: https://www.facebook.com/TelerikAcademy.</media:description>
+   <media:community>
+    <media:starRating count="2" average="5.00" min="1" max="5"/>
+    <media:statistics views="188"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:brqdkuazoAE</id>
+  <yt:videoId>brqdkuazoAE</yt:videoId>
+  <yt:channelId>UCLC-vbm7OWvpbqzXaoAMGGw</yt:channelId>
+  <title>Геометрия</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=brqdkuazoAE"/>
+  <author>
+   <name>Telerik Academy</name>
+   <uri>https://www.youtube.com/channel/UCLC-vbm7OWvpbqzXaoAMGGw</uri>
+  </author>
+  <published>2017-08-03T15:46:17+00:00</published>
+  <updated>2017-08-05T23:04:07+00:00</updated>
+  <media:group>
+   <media:title>Геометрия</media:title>
+   <media:content url="https://www.youtube.com/v/brqdkuazoAE?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/brqdkuazoAE/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Лекция: Геометрия
+Курс: Структури от данни и алгоритми - юни 2017
+Лектор: Кристиян Цъклев
+Дата: 3 август 2017
+
+Уебсайт на „Академията на Телерик”: https://telerikacademy.com
+
+Следете за предстоящи обучения на „Академията на Телерик” във Facebook: https://www.facebook.com/TelerikAcademy.</media:description>
+   <media:community>
+    <media:starRating count="7" average="3.86" min="1" max="5"/>
+    <media:statistics views="317"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:ZquKHVb2zF0</id>
+  <yt:videoId>ZquKHVb2zF0</yt:videoId>
+  <yt:channelId>UCLC-vbm7OWvpbqzXaoAMGGw</yt:channelId>
+  <title>Node.js: Deploying Node.js and MongoDB apps in AWS</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=ZquKHVb2zF0"/>
+  <author>
+   <name>Telerik Academy</name>
+   <uri>https://www.youtube.com/channel/UCLC-vbm7OWvpbqzXaoAMGGw</uri>
+  </author>
+  <published>2017-07-27T12:18:17+00:00</published>
+  <updated>2017-08-01T22:49:31+00:00</updated>
+  <media:group>
+   <media:title>Node.js: Deploying Node.js and MongoDB apps in AWS</media:title>
+   <media:content url="https://www.youtube.com/v/ZquKHVb2zF0?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/ZquKHVb2zF0/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Лекция: Deploying Node.js and MongoDB apps in AWS
+Курс: Уеб приложения с Node.js - юни 2017 г
+Лектор: Дончо Минков
+Дата: 25 юли 2017 г.
+
+Уебсайт на „Академията на Телерик”: http://telerikacademy.com
+
+Следете за предстоящи обучения на „Академията на Телерик” във Facebook: http://www.facebook.com/TelerikAcademy.</media:description>
+   <media:community>
+    <media:starRating count="2" average="3.00" min="1" max="5"/>
+    <media:statistics views="485"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:XVrMcz0nWjc</id>
+  <yt:videoId>XVrMcz0nWjc</yt:videoId>
+  <yt:channelId>UCLC-vbm7OWvpbqzXaoAMGGw</yt:channelId>
+  <title>Автомати - Интерпретатор демо</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=XVrMcz0nWjc"/>
+  <author>
+   <name>Telerik Academy</name>
+   <uri>https://www.youtube.com/channel/UCLC-vbm7OWvpbqzXaoAMGGw</uri>
+  </author>
+  <published>2017-07-26T16:57:55+00:00</published>
+  <updated>2017-07-31T06:27:19+00:00</updated>
+  <media:group>
+   <media:title>Автомати - Интерпретатор демо</media:title>
+   <media:content url="https://www.youtube.com/v/XVrMcz0nWjc?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/XVrMcz0nWjc/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Лекция: Автомати - Интерпретатор демо
+Курс: Структури от данни и алгоритми - юни 2017
+Лектор: Кристиян Цъклев
+Дата: 26 юли 2017
+
+Уебсайт на „Академията на Телерик”: http://telerikacademy.com
+
+Следете за предстоящи обучения на „Академията на Телерик” във Facebook: http://www.facebook.com/TelerikAcademy.</media:description>
+   <media:community>
+    <media:starRating count="1" average="5.00" min="1" max="5"/>
+    <media:statistics views="344"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:0IEJMreS9vI</id>
+  <yt:videoId>0IEJMreS9vI</yt:videoId>
+  <yt:channelId>UCLC-vbm7OWvpbqzXaoAMGGw</yt:channelId>
+  <title>Node.js: Containers overview</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=0IEJMreS9vI"/>
+  <author>
+   <name>Telerik Academy</name>
+   <uri>https://www.youtube.com/channel/UCLC-vbm7OWvpbqzXaoAMGGw</uri>
+  </author>
+  <published>2017-07-25T13:49:23+00:00</published>
+  <updated>2017-08-01T12:37:46+00:00</updated>
+  <media:group>
+   <media:title>Node.js: Containers overview</media:title>
+   <media:content url="https://www.youtube.com/v/0IEJMreS9vI?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/0IEJMreS9vI/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Лекция: Containers overview
+Курс: Уеб приложения с Node.js
+Лектор: Стивън Цветков
+Дата: 25 юли 2017
+
+Уебсайт на „Академията на Телерик”: http://telerikacademy.com
+
+Следете за предстоящи обучения на „Академията на Телерик” във Facebook: http://www.facebook.com/TelerikAcademy.</media:description>
+   <media:community>
+    <media:starRating count="4" average="5.00" min="1" max="5"/>
+    <media:statistics views="321"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:T8s9Bn7nND0</id>
+  <yt:videoId>T8s9Bn7nND0</yt:videoId>
+  <yt:channelId>UCLC-vbm7OWvpbqzXaoAMGGw</yt:channelId>
+  <title>Алгоритми за стрингове</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=T8s9Bn7nND0"/>
+  <author>
+   <name>Telerik Academy</name>
+   <uri>https://www.youtube.com/channel/UCLC-vbm7OWvpbqzXaoAMGGw</uri>
+  </author>
+  <published>2017-07-25T09:15:12+00:00</published>
+  <updated>2017-07-27T14:50:36+00:00</updated>
+  <media:group>
+   <media:title>Алгоритми за стрингове</media:title>
+   <media:content url="https://www.youtube.com/v/T8s9Bn7nND0?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/T8s9Bn7nND0/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Лекция: Алгоритми за стрингове
+Курс: Структури от данни и алгоритми - юни 2017
+Лектор: Кристиян Цъклев
+Дата: 24 юли 2017
+
+Уебсайт на „Академията на Телерик”: https://telerikacademy.com
+
+Следете за предстоящи обучения на „Академията на Телерик” във Facebook: https://www.facebook.com/TelerikAcademy.</media:description>
+   <media:community>
+    <media:starRating count="2" average="5.00" min="1" max="5"/>
+    <media:statistics views="431"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:nm3a7ESJXEI</id>
+  <yt:videoId>nm3a7ESJXEI</yt:videoId>
+  <yt:channelId>UCLC-vbm7OWvpbqzXaoAMGGw</yt:channelId>
+  <title>Node.js: REST Best practices</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=nm3a7ESJXEI"/>
+  <author>
+   <name>Telerik Academy</name>
+   <uri>https://www.youtube.com/channel/UCLC-vbm7OWvpbqzXaoAMGGw</uri>
+  </author>
+  <published>2017-07-25T07:29:36+00:00</published>
+  <updated>2017-07-27T14:22:11+00:00</updated>
+  <media:group>
+   <media:title>Node.js: REST Best practices</media:title>
+   <media:content url="https://www.youtube.com/v/nm3a7ESJXEI?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/nm3a7ESJXEI/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Лекция: REST Best practices
+Курс: Уеб приложения с Node.js
+Лектор: Стивън Цветков
+Дата: 20 юли 2017 г.
+
+Уебсайт на „Академията на Телерик”: http://telerikacademy.com
+
+Следете за предстоящи обучения на „Академията на Телерик” във Facebook: http://www.facebook.com/TelerikAcademy.</media:description>
+   <media:community>
+    <media:starRating count="2" average="5.00" min="1" max="5"/>
+    <media:statistics views="358"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:8Wm5vc6zt8Q</id>
+  <yt:videoId>8Wm5vc6zt8Q</yt:videoId>
+  <yt:channelId>UCLC-vbm7OWvpbqzXaoAMGGw</yt:channelId>
+  <title>Задача Super Mario</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=8Wm5vc6zt8Q"/>
+  <author>
+   <name>Telerik Academy</name>
+   <uri>https://www.youtube.com/channel/UCLC-vbm7OWvpbqzXaoAMGGw</uri>
+  </author>
+  <published>2017-07-21T14:12:38+00:00</published>
+  <updated>2017-07-23T02:23:37+00:00</updated>
+  <media:group>
+   <media:title>Задача Super Mario</media:title>
+   <media:content url="https://www.youtube.com/v/8Wm5vc6zt8Q?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/8Wm5vc6zt8Q/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Лекция: Задача Super Mario
+Курс: Структури от данни и алгоритми - юни 2017
+Лектор: Кристиян Цъклев
+Дата: 21 юли 2017
+
+Уебсайт на „Академията на Телерик”: https://telerikacademy.com
+
+Следете за предстоящи обучения на „Академията на Телерик” във Facebook: https://www.facebook.com/TelerikAcademy.</media:description>
+   <media:community>
+    <media:starRating count="4" average="5.00" min="1" max="5"/>
+    <media:statistics views="221"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:hmgRGG3WBFA</id>
+  <yt:videoId>hmgRGG3WBFA</yt:videoId>
+  <yt:channelId>UCLC-vbm7OWvpbqzXaoAMGGw</yt:channelId>
+  <title>Динамично</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=hmgRGG3WBFA"/>
+  <author>
+   <name>Telerik Academy</name>
+   <uri>https://www.youtube.com/channel/UCLC-vbm7OWvpbqzXaoAMGGw</uri>
+  </author>
+  <published>2017-07-19T18:59:27+00:00</published>
+  <updated>2017-07-21T21:38:12+00:00</updated>
+  <media:group>
+   <media:title>Динамично</media:title>
+   <media:content url="https://www.youtube.com/v/hmgRGG3WBFA?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/hmgRGG3WBFA/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Лекция: Динамично
+Курс: Структури от данни и алгоритми - юни 2017
+Лектор: Кристиян Цъклев
+Дата: 19 юли 2017
+
+Уебсайт на „Академията на Телерик”: https://telerikacademy.com
+
+Следете за предстоящи обучения на „Академията на Телерик” във Facebook: https://www.facebook.com/TelerikAcademy.</media:description>
+   <media:community>
+    <media:starRating count="4" average="5.00" min="1" max="5"/>
+    <media:statistics views="388"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:OgzUhwDmZ10</id>
+  <yt:videoId>OgzUhwDmZ10</yt:videoId>
+  <yt:channelId>UCLC-vbm7OWvpbqzXaoAMGGw</yt:channelId>
+  <title>Алчни алгоритми</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=OgzUhwDmZ10"/>
+  <author>
+   <name>Telerik Academy</name>
+   <uri>https://www.youtube.com/channel/UCLC-vbm7OWvpbqzXaoAMGGw</uri>
+  </author>
+  <published>2017-07-17T14:57:12+00:00</published>
+  <updated>2017-07-20T14:33:57+00:00</updated>
+  <media:group>
+   <media:title>Алчни алгоритми</media:title>
+   <media:content url="https://www.youtube.com/v/OgzUhwDmZ10?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i4.ytimg.com/vi/OgzUhwDmZ10/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Лекция: Алчни алгоритми
+Курс: Структури от данни и алгоритми
+Лектор: Кристиян Цъклев
+Дата: 17 юли 2017
+
+Уебсайт на „Академията на Телерик”: https://telerikacademy.com
+
+Следете за предстоящи обучения на „Академията на Телерик” във Facebook: https://www.facebook.com/TelerikAcademy.</media:description>
+   <media:community>
+    <media:starRating count="2" average="5.00" min="1" max="5"/>
+    <media:statistics views="238"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:npN1LHyZ4Bw</id>
+  <yt:videoId>npN1LHyZ4Bw</yt:videoId>
+  <yt:channelId>UCLC-vbm7OWvpbqzXaoAMGGw</yt:channelId>
+  <title>Задача Train</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=npN1LHyZ4Bw"/>
+  <author>
+   <name>Telerik Academy</name>
+   <uri>https://www.youtube.com/channel/UCLC-vbm7OWvpbqzXaoAMGGw</uri>
+  </author>
+  <published>2017-07-17T14:41:18+00:00</published>
+  <updated>2017-07-18T12:40:59+00:00</updated>
+  <media:group>
+   <media:title>Задача Train</media:title>
+   <media:content url="https://www.youtube.com/v/npN1LHyZ4Bw?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i3.ytimg.com/vi/npN1LHyZ4Bw/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Лекция: Задача Train
+Курс: Структури от данни и алгоритми
+Лектор: Кристиян Цъклев
+Дата: 12 юли 2017
+
+Уебсайт на „Академията на Телерик”: https://telerikacademy.com
+
+Следете за предстоящи обучения на „Академията на Телерик” във Facebook: https://www.facebook.com/TelerikAcademy.</media:description>
+   <media:community>
+    <media:starRating count="0" average="0.00" min="1" max="5"/>
+    <media:statistics views="132"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:QC7kxwweIBU</id>
+  <yt:videoId>QC7kxwweIBU</yt:videoId>
+  <yt:channelId>UCLC-vbm7OWvpbqzXaoAMGGw</yt:channelId>
+  <title>TicTacToe</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=QC7kxwweIBU"/>
+  <author>
+   <name>Telerik Academy</name>
+   <uri>https://www.youtube.com/channel/UCLC-vbm7OWvpbqzXaoAMGGw</uri>
+  </author>
+  <published>2017-07-15T10:11:20+00:00</published>
+  <updated>2017-08-10T03:41:22+00:00</updated>
+  <media:group>
+   <media:title>TicTacToe</media:title>
+   <media:content url="https://www.youtube.com/v/QC7kxwweIBU?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/QC7kxwweIBU/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Лекция: TicTacToe
+Курс: Структури от данни и алгоритми - юни 2017 г.
+Лектор: Кристиян Цъклев
+Дата: 14 юли 2017 г.
+
+Уебсайт на „Академията на Телерик”: https://telerikacademy.com
+
+Следете за предстоящи обучения на „Академията на Телерик” във Facebook: https://www.facebook.com/TelerikAcademy.</media:description>
+   <media:community>
+    <media:starRating count="5" average="5.00" min="1" max="5"/>
+    <media:statistics views="303"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:IcqEpwagtAo</id>
+  <yt:videoId>IcqEpwagtAo</yt:videoId>
+  <yt:channelId>UCLC-vbm7OWvpbqzXaoAMGGw</yt:channelId>
+  <title>Node.js: MongoDB</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=IcqEpwagtAo"/>
+  <author>
+   <name>Telerik Academy</name>
+   <uri>https://www.youtube.com/channel/UCLC-vbm7OWvpbqzXaoAMGGw</uri>
+  </author>
+  <published>2017-07-14T15:20:42+00:00</published>
+  <updated>2017-07-22T17:10:05+00:00</updated>
+  <media:group>
+   <media:title>Node.js: MongoDB</media:title>
+   <media:content url="https://www.youtube.com/v/IcqEpwagtAo?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i2.ytimg.com/vi/IcqEpwagtAo/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Лекция: MongoDB
+Курс: Уеб приложения с Node.js
+Лектор: Дончо Минков
+Дата: 13 юли 2017 г.
+
+Уебсайт на „Академията на Телерик”: http://telerikacademy.com
+
+Следете за предстоящи обучения на „Академията на Телерик” във Facebook: http://www.facebook.com/TelerikAcademy.</media:description>
+   <media:community>
+    <media:starRating count="2" average="5.00" min="1" max="5"/>
+    <media:statistics views="657"/>
+   </media:community>
+  </media:group>
+ </entry>
+ <entry>
+  <id>yt:video:PeWq676Bjj4</id>
+  <yt:videoId>PeWq676Bjj4</yt:videoId>
+  <yt:channelId>UCLC-vbm7OWvpbqzXaoAMGGw</yt:channelId>
+  <title>Имплементации на структури от данни в .NET</title>
+  <link rel="alternate" href="https://www.youtube.com/watch?v=PeWq676Bjj4"/>
+  <author>
+   <name>Telerik Academy</name>
+   <uri>https://www.youtube.com/channel/UCLC-vbm7OWvpbqzXaoAMGGw</uri>
+  </author>
+  <published>2017-07-12T17:22:46+00:00</published>
+  <updated>2017-07-12T22:16:52+00:00</updated>
+  <media:group>
+   <media:title>Имплементации на структури от данни в .NET</media:title>
+   <media:content url="https://www.youtube.com/v/PeWq676Bjj4?version=3" type="application/x-shockwave-flash" width="640" height="390"/>
+   <media:thumbnail url="https://i1.ytimg.com/vi/PeWq676Bjj4/hqdefault.jpg" width="480" height="360"/>
+   <media:description>Лекция: Имплементации на структури от данни в .NET
+Курс: Структури от данни и алгоритми
+Лектор: Кристиян Цъклев
+Дата: 12 юли 2017
+
+Уебсайт на „Академията на Телерик”: https://telerikacademy.com
+
+Следете за предстоящи обучения на „Академията на Телерик” във Facebook: https://www.facebook.com/TelerikAcademy.</media:description>
+   <media:community>
+    <media:starRating count="1" average="5.00" min="1" max="5"/>
+    <media:statistics views="181"/>
+   </media:community>
+  </media:group>
+ </entry>
+</feed>
